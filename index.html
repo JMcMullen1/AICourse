@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="What is AI? - A comprehensive course exploring AI's history, types, inner workings and generative tools.">
+    <title>What is AI? | TAA Course</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* TAA Colour Palette */
+        :root {
+            --taa-primary: #1B3A5F;      /* Deep navy blue - headings, buttons */
+            --taa-primary-dark: #122840;  /* Darker navy for hover states */
+            --taa-secondary: #00A5B5;     /* Teal accent - icons, highlights */
+            --taa-secondary-light: #E6F7F8; /* Light teal for backgrounds */
+            --taa-white: #FFFFFF;
+            --taa-light-grey: #F5F7FA;
+            --taa-text: #333333;
+            --taa-text-light: #666666;
+        }
+
+        /* Reset and Base Styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--taa-text);
+            background-color: var(--taa-white);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: var(--taa-primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+        }
+
+        h3 {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--taa-white);
+            box-shadow: 0 2px 10px rgba(27, 58, 95, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--taa-primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--taa-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--taa-primary) 0%, var(--taa-primary-dark) 100%);
+            overflow: hidden;
+        }
+
+        /* Abstract Tech Background Pattern */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(0, 165, 181, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 165, 181, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 30%),
+                linear-gradient(90deg, transparent 49.5%, rgba(255, 255, 255, 0.03) 49.5%, rgba(255, 255, 255, 0.03) 50.5%, transparent 50.5%),
+                linear-gradient(0deg, transparent 49.5%, rgba(255, 255, 255, 0.03) 49.5%, rgba(255, 255, 255, 0.03) 50.5%, transparent 50.5%);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 60px 60px, 60px 60px;
+            opacity: 1;
+        }
+
+        /* Animated Circuit Lines */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L30 10 L30 30 M70 10 L90 10 L90 30 M10 70 L10 90 L30 90 M70 90 L90 90 L90 70' stroke='rgba(0,165,181,0.2)' stroke-width='1' fill='none'/%3E%3Ccircle cx='30' cy='30' r='3' fill='rgba(0,165,181,0.3)'/%3E%3Ccircle cx='70' cy='70' r='3' fill='rgba(0,165,181,0.3)'/%3E%3C/svg%3E");
+            background-size: 100px 100px;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--taa-white);
+            padding: 4rem 0;
+        }
+
+        .hero h1 {
+            color: var(--taa-white);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--taa-secondary);
+            color: var(--taa-white);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: #008A99;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 165, 181, 0.4);
+        }
+
+        .btn-primary:focus {
+            outline: 3px solid var(--taa-white);
+            outline-offset: 2px;
+        }
+
+        .btn-secondary {
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            background-color: var(--taa-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(27, 58, 95, 0.3);
+        }
+
+        /* Course Navigation Section */
+        .course-nav {
+            padding: 5rem 0;
+            background-color: var(--taa-light-grey);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--taa-text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Lesson Cards Grid */
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .lesson-card {
+            background-color: var(--taa-white);
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lesson-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--taa-secondary);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.3s ease;
+        }
+
+        .lesson-card:hover,
+        .lesson-card:focus {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(27, 58, 95, 0.15);
+        }
+
+        .lesson-card:hover::before,
+        .lesson-card:focus::before {
+            transform: scaleY(1);
+        }
+
+        .lesson-card:focus {
+            outline: 3px solid var(--taa-secondary);
+            outline-offset: 2px;
+        }
+
+        .lesson-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background-color: var(--taa-secondary-light);
+            color: var(--taa-secondary);
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .lesson-card h3 {
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .lesson-card:hover h3 {
+            color: var(--taa-secondary);
+        }
+
+        .lesson-card p {
+            color: var(--taa-text-light);
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .lesson-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1.5rem;
+            color: var(--taa-secondary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--taa-primary) 0%, var(--taa-primary-dark) 100%);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--taa-white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--taa-primary-dark);
+            color: var(--taa-white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Accessibility: Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 0 0 8px 8px;
+            z-index: 1000;
+            transition: top 0.3s ease;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Focus Visible for Better Accessibility */
+        :focus-visible {
+            outline: 3px solid var(--taa-secondary);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 70vh;
+            }
+
+            .hero-content {
+                padding: 3rem 0;
+            }
+
+            .lessons-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .lesson-card {
+                padding: 1.5rem;
+            }
+
+            .course-nav,
+            .cta-section {
+                padding: 3rem 0;
+            }
+
+            .btn {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .lesson-card {
+                padding: 1.25rem;
+            }
+
+            .section-header {
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to Main Content Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo" aria-label="TAA Learning Home">
+                    TAA<span>Learning</span>
+                </a>
+                <nav aria-label="Main navigation">
+                    <a href="#lessons" class="btn btn-secondary">View Lessons</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="hero-title">What is AI?</h1>
+                    <p class="hero-description">
+                        Explore the fascinating world of Artificial Intelligence. This comprehensive course takes you
+                        through AI's rich history, the distinction between narrow and general AI, the inner workings
+                        of machine learning, and the exciting realm of generative AI tools transforming our world today.
+                    </p>
+                    <a href="#lessons" class="btn btn-primary">
+                        Start Learning
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Navigation / Lessons Section -->
+        <section id="lessons" class="course-nav" aria-labelledby="lessons-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="lessons-title">Course Lessons</h2>
+                    <p>Master the fundamentals of AI through four comprehensive lessons designed for all skill levels.</p>
+                </header>
+
+                <nav aria-label="Course lessons">
+                    <ul class="lessons-grid" role="list">
+                        <li>
+                            <a href="lesson1.html" class="lesson-card" aria-describedby="lesson1-desc">
+                                <span class="lesson-number" aria-hidden="true">1</span>
+                                <h3>Understanding Artificial Intelligence</h3>
+                                <p id="lesson1-desc">Discover what AI truly means, its historical origins, and how it has evolved to become one of the most transformative technologies of our time.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lesson2.html" class="lesson-card" aria-describedby="lesson2-desc">
+                                <span class="lesson-number" aria-hidden="true">2</span>
+                                <h3>Narrow vs General AI</h3>
+                                <p id="lesson2-desc">Learn the crucial differences between narrow AI systems designed for specific tasks and the theoretical concept of artificial general intelligence.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lesson3.html" class="lesson-card" aria-describedby="lesson3-desc">
+                                <span class="lesson-number" aria-hidden="true">3</span>
+                                <h3>How AI Works</h3>
+                                <p id="lesson3-desc">Dive into the mechanics of AI, including machine learning algorithms, neural networks, and the data that powers intelligent systems.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lesson4.html" class="lesson-card" aria-describedby="lesson4-desc">
+                                <span class="lesson-number" aria-hidden="true">4</span>
+                                <h3>Generative AI</h3>
+                                <p id="lesson4-desc">Explore cutting-edge generative AI tools that can create text, images, and code, and understand their impact on creativity and productivity.</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="cta-section" aria-labelledby="cta-title">
+            <div class="container">
+                <h2 id="cta-title">Ready to Begin Your AI Journey?</h2>
+                <p>Start with Lesson 1 and build your understanding of artificial intelligence from the ground up.</p>
+                <a href="lesson1.html" class="btn btn-primary">
+                    Start the Course
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 TAA Learning. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
