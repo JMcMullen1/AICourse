@@ -1352,6 +1352,10 @@
             position: relative;
             background-color: #000;
             width: 100%;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .video-container video {
@@ -1360,6 +1364,40 @@
             height: auto;
             max-height: 500px;
             object-fit: contain;
+            z-index: 1;
+        }
+
+        /* Placeholder when video is loading or unavailable */
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.7);
+            gap: 1rem;
+            z-index: 0;
+        }
+
+        .video-placeholder svg {
+            width: 64px;
+            height: 64px;
+            opacity: 0.6;
+        }
+
+        .video-placeholder p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Hide placeholder when video is playing */
+        .video-container video:not([poster=""]) + .video-placeholder,
+        .video-container video[src]:not([src=""]) + .video-placeholder {
+            display: none;
         }
 
         .video-footer {
@@ -2085,6 +2123,13 @@
                                 <source src="videos/narrow-vs-general-ai.mp4" type="video/mp4">
                                 <p>Your browser does not support HTML5 video. <a href="videos/narrow-vs-general-ai.mp4">Download the video</a> instead.</p>
                             </video>
+                            <!-- Placeholder shown when video is loading or unavailable -->
+                            <div class="video-placeholder" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="5 3 19 12 5 21 5 3"/>
+                                </svg>
+                                <p>Video: Narrow vs General AI</p>
+                            </div>
                         </div>
 
                         <!-- Topics covered tags -->
