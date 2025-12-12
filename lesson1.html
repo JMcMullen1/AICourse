@@ -388,6 +388,7 @@
             position: relative;
             background-color: #000;
             width: 100%;
+            aspect-ratio: 16 / 9;
         }
 
         .video-container video {
@@ -396,6 +397,15 @@
             height: auto;
             max-height: 500px;
             object-fit: contain;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .video-footer {
@@ -1037,15 +1047,13 @@
                     </header>
 
                     <div class="video-container">
-                        <video
-                            controls
-                            preload="metadata"
+                        <iframe
+                            src="https://drive.google.com/file/d/1BXHfWgTtGTLwHNp_GjaRU9PyR1w07LVj/preview"
+                            allow="autoplay; fullscreen"
+                            allowfullscreen
                             aria-describedby="video-description"
-                            poster=""
-                        >
-                            <source src="videos/ai-history.mp4" type="video/mp4">
-                            <p>Your browser does not support the video element. Please <a href="videos/ai-history.mp4" download>download the video</a> to watch.</p>
-                        </video>
+                            title="The History of Artificial Intelligence"
+                        ></iframe>
                     </div>
 
                     <div class="video-eras" aria-label="Eras covered in this video">
