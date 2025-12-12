@@ -665,6 +665,19 @@
             }
         }
 
+        /* Screen Reader Only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         /* General AI Detailed Section */
         .general-ai-detail {
             margin-top: 4rem;
@@ -1195,6 +1208,470 @@
             }
         }
 
+        /* =====================================================
+           DRAG-AND-DROP SORTING QUIZ
+           ===================================================== */
+
+        .sorting-quiz-section {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--taa-light-grey) 0%, #E8EDF5 100%);
+            border-radius: 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sorting-quiz-section h2 {
+            text-align: center;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .quiz-subtitle {
+            text-align: center;
+            color: var(--taa-text-light);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .quiz-instructions {
+            background: var(--taa-white);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 2px 10px rgba(27, 58, 95, 0.06);
+        }
+
+        .quiz-instructions .instruction-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--taa-secondary) 0%, #008A99 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .quiz-instructions .instruction-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .quiz-instructions p {
+            margin: 0;
+            color: var(--taa-text);
+            line-height: 1.6;
+        }
+
+        .quiz-instructions strong {
+            color: var(--taa-primary);
+        }
+
+        /* Quiz Layout */
+        .quiz-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Drop Zones */
+        .drop-zone {
+            background: var(--taa-white);
+            border-radius: 16px;
+            min-height: 300px;
+            border: 3px dashed #CBD5E1;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .drop-zone.narrow-zone {
+            border-color: rgba(0, 165, 181, 0.3);
+        }
+
+        .drop-zone.general-zone {
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .drop-zone.drag-over {
+            border-style: solid;
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(27, 58, 95, 0.15);
+        }
+
+        .drop-zone.narrow-zone.drag-over {
+            border-color: var(--taa-narrow-ai);
+            background: var(--taa-secondary-light);
+        }
+
+        .drop-zone.general-zone.drag-over {
+            border-color: var(--taa-general-ai);
+            background: #F3E8FF;
+        }
+
+        .drop-zone-header {
+            padding: 1.25rem;
+            text-align: center;
+            color: var(--taa-white);
+        }
+
+        .drop-zone.narrow-zone .drop-zone-header {
+            background: linear-gradient(135deg, var(--taa-narrow-ai) 0%, #008A99 100%);
+        }
+
+        .drop-zone.general-zone .drop-zone-header {
+            background: linear-gradient(135deg, var(--taa-general-ai) 0%, #6D28D9 100%);
+        }
+
+        .drop-zone-header h3 {
+            color: var(--taa-white);
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .drop-zone-header .zone-status {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .drop-zone-content {
+            flex: 1;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .drop-zone-placeholder {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #94A3B8;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .drop-zone-placeholder svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 0.75rem;
+            opacity: 0.5;
+        }
+
+        .drop-zone-placeholder p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Statement Cards Container */
+        .statement-cards-container {
+            margin-bottom: 2rem;
+        }
+
+        .cards-header {
+            text-align: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .cards-header h3 {
+            font-size: 1.1rem;
+            color: var(--taa-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .cards-header p {
+            font-size: 0.9rem;
+            color: var(--taa-text-light);
+            margin: 0;
+        }
+
+        .statement-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            min-height: 60px;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            border: 2px dashed #E2E8F0;
+        }
+
+        /* Individual Statement Card */
+        .statement-card {
+            background: var(--taa-white);
+            border-radius: 10px;
+            padding: 0.875rem 1.25rem;
+            box-shadow: 0 2px 8px rgba(27, 58, 95, 0.1);
+            cursor: grab;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+            font-size: 0.9rem;
+            color: var(--taa-text);
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            max-width: 100%;
+        }
+
+        .statement-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(27, 58, 95, 0.15);
+            border-color: var(--taa-secondary);
+        }
+
+        .statement-card:active,
+        .statement-card.dragging {
+            cursor: grabbing;
+            opacity: 0.8;
+            transform: scale(1.02) rotate(2deg);
+            box-shadow: 0 10px 30px rgba(27, 58, 95, 0.2);
+            z-index: 100;
+        }
+
+        .statement-card:focus {
+            outline: 3px solid var(--taa-secondary);
+            outline-offset: 2px;
+        }
+
+        .statement-card.selected {
+            border-color: var(--taa-secondary);
+            box-shadow: 0 0 0 3px rgba(0, 165, 181, 0.3), 0 6px 20px rgba(27, 58, 95, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .statement-card .drag-handle {
+            color: #94A3B8;
+            flex-shrink: 0;
+        }
+
+        .statement-card .statement-text {
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        /* Dropped cards in zones */
+        .drop-zone .statement-card {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .drop-zone.narrow-zone .statement-card {
+            border-color: var(--taa-narrow-ai);
+            background: var(--taa-secondary-light);
+        }
+
+        .drop-zone.general-zone .statement-card {
+            border-color: var(--taa-general-ai);
+            background: #F3E8FF;
+        }
+
+        /* Correct/Incorrect feedback */
+        .statement-card.correct {
+            background: #D1FAE5;
+            border-color: #10B981;
+            animation: correctPulse 0.5s ease;
+        }
+
+        .statement-card.incorrect {
+            background: #FEE2E2;
+            border-color: #EF4444;
+            animation: incorrectShake 0.5s ease;
+        }
+
+        @keyframes correctPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes incorrectShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
+        }
+
+        /* Score and Feedback */
+        .quiz-feedback {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .quiz-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-result {
+            display: none;
+            background: var(--taa-white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+            animation: resultReveal 0.5s ease;
+        }
+
+        .quiz-result.visible {
+            display: block;
+        }
+
+        @keyframes resultReveal {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .quiz-result .score-display {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--taa-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-result .score-label {
+            font-size: 1.1rem;
+            color: var(--taa-text-light);
+            margin-bottom: 1rem;
+        }
+
+        .quiz-result .feedback-message {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-result .feedback-message.excellent {
+            color: #10B981;
+        }
+
+        .quiz-result .feedback-message.good {
+            color: var(--taa-secondary);
+        }
+
+        .quiz-result .feedback-message.needs-practice {
+            color: #F59E0B;
+        }
+
+        .quiz-result .feedback-detail {
+            color: var(--taa-text-light);
+            font-size: 0.95rem;
+        }
+
+        .quiz-result .stars {
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        /* Progress indicator */
+        .quiz-progress {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #E2E8F0;
+            transition: all 0.3s ease;
+        }
+
+        .progress-dot.placed {
+            background: var(--taa-secondary);
+        }
+
+        .progress-dot.correct {
+            background: #10B981;
+        }
+
+        .progress-dot.incorrect {
+            background: #EF4444;
+        }
+
+        /* Responsive adjustments for quiz */
+        @media (max-width: 768px) {
+            .sorting-quiz-section {
+                padding: 1.5rem;
+                margin-top: 3rem;
+            }
+
+            .quiz-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .drop-zone {
+                min-height: 200px;
+            }
+
+            .quiz-instructions {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .statement-card {
+                font-size: 0.85rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .quiz-actions {
+                flex-direction: column;
+            }
+
+            .quiz-actions .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sorting-quiz-section {
+                padding: 1rem;
+            }
+
+            .drop-zone-header {
+                padding: 1rem;
+            }
+
+            .drop-zone-header h3 {
+                font-size: 1.1rem;
+            }
+
+            .statement-card {
+                font-size: 0.8rem;
+            }
+
+            .quiz-result .score-display {
+                font-size: 2.5rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1406,6 +1883,136 @@
                             </div>
                             <h4>Risk Profile</h4>
                             <p>Narrow AI has manageable risks; General AI poses existential concerns.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Sorting Quiz Section -->
+                <div class="sorting-quiz-section" aria-labelledby="sorting-quiz-title" role="region">
+                    <h2 id="sorting-quiz-title">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <path d="M9 15l2 2 4-4"/>
+                        </svg>
+                        Test Your Knowledge!
+                    </h2>
+                    <p class="quiz-subtitle">Can you tell the difference between Narrow AI and General AI? Sort these statements into the correct category!</p>
+
+                    <div class="quiz-instructions">
+                        <div class="instruction-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <p><strong>How to play:</strong> Drag each statement card and drop it into the correct category (Narrow AI or General AI). You can also click a card and then click a zone. When you've placed all cards, click "Check Answers" to see your score!</p>
+                    </div>
+
+                    <!-- Progress Dots -->
+                    <div class="quiz-progress" aria-label="Quiz progress: 0 of 8 statements placed">
+                        <span class="progress-dot" data-index="0"></span>
+                        <span class="progress-dot" data-index="1"></span>
+                        <span class="progress-dot" data-index="2"></span>
+                        <span class="progress-dot" data-index="3"></span>
+                        <span class="progress-dot" data-index="4"></span>
+                        <span class="progress-dot" data-index="5"></span>
+                        <span class="progress-dot" data-index="6"></span>
+                        <span class="progress-dot" data-index="7"></span>
+                    </div>
+
+                    <!-- Statement Cards to Sort -->
+                    <div class="statement-cards-container">
+                        <div class="cards-header">
+                            <h3>Statements to Sort</h3>
+                            <p>Drag these cards to the correct category below</p>
+                        </div>
+                        <div class="statement-cards" id="statementCards" role="list" aria-label="Statements to sort">
+                            <!-- Cards will be inserted by JavaScript for randomization -->
+                        </div>
+                    </div>
+
+                    <!-- Drop Zones -->
+                    <div class="quiz-container">
+                        <!-- Narrow AI Drop Zone -->
+                        <div class="drop-zone narrow-zone" id="narrowZone" data-category="narrow" role="listbox" aria-label="Narrow AI category - drop statements here">
+                            <div class="drop-zone-header">
+                                <h3>
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="3"/>
+                                        <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+                                    </svg>
+                                    Narrow AI
+                                </h3>
+                                <span class="zone-status">Task-specific systems available today</span>
+                            </div>
+                            <div class="drop-zone-content" id="narrowZoneContent">
+                                <div class="drop-zone-placeholder" id="narrowPlaceholder">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    <p>Drop Narrow AI statements here</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- General AI Drop Zone -->
+                        <div class="drop-zone general-zone" id="generalZone" data-category="general" role="listbox" aria-label="General AI category - drop statements here">
+                            <div class="drop-zone-header">
+                                <h3>
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M12 2a4 4 0 0 1 4 4c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2a4 4 0 0 1 4-4z"/>
+                                        <path d="M12 8v2"/>
+                                        <path d="M8 12h8"/>
+                                        <path d="M9 16a3 3 0 0 0 6 0"/>
+                                        <circle cx="12" cy="12" r="10"/>
+                                    </svg>
+                                    General AI
+                                </h3>
+                                <span class="zone-status">Theoretical human-level intelligence</span>
+                            </div>
+                            <div class="drop-zone-content" id="generalZoneContent">
+                                <div class="drop-zone-placeholder" id="generalPlaceholder">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    <p>Drop General AI statements here</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Actions and Feedback -->
+                    <div class="quiz-feedback">
+                        <div class="quiz-actions">
+                            <button class="btn btn-primary" id="checkAnswersBtn" disabled aria-describedby="check-hint">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                Check Answers
+                            </button>
+                            <button class="btn btn-outline" id="resetQuizBtn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="1 4 1 10 7 10"/>
+                                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                                </svg>
+                                Reset Quiz
+                            </button>
+                        </div>
+                        <p id="check-hint" class="sr-only">Place all 8 statements to enable this button</p>
+
+                        <!-- Results Panel -->
+                        <div class="quiz-result" id="quizResult" role="alert" aria-live="polite">
+                            <div class="stars" id="resultStars" aria-hidden="true"></div>
+                            <div class="score-display" id="scoreDisplay">0/8</div>
+                            <div class="score-label">Correct Answers</div>
+                            <div class="feedback-message" id="feedbackMessage">Great job!</div>
+                            <p class="feedback-detail" id="feedbackDetail">You've mastered the difference between Narrow AI and General AI!</p>
                         </div>
                     </div>
                 </div>
@@ -1822,6 +2429,390 @@
             // Reduced motion preference
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                 wheel.style.transition = 'transform 0.5s ease';
+            }
+        })();
+    </script>
+
+    <!-- Drag-and-Drop Sorting Quiz Script -->
+    <script>
+        (function() {
+            'use strict';
+
+            // Quiz statements data
+            const statements = [
+                { id: 1, text: "Learns across diverse domains and adapts to new tasks", category: "general" },
+                { id: 2, text: "Recognises faces in photos", category: "narrow" },
+                { id: 3, text: "Creates original stories and art independently", category: "general" },
+                { id: 4, text: "Filters spam emails", category: "narrow" },
+                { id: 5, text: "Understands and reasons about any topic like a human", category: "general" },
+                { id: 6, text: "Plays chess at grandmaster level", category: "narrow" },
+                { id: 7, text: "Translates text between specific language pairs", category: "narrow" },
+                { id: 8, text: "Forms its own goals and pursues them autonomously", category: "general" }
+            ];
+
+            // DOM Elements
+            const statementCardsContainer = document.getElementById('statementCards');
+            const narrowZone = document.getElementById('narrowZone');
+            const generalZone = document.getElementById('generalZone');
+            const narrowZoneContent = document.getElementById('narrowZoneContent');
+            const generalZoneContent = document.getElementById('generalZoneContent');
+            const narrowPlaceholder = document.getElementById('narrowPlaceholder');
+            const generalPlaceholder = document.getElementById('generalPlaceholder');
+            const checkAnswersBtn = document.getElementById('checkAnswersBtn');
+            const resetQuizBtn = document.getElementById('resetQuizBtn');
+            const quizResult = document.getElementById('quizResult');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const feedbackMessage = document.getElementById('feedbackMessage');
+            const feedbackDetail = document.getElementById('feedbackDetail');
+            const resultStars = document.getElementById('resultStars');
+            const progressDots = document.querySelectorAll('.progress-dot');
+
+            // State
+            let draggedCard = null;
+            let selectedCard = null;
+            let placedCards = 0;
+            let isChecked = false;
+
+            // Shuffle array (Fisher-Yates)
+            function shuffleArray(array) {
+                const shuffled = [...array];
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                }
+                return shuffled;
+            }
+
+            // Create statement card element
+            function createStatementCard(statement) {
+                const card = document.createElement('div');
+                card.className = 'statement-card';
+                card.setAttribute('draggable', 'true');
+                card.setAttribute('role', 'option');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('data-id', statement.id);
+                card.setAttribute('data-category', statement.category);
+                card.setAttribute('aria-label', statement.text + '. Drag to Narrow AI or General AI category.');
+
+                card.innerHTML =
+                    '<span class="drag-handle" aria-hidden="true">' +
+                        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+                            '<circle cx="9" cy="5" r="1"/>' +
+                            '<circle cx="9" cy="12" r="1"/>' +
+                            '<circle cx="9" cy="19" r="1"/>' +
+                            '<circle cx="15" cy="5" r="1"/>' +
+                            '<circle cx="15" cy="12" r="1"/>' +
+                            '<circle cx="15" cy="19" r="1"/>' +
+                        '</svg>' +
+                    '</span>' +
+                    '<span class="statement-text">' + statement.text + '</span>';
+
+                // Drag events
+                card.addEventListener('dragstart', handleDragStart);
+                card.addEventListener('dragend', handleDragEnd);
+
+                // Click/keyboard for touch/accessibility
+                card.addEventListener('click', handleCardClick);
+                card.addEventListener('keydown', handleCardKeydown);
+
+                return card;
+            }
+
+            // Initialize quiz
+            function initQuiz() {
+                // Clear existing cards
+                statementCardsContainer.innerHTML = '';
+                narrowZoneContent.innerHTML = '';
+                generalZoneContent.innerHTML = '';
+
+                // Add placeholders back
+                narrowZoneContent.appendChild(narrowPlaceholder.cloneNode(true));
+                generalZoneContent.appendChild(generalPlaceholder.cloneNode(true));
+
+                // Reset state
+                placedCards = 0;
+                isChecked = false;
+                selectedCard = null;
+                draggedCard = null;
+
+                // Reset UI
+                checkAnswersBtn.disabled = true;
+                quizResult.classList.remove('visible');
+                progressDots.forEach(function(dot) {
+                    dot.classList.remove('placed', 'correct', 'incorrect');
+                });
+
+                // Shuffle and create cards
+                const shuffled = shuffleArray(statements);
+                shuffled.forEach(function(statement) {
+                    const card = createStatementCard(statement);
+                    statementCardsContainer.appendChild(card);
+                });
+
+                // Update progress label
+                updateProgressLabel();
+            }
+
+            // Drag handlers
+            function handleDragStart(e) {
+                if (isChecked) return;
+                draggedCard = e.target.closest('.statement-card');
+                draggedCard.classList.add('dragging');
+                e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.setData('text/plain', draggedCard.getAttribute('data-id'));
+            }
+
+            function handleDragEnd(e) {
+                if (draggedCard) {
+                    draggedCard.classList.remove('dragging');
+                }
+                draggedCard = null;
+                narrowZone.classList.remove('drag-over');
+                generalZone.classList.remove('drag-over');
+            }
+
+            function handleDragOver(e) {
+                if (isChecked) return;
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+            }
+
+            function handleDragEnter(e) {
+                if (isChecked) return;
+                e.preventDefault();
+                const zone = e.target.closest('.drop-zone');
+                if (zone) {
+                    zone.classList.add('drag-over');
+                }
+            }
+
+            function handleDragLeave(e) {
+                const zone = e.target.closest('.drop-zone');
+                if (zone && !zone.contains(e.relatedTarget)) {
+                    zone.classList.remove('drag-over');
+                }
+            }
+
+            function handleDrop(e) {
+                if (isChecked) return;
+                e.preventDefault();
+                const zone = e.target.closest('.drop-zone');
+                if (!zone || !draggedCard) return;
+
+                zone.classList.remove('drag-over');
+                moveCardToZone(draggedCard, zone);
+            }
+
+            // Click handlers for touch/accessibility
+            function handleCardClick(e) {
+                if (isChecked) return;
+                const card = e.target.closest('.statement-card');
+
+                if (selectedCard === card) {
+                    // Deselect
+                    selectedCard.classList.remove('selected');
+                    selectedCard = null;
+                } else {
+                    // Select new card
+                    if (selectedCard) {
+                        selectedCard.classList.remove('selected');
+                    }
+                    selectedCard = card;
+                    selectedCard.classList.add('selected');
+
+                    // Announce for screen readers
+                    announceToScreenReader('Selected: ' + card.querySelector('.statement-text').textContent + '. Click a category to place it.');
+                }
+            }
+
+            function handleCardKeydown(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleCardClick(e);
+                }
+            }
+
+            function handleZoneClick(e) {
+                if (isChecked || !selectedCard) return;
+                const zone = e.target.closest('.drop-zone');
+                if (zone) {
+                    moveCardToZone(selectedCard, zone);
+                    selectedCard.classList.remove('selected');
+                    selectedCard = null;
+                }
+            }
+
+            // Move card to drop zone
+            function moveCardToZone(card, zone) {
+                const zoneContent = zone.querySelector('.drop-zone-content');
+                const placeholder = zoneContent.querySelector('.drop-zone-placeholder');
+
+                // Check if card was already placed somewhere
+                const wasInZone = card.closest('.drop-zone');
+                if (!wasInZone) {
+                    placedCards++;
+                }
+
+                // Remove placeholder if exists
+                if (placeholder) {
+                    placeholder.style.display = 'none';
+                }
+
+                // Move card
+                zoneContent.appendChild(card);
+
+                // Update progress
+                updateProgress();
+
+                // Announce for screen readers
+                const zoneName = zone.getAttribute('data-category') === 'narrow' ? 'Narrow AI' : 'General AI';
+                announceToScreenReader('Placed in ' + zoneName + ' category.');
+            }
+
+            // Update progress
+            function updateProgress() {
+                // Update dots
+                for (let i = 0; i < progressDots.length; i++) {
+                    if (i < placedCards) {
+                        progressDots[i].classList.add('placed');
+                    } else {
+                        progressDots[i].classList.remove('placed');
+                    }
+                }
+
+                // Enable check button when all placed
+                checkAnswersBtn.disabled = placedCards < statements.length;
+
+                updateProgressLabel();
+            }
+
+            function updateProgressLabel() {
+                const progressContainer = document.querySelector('.quiz-progress');
+                progressContainer.setAttribute('aria-label', 'Quiz progress: ' + placedCards + ' of ' + statements.length + ' statements placed');
+            }
+
+            // Check answers
+            function checkAnswers() {
+                if (isChecked) return;
+                isChecked = true;
+
+                let correctCount = 0;
+
+                // Check each placed card
+                document.querySelectorAll('.drop-zone .statement-card').forEach(function(card, index) {
+                    const cardCategory = card.getAttribute('data-category');
+                    const zone = card.closest('.drop-zone');
+                    const zoneCategory = zone.getAttribute('data-category');
+
+                    const isCorrect = cardCategory === zoneCategory;
+
+                    if (isCorrect) {
+                        card.classList.add('correct');
+                        correctCount++;
+                        if (index < progressDots.length) {
+                            progressDots[index].classList.remove('placed');
+                            progressDots[index].classList.add('correct');
+                        }
+                    } else {
+                        card.classList.add('incorrect');
+                        if (index < progressDots.length) {
+                            progressDots[index].classList.remove('placed');
+                            progressDots[index].classList.add('incorrect');
+                        }
+                    }
+                });
+
+                // Show results
+                showResults(correctCount);
+            }
+
+            // Show results
+            function showResults(correctCount) {
+                const total = statements.length;
+                const percentage = (correctCount / total) * 100;
+
+                // Update score display
+                scoreDisplay.textContent = correctCount + '/' + total;
+
+                // Generate stars
+                let stars = '';
+                const starCount = Math.round((correctCount / total) * 5);
+                for (let i = 0; i < 5; i++) {
+                    if (i < starCount) {
+                        stars += '⭐';
+                    } else {
+                        stars += '☆';
+                    }
+                }
+                resultStars.textContent = stars;
+
+                // Set feedback message
+                feedbackMessage.classList.remove('excellent', 'good', 'needs-practice');
+
+                if (percentage === 100) {
+                    feedbackMessage.textContent = 'Perfect Score!';
+                    feedbackMessage.classList.add('excellent');
+                    feedbackDetail.textContent = "Amazing! You've completely mastered the difference between Narrow AI and General AI!";
+                } else if (percentage >= 75) {
+                    feedbackMessage.textContent = 'Great Job!';
+                    feedbackMessage.classList.add('good');
+                    feedbackDetail.textContent = "You have a solid understanding of AI types. Review the incorrect ones to perfect your knowledge!";
+                } else if (percentage >= 50) {
+                    feedbackMessage.textContent = 'Good Effort!';
+                    feedbackMessage.classList.add('good');
+                    feedbackDetail.textContent = "You're getting there! Re-read the comparison above and try again.";
+                } else {
+                    feedbackMessage.textContent = 'Keep Learning!';
+                    feedbackMessage.classList.add('needs-practice');
+                    feedbackDetail.textContent = "Don't worry! Review the Narrow AI vs General AI section above and give it another go.";
+                }
+
+                // Show result panel
+                quizResult.classList.add('visible');
+
+                // Disable cards
+                document.querySelectorAll('.statement-card').forEach(function(card) {
+                    card.setAttribute('draggable', 'false');
+                    card.style.cursor = 'default';
+                });
+
+                // Announce result
+                announceToScreenReader('Quiz complete. You got ' + correctCount + ' out of ' + total + ' correct. ' + feedbackMessage.textContent);
+            }
+
+            // Screen reader announcement
+            function announceToScreenReader(message) {
+                const announcement = document.createElement('div');
+                announcement.setAttribute('role', 'status');
+                announcement.setAttribute('aria-live', 'polite');
+                announcement.classList.add('sr-only');
+                announcement.textContent = message;
+                document.body.appendChild(announcement);
+
+                setTimeout(function() {
+                    document.body.removeChild(announcement);
+                }, 1000);
+            }
+
+            // Event listeners for drop zones
+            [narrowZone, generalZone].forEach(function(zone) {
+                zone.addEventListener('dragover', handleDragOver);
+                zone.addEventListener('dragenter', handleDragEnter);
+                zone.addEventListener('dragleave', handleDragLeave);
+                zone.addEventListener('drop', handleDrop);
+                zone.addEventListener('click', handleZoneClick);
+            });
+
+            // Button event listeners
+            checkAnswersBtn.addEventListener('click', checkAnswers);
+            resetQuizBtn.addEventListener('click', initQuiz);
+
+            // Initialize on load
+            initQuiz();
+
+            // Reduced motion preference
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.documentElement.style.setProperty('--animation-duration', '0.01ms');
             }
         })();
     </script>
