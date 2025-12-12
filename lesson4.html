@@ -1332,6 +1332,317 @@
                 height: 70px;
             }
         }
+
+        /* Generative AI Quiz Styles */
+        .gen-ai-quiz-section {
+            margin: 4rem 0;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--taa-light-grey) 0%, #FFF5F0 100%);
+            border-radius: 16px;
+        }
+
+        .gen-ai-quiz-section .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .gen-ai-quiz-section .section-intro h2 {
+            margin-bottom: 0.75rem;
+            color: var(--taa-primary);
+        }
+
+        .gen-ai-quiz-container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .gen-quiz-progress {
+            background-color: var(--taa-white);
+            border-radius: 20px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(27, 58, 95, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gen-quiz-progress-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #FF6B6B 0%, #FFE66D 100%);
+            border-radius: 20px;
+            transition: width 0.4s ease;
+        }
+
+        .gen-quiz-progress-text {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-weight: 600;
+            color: var(--taa-primary);
+            padding: 0.5rem;
+        }
+
+        .gen-quiz-question {
+            background-color: var(--taa-white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .gen-quiz-question h4 {
+            font-size: 1.125rem;
+            color: var(--taa-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .gen-quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .gen-quiz-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            background-color: var(--taa-light-grey);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .gen-quiz-option:hover {
+            background-color: #FFF0E6;
+            border-color: #FF6B6B;
+        }
+
+        .gen-quiz-option.selected {
+            background-color: #FFF0E6;
+            border-color: #FF6B6B;
+        }
+
+        .gen-quiz-option input[type="radio"] {
+            margin-right: 1rem;
+            width: 18px;
+            height: 18px;
+            accent-color: #FF6B6B;
+        }
+
+        .gen-quiz-option label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .gen-quiz-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .gen-quiz-results {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: var(--taa-white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+        }
+
+        .gen-quiz-results-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .gen-quiz-results h3 {
+            color: var(--taa-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .gen-quiz-results p {
+            color: var(--taa-text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .gen-quiz-score {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gen-quiz-score-value {
+            font-weight: 700;
+            color: #FF6B6B;
+        }
+
+        /* Output Matching Game Styles */
+        .output-match-section {
+            margin: 4rem 0;
+            padding: 3rem;
+        }
+
+        .output-match-section .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .output-match-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .output-types {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: var(--taa-light-grey);
+            border-radius: 12px;
+            min-height: 70px;
+        }
+
+        .output-type {
+            background-color: var(--taa-white);
+            border: 2px solid var(--taa-primary);
+            color: var(--taa-primary);
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .output-type:hover {
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+            transform: translateY(-2px);
+        }
+
+        .output-type.selected {
+            background-color: #FF6B6B;
+            border-color: #FF6B6B;
+            color: var(--taa-white);
+            transform: scale(1.05);
+        }
+
+        .output-type.placed {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .output-type.correct {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+            color: white;
+        }
+
+        .output-type.incorrect {
+            background-color: #F44336;
+            border-color: #F44336;
+            color: white;
+        }
+
+        .output-examples {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .output-example-card {
+            background-color: var(--taa-white);
+            border: 3px dashed #FF6B6B;
+            border-radius: 12px;
+            padding: 1.25rem;
+            min-height: 120px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .output-example-card:hover,
+        .output-example-card.active {
+            background-color: #FFF5F0;
+            border-style: solid;
+        }
+
+        .output-example-card .example-text {
+            font-size: 0.95rem;
+            color: var(--taa-text);
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+            font-style: italic;
+        }
+
+        .output-example-card .placed-output {
+            margin-top: 0.75rem;
+        }
+
+        .output-example-card .placed-output .output-type {
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+        .output-match-feedback {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .output-match-results {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #FFF5F0;
+            border-radius: 12px;
+        }
+
+        .output-match-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .output-score-stars {
+            font-size: 2rem;
+        }
+
+        .output-score-text {
+            font-weight: 600;
+            color: var(--taa-primary);
+        }
+
+        @media (max-width: 768px) {
+            .gen-ai-quiz-section,
+            .output-match-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .gen-quiz-nav {
+                flex-direction: column;
+            }
+
+            .gen-quiz-nav .btn {
+                width: 100%;
+            }
+
+            .output-examples {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1998,6 +2309,91 @@
             </div>
         </section>
 
+        <!-- Generative AI Quiz Section -->
+        <section class="gen-ai-quiz-section" role="region" aria-labelledby="gen-quiz-title">
+            <div class="container">
+                <div class="section-intro">
+                    <h2 id="gen-quiz-title">Generative AI Knowledge Check</h2>
+                    <p>Test your understanding of generative AI concepts and capabilities.</p>
+                </div>
+
+                <div class="gen-ai-quiz-container">
+                    <div class="gen-quiz-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4">
+                        <div class="gen-quiz-progress-fill" id="gen-quiz-progress-fill" style="width: 25%"></div>
+                        <span class="gen-quiz-progress-text" id="gen-quiz-progress-text">Question 1 of 4</span>
+                    </div>
+
+                    <div id="gen-quiz-questions-container">
+                        <!-- Questions will be inserted by JavaScript -->
+                    </div>
+
+                    <div class="gen-quiz-nav">
+                        <button class="btn btn-outline" id="gen-quiz-prev-btn" disabled>Previous</button>
+                        <button class="btn btn-primary" id="gen-quiz-next-btn">Next</button>
+                        <button class="btn btn-primary" id="gen-quiz-submit-btn" style="display: none;">Submit</button>
+                    </div>
+
+                    <div class="gen-quiz-results" id="gen-quiz-results" style="display: none;" role="alert" aria-live="polite">
+                        <div class="gen-quiz-results-icon" id="gen-quiz-results-icon"></div>
+                        <h3 id="gen-quiz-results-title">Quiz Complete!</h3>
+                        <p id="gen-quiz-results-message"></p>
+                        <div class="gen-quiz-score">
+                            <span>Your Score:</span>
+                            <span class="gen-quiz-score-value" id="gen-quiz-score-value">0/4</span>
+                        </div>
+                        <button class="btn btn-secondary" id="gen-quiz-retry-btn">Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Output Matching Activity Section -->
+        <section class="output-match-section" role="region" aria-labelledby="output-match-title">
+            <div class="container">
+                <div class="section-intro">
+                    <h2 id="output-match-title">Match the AI Output</h2>
+                    <p>Match each AI-generated output with the type of generative AI that created it.</p>
+                </div>
+
+                <div class="output-match-container">
+                    <div class="output-types" id="output-types" role="listbox" aria-label="AI types to match">
+                        <!-- Types will be inserted by JavaScript -->
+                    </div>
+
+                    <div class="output-examples" id="output-examples">
+                        <div class="output-example-card" data-type="llm" role="button" tabindex="0">
+                            <p class="example-text">"The quantum entanglement phenomenon demonstrates that particles can be correlated in ways that classical physics cannot explain..."</p>
+                            <div class="placed-output"></div>
+                        </div>
+                        <div class="output-example-card" data-type="image" role="button" tabindex="0">
+                            <p class="example-text">A photorealistic image of a futuristic city with flying cars and neon lights, created from a text description</p>
+                            <div class="placed-output"></div>
+                        </div>
+                        <div class="output-example-card" data-type="audio" role="button" tabindex="0">
+                            <p class="example-text">A synthesized voice reading an audiobook with natural-sounding speech patterns and emotions</p>
+                            <div class="placed-output"></div>
+                        </div>
+                        <div class="output-example-card" data-type="code" role="button" tabindex="0">
+                            <p class="example-text">A complete Python function that sorts a list of numbers and handles edge cases, generated from a natural language request</p>
+                            <div class="placed-output"></div>
+                        </div>
+                    </div>
+
+                    <div class="output-match-feedback" id="output-match-feedback" role="status" aria-live="polite">
+                        <button class="btn btn-primary" id="check-output-match">Check Answers</button>
+                        <button class="btn btn-outline" id="reset-output-match" style="display: none;">Reset Activity</button>
+                    </div>
+
+                    <div class="output-match-results" id="output-match-results" style="display: none;">
+                        <div class="output-match-score">
+                            <span class="output-score-stars" id="output-score-stars"></span>
+                            <span class="output-score-text" id="output-score-text"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Lesson Navigation -->
         <nav class="lesson-nav" aria-label="Lesson navigation">
             <div class="container">
@@ -2068,6 +2464,398 @@
                 }
             });
         });
+    </script>
+
+    <!-- Generative AI Quiz Script -->
+    <script>
+        (function() {
+            'use strict';
+
+            var genQuizQuestions = [
+                {
+                    id: 1,
+                    question: "What makes generative AI different from other types of AI?",
+                    options: [
+                        { id: 'a', text: "It can only analyze existing data" },
+                        { id: 'b', text: "It can create new, original content like text, images, and music" },
+                        { id: 'c', text: "It requires human supervision for every task" },
+                        { id: 'd', text: "It can only work with numbers" }
+                    ],
+                    correct: 'b'
+                },
+                {
+                    id: 2,
+                    question: "What is a Large Language Model (LLM)?",
+                    options: [
+                        { id: 'a', text: "A model that only translates languages" },
+                        { id: 'b', text: "An AI trained on vast amounts of text to understand and generate human language" },
+                        { id: 'c', text: "A database of all words in every language" },
+                        { id: 'd', text: "A spell-checking tool" }
+                    ],
+                    correct: 'b'
+                },
+                {
+                    id: 3,
+                    question: "How do image generation AI models like DALL-E or Midjourney typically work?",
+                    options: [
+                        { id: 'a', text: "They copy images from the internet" },
+                        { id: 'b', text: "They take text descriptions and create corresponding images" },
+                        { id: 'c', text: "They only edit existing photos" },
+                        { id: 'd', text: "They require users to draw a sketch first" }
+                    ],
+                    correct: 'b'
+                },
+                {
+                    id: 4,
+                    question: "What is a 'multimodal' AI system?",
+                    options: [
+                        { id: 'a', text: "An AI that can only process one type of data" },
+                        { id: 'b', text: "An AI that works on multiple computers at once" },
+                        { id: 'c', text: "An AI that can work with multiple types of content (text, images, audio, etc.)" },
+                        { id: 'd', text: "An AI with multiple users" }
+                    ],
+                    correct: 'c'
+                }
+            ];
+
+            var genCurrentQuestion = 0;
+            var genUserAnswers = {};
+
+            var genQuestionsContainer = document.getElementById('gen-quiz-questions-container');
+            var genProgressFill = document.getElementById('gen-quiz-progress-fill');
+            var genProgressText = document.getElementById('gen-quiz-progress-text');
+            var genPrevBtn = document.getElementById('gen-quiz-prev-btn');
+            var genNextBtn = document.getElementById('gen-quiz-next-btn');
+            var genSubmitBtn = document.getElementById('gen-quiz-submit-btn');
+            var genResults = document.getElementById('gen-quiz-results');
+            var genResultsIcon = document.getElementById('gen-quiz-results-icon');
+            var genResultsTitle = document.getElementById('gen-quiz-results-title');
+            var genResultsMessage = document.getElementById('gen-quiz-results-message');
+            var genScoreValue = document.getElementById('gen-quiz-score-value');
+            var genRetryBtn = document.getElementById('gen-quiz-retry-btn');
+
+            function initGenQuiz() {
+                renderGenQuestion();
+                updateGenProgress();
+
+                genPrevBtn.addEventListener('click', function() {
+                    if (genCurrentQuestion > 0) {
+                        genCurrentQuestion--;
+                        renderGenQuestion();
+                        updateGenProgress();
+                    }
+                });
+
+                genNextBtn.addEventListener('click', function() {
+                    if (genCurrentQuestion < genQuizQuestions.length - 1) {
+                        genCurrentQuestion++;
+                        renderGenQuestion();
+                        updateGenProgress();
+                    }
+                });
+
+                genSubmitBtn.addEventListener('click', showGenResults);
+                genRetryBtn.addEventListener('click', resetGenQuiz);
+            }
+
+            function renderGenQuestion() {
+                var q = genQuizQuestions[genCurrentQuestion];
+                var selected = genUserAnswers[q.id];
+
+                genQuestionsContainer.innerHTML =
+                    '<div class="gen-quiz-question">' +
+                        '<h4>' + (genCurrentQuestion + 1) + '. ' + q.question + '</h4>' +
+                        '<div class="gen-quiz-options" role="radiogroup">' +
+                            q.options.map(function(opt) {
+                                return '<div class="gen-quiz-option' + (selected === opt.id ? ' selected' : '') + '" ' +
+                                    'data-option="' + opt.id + '" role="radio" ' +
+                                    'aria-checked="' + (selected === opt.id) + '" tabindex="0">' +
+                                    '<input type="radio" name="genq' + q.id + '" id="genq' + q.id + '_' + opt.id + '" ' +
+                                    'value="' + opt.id + '"' + (selected === opt.id ? ' checked' : '') + '>' +
+                                    '<label for="genq' + q.id + '_' + opt.id + '">' + opt.text + '</label>' +
+                                '</div>';
+                            }).join('') +
+                        '</div>' +
+                    '</div>';
+
+                document.querySelectorAll('.gen-quiz-option').forEach(function(option) {
+                    option.addEventListener('click', handleGenOptionSelect);
+                    option.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleGenOptionSelect.call(this, e);
+                        }
+                    });
+                });
+            }
+
+            function handleGenOptionSelect() {
+                var optionId = this.getAttribute('data-option');
+                var questionId = genQuizQuestions[genCurrentQuestion].id;
+                genUserAnswers[questionId] = optionId;
+
+                document.querySelectorAll('.gen-quiz-option').forEach(function(opt) {
+                    opt.classList.remove('selected');
+                    opt.setAttribute('aria-checked', 'false');
+                    opt.querySelector('input').checked = false;
+                });
+
+                this.classList.add('selected');
+                this.setAttribute('aria-checked', 'true');
+                this.querySelector('input').checked = true;
+            }
+
+            function updateGenProgress() {
+                var progress = ((genCurrentQuestion + 1) / genQuizQuestions.length) * 100;
+                genProgressFill.style.width = progress + '%';
+                genProgressText.textContent = 'Question ' + (genCurrentQuestion + 1) + ' of ' + genQuizQuestions.length;
+
+                genPrevBtn.disabled = genCurrentQuestion === 0;
+
+                if (genCurrentQuestion === genQuizQuestions.length - 1) {
+                    genNextBtn.style.display = 'none';
+                    genSubmitBtn.style.display = 'inline-flex';
+                } else {
+                    genNextBtn.style.display = 'inline-flex';
+                    genSubmitBtn.style.display = 'none';
+                }
+            }
+
+            function showGenResults() {
+                var score = 0;
+                genQuizQuestions.forEach(function(q) {
+                    if (genUserAnswers[q.id] === q.correct) {
+                        score++;
+                    }
+                });
+
+                var percentage = (score / genQuizQuestions.length) * 100;
+
+                document.querySelector('.gen-quiz-progress').style.display = 'none';
+                genQuestionsContainer.style.display = 'none';
+                document.querySelector('.gen-quiz-nav').style.display = 'none';
+                genResults.style.display = 'block';
+
+                genScoreValue.textContent = score + '/' + genQuizQuestions.length;
+
+                if (percentage === 100) {
+                    genResultsIcon.textContent = '🏆';
+                    genResultsTitle.textContent = 'Perfect Score!';
+                    genResultsMessage.textContent = 'Amazing! You are a generative AI expert!';
+                } else if (percentage >= 75) {
+                    genResultsIcon.textContent = '🌟';
+                    genResultsTitle.textContent = 'Great Job!';
+                    genResultsMessage.textContent = 'You have a solid understanding of generative AI!';
+                } else if (percentage >= 50) {
+                    genResultsIcon.textContent = '👍';
+                    genResultsTitle.textContent = 'Good Effort!';
+                    genResultsMessage.textContent = 'Review the flip cards to learn more about AI types.';
+                } else {
+                    genResultsIcon.textContent = '📚';
+                    genResultsTitle.textContent = 'Keep Learning!';
+                    genResultsMessage.textContent = 'Explore the lesson content again and try once more.';
+                }
+            }
+
+            function resetGenQuiz() {
+                genCurrentQuestion = 0;
+                genUserAnswers = {};
+
+                document.querySelector('.gen-quiz-progress').style.display = 'block';
+                genQuestionsContainer.style.display = 'block';
+                document.querySelector('.gen-quiz-nav').style.display = 'flex';
+                genResults.style.display = 'none';
+
+                renderGenQuestion();
+                updateGenProgress();
+            }
+
+            initGenQuiz();
+        })();
+    </script>
+
+    <!-- Output Matching Activity Script -->
+    <script>
+        (function() {
+            'use strict';
+
+            var outputTypes = [
+                { id: 'llm', text: 'Language Model' },
+                { id: 'image', text: 'Image Generator' },
+                { id: 'audio', text: 'Audio/Speech AI' },
+                { id: 'code', text: 'Code Generator' }
+            ];
+
+            var selectedOutputType = null;
+            var outputPlacements = {};
+            var outputChecked = false;
+
+            var typesContainer = document.getElementById('output-types');
+            var checkOutputBtn = document.getElementById('check-output-match');
+            var resetOutputBtn = document.getElementById('reset-output-match');
+            var outputResults = document.getElementById('output-match-results');
+            var outputScoreStars = document.getElementById('output-score-stars');
+            var outputScoreText = document.getElementById('output-score-text');
+            var exampleCards = document.querySelectorAll('.output-example-card');
+
+            function shuffleArray(array) {
+                var shuffled = array.slice();
+                for (var i = shuffled.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var temp = shuffled[i];
+                    shuffled[i] = shuffled[j];
+                    shuffled[j] = temp;
+                }
+                return shuffled;
+            }
+
+            function renderOutputTypes() {
+                var shuffled = shuffleArray(outputTypes);
+                typesContainer.innerHTML = shuffled.map(function(type) {
+                    return '<div class="output-type" data-id="' + type.id + '" ' +
+                        'role="option" tabindex="0" aria-selected="false">' +
+                        type.text +
+                        '</div>';
+                }).join('');
+
+                document.querySelectorAll('#output-types .output-type').forEach(function(item) {
+                    item.addEventListener('click', handleOutputTypeClick);
+                    item.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleOutputTypeClick.call(this, e);
+                        }
+                    });
+                });
+            }
+
+            function handleOutputTypeClick() {
+                if (outputChecked) return;
+
+                document.querySelectorAll('.output-type.selected').forEach(function(item) {
+                    item.classList.remove('selected');
+                    item.setAttribute('aria-selected', 'false');
+                });
+
+                this.classList.add('selected');
+                this.setAttribute('aria-selected', 'true');
+                selectedOutputType = {
+                    id: this.getAttribute('data-id'),
+                    text: this.textContent.trim(),
+                    element: this
+                };
+            }
+
+            function handleExampleCardClick() {
+                if (outputChecked || !selectedOutputType) return;
+
+                var typeId = this.getAttribute('data-type');
+                var placedContainer = this.querySelector('.placed-output');
+
+                var existing = placedContainer.querySelector('.output-type');
+                if (existing) {
+                    var existingId = existing.getAttribute('data-id');
+                    delete outputPlacements[existingId];
+                    var originalType = document.querySelector('#output-types .output-type[data-id="' + existingId + '"]');
+                    if (originalType) {
+                        originalType.classList.remove('placed');
+                    }
+                    existing.remove();
+                }
+
+                var placedType = document.createElement('div');
+                placedType.className = 'output-type';
+                placedType.setAttribute('data-id', selectedOutputType.id);
+                placedType.textContent = selectedOutputType.text;
+                placedType.setAttribute('tabindex', '0');
+                placedType.addEventListener('click', function() {
+                    removeFromExampleCard(this, typeId);
+                });
+
+                placedContainer.appendChild(placedType);
+                outputPlacements[selectedOutputType.id] = typeId;
+
+                selectedOutputType.element.classList.add('placed');
+                selectedOutputType.element.classList.remove('selected');
+                selectedOutputType = null;
+            }
+
+            function removeFromExampleCard(item, fromCard) {
+                if (outputChecked) return;
+
+                var itemId = item.getAttribute('data-id');
+                delete outputPlacements[itemId];
+                item.remove();
+
+                var originalType = document.querySelector('#output-types .output-type[data-id="' + itemId + '"]');
+                if (originalType) {
+                    originalType.classList.remove('placed');
+                }
+            }
+
+            function checkOutputAnswers() {
+                outputChecked = true;
+                var correct = 0;
+
+                outputTypes.forEach(function(type) {
+                    var placedCard = outputPlacements[type.id];
+                    var placedElement = document.querySelector('.placed-output .output-type[data-id="' + type.id + '"]');
+
+                    if (placedElement) {
+                        if (placedCard === type.id) {
+                            placedElement.classList.add('correct');
+                            correct++;
+                        } else {
+                            placedElement.classList.add('incorrect');
+                        }
+                    }
+                });
+
+                var total = outputTypes.length;
+                var stars = correct === total ? '⭐⭐⭐' :
+                           correct >= total * 0.75 ? '⭐⭐' :
+                           correct >= total * 0.5 ? '⭐' : '';
+
+                outputScoreStars.textContent = stars || '📚';
+                outputScoreText.textContent = 'You matched ' + correct + ' out of ' + total + ' correctly!';
+
+                outputResults.style.display = 'block';
+                checkOutputBtn.style.display = 'none';
+                resetOutputBtn.style.display = 'inline-flex';
+            }
+
+            function resetOutputActivity() {
+                outputChecked = false;
+                outputPlacements = {};
+                selectedOutputType = null;
+
+                document.querySelectorAll('.placed-output').forEach(function(container) {
+                    container.innerHTML = '';
+                });
+
+                renderOutputTypes();
+
+                outputResults.style.display = 'none';
+                checkOutputBtn.style.display = 'inline-flex';
+                resetOutputBtn.style.display = 'none';
+            }
+
+            // Initialize
+            renderOutputTypes();
+
+            exampleCards.forEach(function(card) {
+                card.addEventListener('click', handleExampleCardClick);
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleExampleCardClick.call(this, e);
+                    }
+                });
+            });
+
+            checkOutputBtn.addEventListener('click', checkOutputAnswers);
+            resetOutputBtn.addEventListener('click', resetOutputActivity);
+        })();
     </script>
 </body>
 </html>

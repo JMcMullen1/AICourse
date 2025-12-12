@@ -656,6 +656,343 @@
             }
         }
 
+        /* Quiz Section Styles */
+        .quiz-section {
+            margin: 4rem 0;
+            padding: 3rem 0;
+            background-color: var(--taa-light-grey);
+            border-radius: 16px;
+        }
+
+        .quiz-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .quiz-progress {
+            background-color: var(--taa-white);
+            border-radius: 20px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--taa-secondary) 0%, #00C9D8 100%);
+            border-radius: 20px;
+            transition: width 0.4s ease;
+            width: 20%;
+        }
+
+        .progress-text {
+            position: relative;
+            z-index: 1;
+            display: block;
+            text-align: center;
+            font-weight: 600;
+            color: var(--taa-primary);
+            padding: 0.5rem;
+        }
+
+        .quiz-question {
+            background-color: var(--taa-white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-question h4 {
+            font-size: 1.125rem;
+            color: var(--taa-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            background-color: var(--taa-light-grey);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-option:hover {
+            background-color: var(--taa-secondary-light);
+            border-color: var(--taa-secondary);
+        }
+
+        .quiz-option.selected {
+            background-color: var(--taa-secondary-light);
+            border-color: var(--taa-secondary);
+        }
+
+        .quiz-option.correct {
+            background-color: #E8F5E9;
+            border-color: #4CAF50;
+        }
+
+        .quiz-option.incorrect {
+            background-color: #FFEBEE;
+            border-color: #F44336;
+        }
+
+        .quiz-option input {
+            margin-right: 1rem;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--taa-secondary);
+        }
+
+        .quiz-option label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 1rem;
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .quiz-results {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: var(--taa-white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+        }
+
+        .results-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-results h3 {
+            color: var(--taa-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-results p {
+            color: var(--taa-text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .results-score {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .score-label {
+            color: var(--taa-text-light);
+        }
+
+        .score-value {
+            font-weight: 700;
+            color: var(--taa-secondary);
+        }
+
+        /* Matching Game Styles */
+        .matching-game-section {
+            margin: 4rem 0;
+            padding: 3rem 0;
+        }
+
+        .matching-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .matching-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: var(--taa-light-grey);
+            border-radius: 12px;
+            min-height: 80px;
+        }
+
+        .matching-item {
+            background-color: var(--taa-white);
+            border: 2px solid var(--taa-primary);
+            color: var(--taa-primary);
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .matching-item:hover {
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+            transform: translateY(-2px);
+        }
+
+        .matching-item.selected {
+            background-color: var(--taa-secondary);
+            border-color: var(--taa-secondary);
+            color: var(--taa-white);
+            transform: scale(1.05);
+        }
+
+        .matching-item.placed {
+            opacity: 0.5;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .matching-item.correct {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+            color: white;
+        }
+
+        .matching-item.incorrect {
+            background-color: #F44336;
+            border-color: #F44336;
+            color: white;
+        }
+
+        .matching-targets {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .era-target {
+            background-color: var(--taa-white);
+            border: 3px dashed var(--taa-secondary);
+            border-radius: 12px;
+            padding: 1rem;
+            min-height: 180px;
+            text-align: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .era-target:hover,
+        .era-target.active {
+            background-color: var(--taa-secondary-light);
+            border-style: solid;
+        }
+
+        .era-target .era-label {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--taa-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .era-target .era-subtitle {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--taa-text-light);
+            margin-bottom: 1rem;
+        }
+
+        .dropped-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .dropped-items .matching-item {
+            font-size: 0.85rem;
+            padding: 0.5rem 0.75rem;
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+        .dropped-items .matching-item:hover {
+            transform: none;
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+        }
+
+        .matching-feedback {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .matching-results {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--taa-secondary-light);
+            border-radius: 12px;
+        }
+
+        .matching-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .score-stars {
+            font-size: 2rem;
+        }
+
+        .score-text {
+            font-weight: 600;
+            color: var(--taa-primary);
+        }
+
+        @media (max-width: 768px) {
+            .matching-targets {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quiz-navigation {
+                flex-direction: column;
+            }
+
+            .quiz-navigation button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .matching-targets {
+                grid-template-columns: 1fr;
+            }
+
+            .matching-item {
+                font-size: 0.9rem;
+                padding: 0.625rem 1rem;
+            }
+        }
+
         /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
             *,
@@ -821,6 +1158,91 @@
                     </div>
                 </div>
 
+                <!-- Knowledge Check Quiz -->
+                <div class="quiz-section" role="region" aria-labelledby="quiz-title">
+                    <div class="section-intro">
+                        <h2 id="quiz-title">Test Your Knowledge</h2>
+                        <p>Let's check your understanding of AI history. Answer these questions about the key eras and developments you've just learned about.</p>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="quiz-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5" aria-label="Quiz progress">
+                            <div class="progress-bar" id="quiz-progress-bar"></div>
+                            <span class="progress-text" id="quiz-progress-text">Question 1 of 5</span>
+                        </div>
+
+                        <div class="quiz-questions" id="quiz-questions">
+                            <!-- Questions will be inserted by JavaScript -->
+                        </div>
+
+                        <div class="quiz-navigation">
+                            <button class="btn btn-outline" id="quiz-prev" disabled>Previous</button>
+                            <button class="btn btn-primary" id="quiz-next">Next</button>
+                            <button class="btn btn-primary" id="quiz-submit" style="display: none;">Submit Quiz</button>
+                        </div>
+
+                        <div class="quiz-results" id="quiz-results" role="alert" aria-live="polite" style="display: none;">
+                            <div class="results-icon" id="results-icon"></div>
+                            <h3 id="results-title">Quiz Complete!</h3>
+                            <p id="results-message"></p>
+                            <div class="results-score">
+                                <span class="score-label">Your Score:</span>
+                                <span class="score-value" id="score-value">0/5</span>
+                            </div>
+                            <button class="btn btn-secondary" id="quiz-retry">Try Again</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Era Matching Game -->
+                <div class="matching-game-section" role="region" aria-labelledby="matching-title">
+                    <div class="section-intro">
+                        <h2 id="matching-title">Era Matching Challenge</h2>
+                        <p>Match each AI development or concept with the correct era. Click on an item, then click on the era where it belongs.</p>
+                    </div>
+
+                    <div class="matching-container">
+                        <div class="matching-items" id="matching-items" role="listbox" aria-label="Items to match">
+                            <!-- Items will be inserted by JavaScript -->
+                        </div>
+
+                        <div class="matching-targets">
+                            <div class="era-target" id="era-1950s" data-era="1950s" role="button" tabindex="0" aria-label="1950s era drop zone">
+                                <span class="era-label">1950s</span>
+                                <span class="era-subtitle">Birth of AI</span>
+                                <div class="dropped-items" aria-label="Items placed in 1950s"></div>
+                            </div>
+                            <div class="era-target" id="era-1980s" data-era="1980s" role="button" tabindex="0" aria-label="1980s era drop zone">
+                                <span class="era-label">1980s</span>
+                                <span class="era-subtitle">Machine Learning</span>
+                                <div class="dropped-items" aria-label="Items placed in 1980s"></div>
+                            </div>
+                            <div class="era-target" id="era-2010s" data-era="2010s" role="button" tabindex="0" aria-label="2010s era drop zone">
+                                <span class="era-label">2010s</span>
+                                <span class="era-subtitle">Deep Learning</span>
+                                <div class="dropped-items" aria-label="Items placed in 2010s"></div>
+                            </div>
+                            <div class="era-target" id="era-2020s" data-era="2020s" role="button" tabindex="0" aria-label="2020s era drop zone">
+                                <span class="era-label">2020s</span>
+                                <span class="era-subtitle">Generative AI</span>
+                                <div class="dropped-items" aria-label="Items placed in 2020s"></div>
+                            </div>
+                        </div>
+
+                        <div class="matching-feedback" id="matching-feedback" role="status" aria-live="polite">
+                            <button class="btn btn-primary" id="check-matching">Check Answers</button>
+                            <button class="btn btn-outline" id="reset-matching" style="display: none;">Reset Game</button>
+                        </div>
+
+                        <div class="matching-results" id="matching-results" style="display: none;">
+                            <div class="matching-score">
+                                <span class="score-stars" id="matching-stars"></span>
+                                <span class="score-text" id="matching-score-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Summary Box -->
                 <div class="summary-box">
                     <h3>
@@ -863,5 +1285,479 @@
             <p>&copy; 2025 TAA Learning. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Quiz and Matching Game Scripts -->
+    <script>
+        (function() {
+            'use strict';
+
+            // Quiz Data
+            const quizQuestions = [
+                {
+                    id: 1,
+                    question: "In which decade was Artificial Intelligence first formally established as a field of study?",
+                    options: [
+                        { id: 'a', text: "1930s" },
+                        { id: 'b', text: "1950s" },
+                        { id: 'c', text: "1970s" },
+                        { id: 'd', text: "1990s" }
+                    ],
+                    correct: 'b',
+                    explanation: "AI was formally established in the 1950s when pioneers like Alan Turing and John McCarthy laid the theoretical foundations."
+                },
+                {
+                    id: 2,
+                    question: "What was the primary focus of AI research during the 1950s?",
+                    options: [
+                        { id: 'a', text: "Deep neural networks" },
+                        { id: 'b', text: "Generative models" },
+                        { id: 'c', text: "Symbolic reasoning and problem-solving" },
+                        { id: 'd', text: "Image recognition" }
+                    ],
+                    correct: 'c',
+                    explanation: "The 1950s focused on symbolic reasoning and early problem-solving research, exploring whether machines could truly 'think'."
+                },
+                {
+                    id: 3,
+                    question: "What major shift occurred in AI during the 1980s?",
+                    options: [
+                        { id: 'a', text: "AI was abandoned entirely" },
+                        { id: 'b', text: "Focus shifted to machine learning algorithms" },
+                        { id: 'c', text: "Generative AI was invented" },
+                        { id: 'd', text: "AI became conscious" }
+                    ],
+                    correct: 'b',
+                    explanation: "In the 1980s, researchers shifted focus to machine-learning algorithms that learn from historical data to perform tasks like pattern recognition."
+                },
+                {
+                    id: 4,
+                    question: "What technology advancement helped enable the Deep Learning revolution of the 2010s?",
+                    options: [
+                        { id: 'a', text: "Quantum computers" },
+                        { id: 'b', text: "5G networks" },
+                        { id: 'c', text: "GPU computing and vast datasets" },
+                        { id: 'd', text: "Blockchain technology" }
+                    ],
+                    correct: 'c',
+                    explanation: "The 2010s deep learning revolution was powered by vast datasets and GPU computing, enabling AI to surpass human performance in specific tasks."
+                },
+                {
+                    id: 5,
+                    question: "What distinguishes the 2020s era of AI from previous decades?",
+                    options: [
+                        { id: 'a', text: "AI can only process numbers" },
+                        { id: 'b', text: "AI models can create original text, images, and music" },
+                        { id: 'c', text: "AI research has stopped" },
+                        { id: 'd', text: "AI is only used in laboratories" }
+                    ],
+                    correct: 'b',
+                    explanation: "The 2020s introduced Generative AI, where models can create original text, images, and music, augmenting human creativity."
+                }
+            ];
+
+            // Quiz State
+            let currentQuestion = 0;
+            let userAnswers = {};
+            let quizCompleted = false;
+
+            // DOM Elements
+            const questionsContainer = document.getElementById('quiz-questions');
+            const progressBar = document.getElementById('quiz-progress-bar');
+            const progressText = document.getElementById('quiz-progress-text');
+            const prevBtn = document.getElementById('quiz-prev');
+            const nextBtn = document.getElementById('quiz-next');
+            const submitBtn = document.getElementById('quiz-submit');
+            const resultsDiv = document.getElementById('quiz-results');
+            const resultsIcon = document.getElementById('results-icon');
+            const resultsTitle = document.getElementById('results-title');
+            const resultsMessage = document.getElementById('results-message');
+            const scoreValue = document.getElementById('score-value');
+            const retryBtn = document.getElementById('quiz-retry');
+
+            // Initialize Quiz
+            function initQuiz() {
+                renderQuestion();
+                updateProgress();
+                attachEventListeners();
+            }
+
+            function renderQuestion() {
+                const q = quizQuestions[currentQuestion];
+                const selectedAnswer = userAnswers[q.id];
+
+                questionsContainer.innerHTML = `
+                    <div class="quiz-question">
+                        <h4>${currentQuestion + 1}. ${q.question}</h4>
+                        <div class="quiz-options" role="radiogroup" aria-labelledby="question-${q.id}">
+                            ${q.options.map(opt => `
+                                <div class="quiz-option ${selectedAnswer === opt.id ? 'selected' : ''}"
+                                     role="radio"
+                                     aria-checked="${selectedAnswer === opt.id}"
+                                     tabindex="0"
+                                     data-option="${opt.id}">
+                                    <input type="radio"
+                                           name="q${q.id}"
+                                           id="q${q.id}_${opt.id}"
+                                           value="${opt.id}"
+                                           ${selectedAnswer === opt.id ? 'checked' : ''}>
+                                    <label for="q${q.id}_${opt.id}">${opt.text}</label>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+
+                // Attach option click handlers
+                document.querySelectorAll('.quiz-option').forEach(option => {
+                    option.addEventListener('click', handleOptionSelect);
+                    option.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleOptionSelect.call(option, e);
+                        }
+                    });
+                });
+            }
+
+            function handleOptionSelect(e) {
+                const optionId = this.dataset.option;
+                const questionId = quizQuestions[currentQuestion].id;
+                userAnswers[questionId] = optionId;
+
+                // Update UI
+                document.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                    opt.setAttribute('aria-checked', 'false');
+                    opt.querySelector('input').checked = false;
+                });
+
+                this.classList.add('selected');
+                this.setAttribute('aria-checked', 'true');
+                this.querySelector('input').checked = true;
+
+                announceToScreenReader(`Selected: ${this.querySelector('label').textContent}`);
+            }
+
+            function updateProgress() {
+                const progress = ((currentQuestion + 1) / quizQuestions.length) * 100;
+                progressBar.style.width = `${progress}%`;
+                progressText.textContent = `Question ${currentQuestion + 1} of ${quizQuestions.length}`;
+
+                // Update navigation buttons
+                prevBtn.disabled = currentQuestion === 0;
+
+                if (currentQuestion === quizQuestions.length - 1) {
+                    nextBtn.style.display = 'none';
+                    submitBtn.style.display = 'inline-flex';
+                } else {
+                    nextBtn.style.display = 'inline-flex';
+                    submitBtn.style.display = 'none';
+                }
+            }
+
+            function attachEventListeners() {
+                prevBtn.addEventListener('click', () => {
+                    if (currentQuestion > 0) {
+                        currentQuestion--;
+                        renderQuestion();
+                        updateProgress();
+                    }
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentQuestion < quizQuestions.length - 1) {
+                        currentQuestion++;
+                        renderQuestion();
+                        updateProgress();
+                    }
+                });
+
+                submitBtn.addEventListener('click', showResults);
+                retryBtn.addEventListener('click', resetQuiz);
+            }
+
+            function showResults() {
+                let score = 0;
+                quizQuestions.forEach(q => {
+                    if (userAnswers[q.id] === q.correct) {
+                        score++;
+                    }
+                });
+
+                const percentage = (score / quizQuestions.length) * 100;
+
+                // Hide quiz UI, show results
+                document.querySelector('.quiz-progress').style.display = 'none';
+                questionsContainer.style.display = 'none';
+                document.querySelector('.quiz-navigation').style.display = 'none';
+                resultsDiv.style.display = 'block';
+
+                scoreValue.textContent = `${score}/${quizQuestions.length}`;
+
+                if (percentage === 100) {
+                    resultsIcon.textContent = '🏆';
+                    resultsTitle.textContent = 'Perfect Score!';
+                    resultsMessage.textContent = 'Outstanding! You have an excellent understanding of AI history.';
+                } else if (percentage >= 80) {
+                    resultsIcon.textContent = '🌟';
+                    resultsTitle.textContent = 'Great Job!';
+                    resultsMessage.textContent = 'You have a strong grasp of AI history. Keep learning!';
+                } else if (percentage >= 60) {
+                    resultsIcon.textContent = '👍';
+                    resultsTitle.textContent = 'Good Effort!';
+                    resultsMessage.textContent = 'You understand the basics. Review the timeline to strengthen your knowledge.';
+                } else {
+                    resultsIcon.textContent = '📚';
+                    resultsTitle.textContent = 'Keep Learning!';
+                    resultsMessage.textContent = 'Take another look at the AI history timeline and try again.';
+                }
+
+                quizCompleted = true;
+                announceToScreenReader(`Quiz complete. You scored ${score} out of ${quizQuestions.length}.`);
+            }
+
+            function resetQuiz() {
+                currentQuestion = 0;
+                userAnswers = {};
+                quizCompleted = false;
+
+                document.querySelector('.quiz-progress').style.display = 'block';
+                questionsContainer.style.display = 'block';
+                document.querySelector('.quiz-navigation').style.display = 'flex';
+                resultsDiv.style.display = 'none';
+
+                renderQuestion();
+                updateProgress();
+            }
+
+            // Matching Game Data
+            const matchingItems = [
+                { id: 1, text: "Alan Turing", era: "1950s" },
+                { id: 2, text: "Symbolic Reasoning", era: "1950s" },
+                { id: 3, text: "Pattern Recognition", era: "1980s" },
+                { id: 4, text: "Learning from Data", era: "1980s" },
+                { id: 5, text: "Neural Networks", era: "2010s" },
+                { id: 6, text: "GPU Computing", era: "2010s" },
+                { id: 7, text: "ChatGPT", era: "2020s" },
+                { id: 8, text: "Image Generation", era: "2020s" }
+            ];
+
+            // Matching Game State
+            let selectedItem = null;
+            let placements = {};
+            let matchingChecked = false;
+
+            // Matching Game DOM Elements
+            const matchingItemsContainer = document.getElementById('matching-items');
+            const checkMatchingBtn = document.getElementById('check-matching');
+            const resetMatchingBtn = document.getElementById('reset-matching');
+            const matchingResults = document.getElementById('matching-results');
+            const matchingStars = document.getElementById('matching-stars');
+            const matchingScoreText = document.getElementById('matching-score-text');
+            const eraTargets = document.querySelectorAll('.era-target');
+
+            // Initialize Matching Game
+            function initMatchingGame() {
+                renderMatchingItems();
+                attachMatchingEventListeners();
+            }
+
+            function shuffle(array) {
+                const shuffled = [...array];
+                for (let i = shuffled.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                }
+                return shuffled;
+            }
+
+            function renderMatchingItems() {
+                const shuffled = shuffle(matchingItems);
+                matchingItemsContainer.innerHTML = shuffled.map(item => `
+                    <div class="matching-item"
+                         data-id="${item.id}"
+                         data-era="${item.era}"
+                         role="option"
+                         tabindex="0"
+                         aria-selected="false">
+                        ${item.text}
+                    </div>
+                `).join('');
+
+                // Attach item click handlers
+                document.querySelectorAll('#matching-items .matching-item').forEach(item => {
+                    item.addEventListener('click', handleItemClick);
+                    item.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleItemClick.call(item, e);
+                        }
+                    });
+                });
+            }
+
+            function handleItemClick() {
+                if (matchingChecked) return;
+
+                // Deselect previously selected
+                document.querySelectorAll('.matching-item.selected').forEach(item => {
+                    item.classList.remove('selected');
+                    item.setAttribute('aria-selected', 'false');
+                });
+
+                // Select this item
+                this.classList.add('selected');
+                this.setAttribute('aria-selected', 'true');
+                selectedItem = {
+                    id: this.dataset.id,
+                    era: this.dataset.era,
+                    text: this.textContent.trim(),
+                    element: this
+                };
+
+                announceToScreenReader(`Selected ${selectedItem.text}. Click an era to place it.`);
+            }
+
+            function attachMatchingEventListeners() {
+                eraTargets.forEach(target => {
+                    target.addEventListener('click', handleEraClick);
+                    target.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleEraClick.call(target, e);
+                        }
+                    });
+                });
+
+                checkMatchingBtn.addEventListener('click', checkMatchingAnswers);
+                resetMatchingBtn.addEventListener('click', resetMatchingGame);
+            }
+
+            function handleEraClick() {
+                if (matchingChecked || !selectedItem) return;
+
+                const era = this.dataset.era;
+                const droppedItems = this.querySelector('.dropped-items');
+
+                // Create placed item
+                const placedItem = document.createElement('div');
+                placedItem.className = 'matching-item';
+                placedItem.dataset.id = selectedItem.id;
+                placedItem.dataset.era = selectedItem.era;
+                placedItem.textContent = selectedItem.text;
+                placedItem.setAttribute('tabindex', '0');
+                placedItem.addEventListener('click', () => removeFromTarget(placedItem, era));
+
+                droppedItems.appendChild(placedItem);
+
+                // Record placement
+                placements[selectedItem.id] = era;
+
+                // Mark original as placed
+                selectedItem.element.classList.add('placed');
+                selectedItem.element.classList.remove('selected');
+
+                announceToScreenReader(`Placed ${selectedItem.text} in ${era}`);
+
+                selectedItem = null;
+
+                // Check if all items placed
+                if (Object.keys(placements).length === matchingItems.length) {
+                    checkMatchingBtn.style.display = 'inline-flex';
+                }
+            }
+
+            function removeFromTarget(item, fromEra) {
+                if (matchingChecked) return;
+
+                const itemId = item.dataset.id;
+
+                // Remove from placements
+                delete placements[itemId];
+
+                // Remove element
+                item.remove();
+
+                // Re-enable original item
+                const originalItem = document.querySelector(`#matching-items .matching-item[data-id="${itemId}"]`);
+                if (originalItem) {
+                    originalItem.classList.remove('placed');
+                }
+
+                announceToScreenReader(`Removed item from ${fromEra}`);
+            }
+
+            function checkMatchingAnswers() {
+                matchingChecked = true;
+                let correct = 0;
+
+                // Check each placement
+                matchingItems.forEach(item => {
+                    const placedEra = placements[item.id];
+                    const placedElement = document.querySelector(`.dropped-items .matching-item[data-id="${item.id}"]`);
+
+                    if (placedElement) {
+                        if (placedEra === item.era) {
+                            placedElement.classList.add('correct');
+                            correct++;
+                        } else {
+                            placedElement.classList.add('incorrect');
+                        }
+                    }
+                });
+
+                // Show results
+                const total = matchingItems.length;
+                const stars = correct === total ? '⭐⭐⭐' :
+                             correct >= total * 0.75 ? '⭐⭐' :
+                             correct >= total * 0.5 ? '⭐' : '';
+
+                matchingStars.textContent = stars || '📚';
+                matchingScoreText.textContent = `You got ${correct} out of ${total} correct!`;
+
+                matchingResults.style.display = 'block';
+                checkMatchingBtn.style.display = 'none';
+                resetMatchingBtn.style.display = 'inline-flex';
+
+                announceToScreenReader(`Matching complete. ${correct} out of ${total} correct.`);
+            }
+
+            function resetMatchingGame() {
+                matchingChecked = false;
+                placements = {};
+                selectedItem = null;
+
+                // Clear all dropped items
+                document.querySelectorAll('.dropped-items').forEach(container => {
+                    container.innerHTML = '';
+                });
+
+                // Reset original items
+                renderMatchingItems();
+
+                // Reset UI
+                matchingResults.style.display = 'none';
+                checkMatchingBtn.style.display = 'inline-flex';
+                resetMatchingBtn.style.display = 'none';
+            }
+
+            // Screen Reader Announcement
+            function announceToScreenReader(message) {
+                const announcement = document.createElement('div');
+                announcement.setAttribute('role', 'status');
+                announcement.setAttribute('aria-live', 'polite');
+                announcement.setAttribute('aria-atomic', 'true');
+                announcement.className = 'sr-only';
+                announcement.style.cssText = 'position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);';
+                announcement.textContent = message;
+                document.body.appendChild(announcement);
+                setTimeout(() => announcement.remove(), 1000);
+            }
+
+            // Initialize both components
+            initQuiz();
+            initMatchingGame();
+        })();
+    </script>
 </body>
 </html>

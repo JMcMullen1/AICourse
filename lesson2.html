@@ -2038,6 +2038,188 @@
             }
         }
 
+        /* Knowledge Check Quiz Styles */
+        .knowledge-check-section {
+            margin: 4rem 0;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--taa-light-grey) 0%, var(--taa-white) 100%);
+            border-radius: 16px;
+        }
+
+        .knowledge-check-section .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .knowledge-check-section .section-intro h2 {
+            margin-bottom: 0.75rem;
+            color: var(--taa-primary);
+        }
+
+        .knowledge-check-section .section-intro p {
+            color: var(--taa-text-light);
+        }
+
+        .kc-quiz-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .kc-progress-bar {
+            background-color: var(--taa-white);
+            border-radius: 20px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(27, 58, 95, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kc-progress-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--taa-narrow-ai), var(--taa-general-ai));
+            border-radius: 20px;
+            transition: width 0.4s ease;
+        }
+
+        .kc-progress-text {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-weight: 600;
+            color: var(--taa-primary);
+            padding: 0.5rem;
+        }
+
+        .kc-question-card {
+            background-color: var(--taa-white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .kc-question-card h4 {
+            font-size: 1.125rem;
+            color: var(--taa-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .kc-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .kc-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            background-color: var(--taa-light-grey);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .kc-option:hover {
+            background-color: var(--taa-secondary-light);
+            border-color: var(--taa-secondary);
+        }
+
+        .kc-option.selected {
+            background-color: var(--taa-secondary-light);
+            border-color: var(--taa-secondary);
+        }
+
+        .kc-option.correct {
+            background-color: #E8F5E9;
+            border-color: #4CAF50;
+        }
+
+        .kc-option.incorrect {
+            background-color: #FFEBEE;
+            border-color: #F44336;
+        }
+
+        .kc-option input[type="radio"] {
+            margin-right: 1rem;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--taa-secondary);
+        }
+
+        .kc-option label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .kc-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .kc-results {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: var(--taa-white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+        }
+
+        .kc-results-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .kc-results h3 {
+            color: var(--taa-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .kc-results p {
+            color: var(--taa-text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .kc-score {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .kc-score-label {
+            color: var(--taa-text-light);
+        }
+
+        .kc-score-value {
+            font-weight: 700;
+            color: var(--taa-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .knowledge-check-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .kc-navigation {
+                flex-direction: column;
+            }
+
+            .kc-navigation .btn {
+                width: 100%;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -2737,6 +2919,44 @@
             </div>
         </section>
 
+        <!-- Knowledge Check Quiz Section -->
+        <section class="knowledge-check-section" role="region" aria-labelledby="kc-quiz-title">
+            <div class="container">
+                <div class="section-intro">
+                    <h2 id="kc-quiz-title">Quick Knowledge Check</h2>
+                    <p>Test your understanding of the key differences between Narrow AI and General AI.</p>
+                </div>
+
+                <div class="kc-quiz-container">
+                    <div class="kc-progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4">
+                        <div class="kc-progress-fill" id="kc-progress-fill" style="width: 25%"></div>
+                        <span class="kc-progress-text" id="kc-progress-text">Question 1 of 4</span>
+                    </div>
+
+                    <div id="kc-questions-container">
+                        <!-- Questions will be inserted by JavaScript -->
+                    </div>
+
+                    <div class="kc-navigation">
+                        <button class="btn btn-outline" id="kc-prev-btn" disabled>Previous</button>
+                        <button class="btn btn-primary" id="kc-next-btn">Next</button>
+                        <button class="btn btn-primary" id="kc-submit-btn" style="display: none;">Submit</button>
+                    </div>
+
+                    <div class="kc-results" id="kc-results" style="display: none;" role="alert" aria-live="polite">
+                        <div class="kc-results-icon" id="kc-results-icon"></div>
+                        <h3 id="kc-results-title">Quiz Complete!</h3>
+                        <p id="kc-results-message"></p>
+                        <div class="kc-score">
+                            <span class="kc-score-label">Your Score:</span>
+                            <span class="kc-score-value" id="kc-score-value">0/4</span>
+                        </div>
+                        <button class="btn btn-secondary" id="kc-retry-btn">Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Lesson Navigation -->
         <nav class="lesson-nav" aria-label="Lesson navigation">
             <div class="container">
@@ -3268,6 +3488,214 @@
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                 document.documentElement.style.setProperty('--animation-duration', '0.01ms');
             }
+        })();
+    </script>
+
+    <!-- Knowledge Check Quiz Script -->
+    <script>
+        (function() {
+            'use strict';
+
+            const kcQuestions = [
+                {
+                    id: 1,
+                    question: "What is the primary characteristic that distinguishes Narrow AI from General AI?",
+                    options: [
+                        { id: 'a', text: "Narrow AI is more expensive to develop" },
+                        { id: 'b', text: "Narrow AI is designed for specific tasks, while General AI could perform any intellectual task" },
+                        { id: 'c', text: "General AI exists today, while Narrow AI is theoretical" },
+                        { id: 'd', text: "Narrow AI requires human supervision at all times" }
+                    ],
+                    correct: 'b'
+                },
+                {
+                    id: 2,
+                    question: "Which of the following is an example of Narrow AI?",
+                    options: [
+                        { id: 'a', text: "An AI that can learn any skill a human can" },
+                        { id: 'b', text: "A robot that can reason, plan, and feel emotions" },
+                        { id: 'c', text: "A spam filter that identifies unwanted emails" },
+                        { id: 'd', text: "HAL 9000 from 2001: A Space Odyssey" }
+                    ],
+                    correct: 'c'
+                },
+                {
+                    id: 3,
+                    question: "Why is General AI (AGI) often depicted in science fiction movies?",
+                    options: [
+                        { id: 'a', text: "Because AGI already exists and filmmakers document it" },
+                        { id: 'b', text: "Because AGI represents the theoretical possibility of human-like machine intelligence" },
+                        { id: 'c', text: "Because Narrow AI is too boring for movies" },
+                        { id: 'd', text: "Because movie studios require AI to be intelligent" }
+                    ],
+                    correct: 'b'
+                },
+                {
+                    id: 4,
+                    question: "What is the current state of General AI development?",
+                    options: [
+                        { id: 'a', text: "General AI has been achieved and is widely deployed" },
+                        { id: 'b', text: "General AI is close to being achieved within the next year" },
+                        { id: 'c', text: "General AI remains theoretical and has not been achieved" },
+                        { id: 'd', text: "General AI was achieved in the 1980s" }
+                    ],
+                    correct: 'c'
+                }
+            ];
+
+            let kcCurrentQuestion = 0;
+            let kcUserAnswers = {};
+
+            const kcQuestionsContainer = document.getElementById('kc-questions-container');
+            const kcProgressFill = document.getElementById('kc-progress-fill');
+            const kcProgressText = document.getElementById('kc-progress-text');
+            const kcPrevBtn = document.getElementById('kc-prev-btn');
+            const kcNextBtn = document.getElementById('kc-next-btn');
+            const kcSubmitBtn = document.getElementById('kc-submit-btn');
+            const kcResults = document.getElementById('kc-results');
+            const kcResultsIcon = document.getElementById('kc-results-icon');
+            const kcResultsTitle = document.getElementById('kc-results-title');
+            const kcResultsMessage = document.getElementById('kc-results-message');
+            const kcScoreValue = document.getElementById('kc-score-value');
+            const kcRetryBtn = document.getElementById('kc-retry-btn');
+
+            function initKCQuiz() {
+                renderKCQuestion();
+                updateKCProgress();
+
+                kcPrevBtn.addEventListener('click', function() {
+                    if (kcCurrentQuestion > 0) {
+                        kcCurrentQuestion--;
+                        renderKCQuestion();
+                        updateKCProgress();
+                    }
+                });
+
+                kcNextBtn.addEventListener('click', function() {
+                    if (kcCurrentQuestion < kcQuestions.length - 1) {
+                        kcCurrentQuestion++;
+                        renderKCQuestion();
+                        updateKCProgress();
+                    }
+                });
+
+                kcSubmitBtn.addEventListener('click', showKCResults);
+                kcRetryBtn.addEventListener('click', resetKCQuiz);
+            }
+
+            function renderKCQuestion() {
+                const q = kcQuestions[kcCurrentQuestion];
+                const selected = kcUserAnswers[q.id];
+
+                kcQuestionsContainer.innerHTML =
+                    '<div class="kc-question-card">' +
+                        '<h4>' + (kcCurrentQuestion + 1) + '. ' + q.question + '</h4>' +
+                        '<div class="kc-options" role="radiogroup">' +
+                            q.options.map(function(opt) {
+                                return '<div class="kc-option' + (selected === opt.id ? ' selected' : '') + '" ' +
+                                    'data-option="' + opt.id + '" role="radio" ' +
+                                    'aria-checked="' + (selected === opt.id) + '" tabindex="0">' +
+                                    '<input type="radio" name="kcq' + q.id + '" id="kcq' + q.id + '_' + opt.id + '" ' +
+                                    'value="' + opt.id + '"' + (selected === opt.id ? ' checked' : '') + '>' +
+                                    '<label for="kcq' + q.id + '_' + opt.id + '">' + opt.text + '</label>' +
+                                '</div>';
+                            }).join('') +
+                        '</div>' +
+                    '</div>';
+
+                document.querySelectorAll('.kc-option').forEach(function(option) {
+                    option.addEventListener('click', handleKCOptionSelect);
+                    option.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleKCOptionSelect.call(this, e);
+                        }
+                    });
+                });
+            }
+
+            function handleKCOptionSelect() {
+                var optionId = this.getAttribute('data-option');
+                var questionId = kcQuestions[kcCurrentQuestion].id;
+                kcUserAnswers[questionId] = optionId;
+
+                document.querySelectorAll('.kc-option').forEach(function(opt) {
+                    opt.classList.remove('selected');
+                    opt.setAttribute('aria-checked', 'false');
+                    opt.querySelector('input').checked = false;
+                });
+
+                this.classList.add('selected');
+                this.setAttribute('aria-checked', 'true');
+                this.querySelector('input').checked = true;
+            }
+
+            function updateKCProgress() {
+                var progress = ((kcCurrentQuestion + 1) / kcQuestions.length) * 100;
+                kcProgressFill.style.width = progress + '%';
+                kcProgressText.textContent = 'Question ' + (kcCurrentQuestion + 1) + ' of ' + kcQuestions.length;
+
+                kcPrevBtn.disabled = kcCurrentQuestion === 0;
+
+                if (kcCurrentQuestion === kcQuestions.length - 1) {
+                    kcNextBtn.style.display = 'none';
+                    kcSubmitBtn.style.display = 'inline-flex';
+                } else {
+                    kcNextBtn.style.display = 'inline-flex';
+                    kcSubmitBtn.style.display = 'none';
+                }
+            }
+
+            function showKCResults() {
+                var score = 0;
+                kcQuestions.forEach(function(q) {
+                    if (kcUserAnswers[q.id] === q.correct) {
+                        score++;
+                    }
+                });
+
+                var percentage = (score / kcQuestions.length) * 100;
+
+                document.querySelector('.kc-progress-bar').style.display = 'none';
+                kcQuestionsContainer.style.display = 'none';
+                document.querySelector('.kc-navigation').style.display = 'none';
+                kcResults.style.display = 'block';
+
+                kcScoreValue.textContent = score + '/' + kcQuestions.length;
+
+                if (percentage === 100) {
+                    kcResultsIcon.textContent = '🏆';
+                    kcResultsTitle.textContent = 'Perfect Score!';
+                    kcResultsMessage.textContent = 'Excellent! You fully understand the difference between Narrow and General AI.';
+                } else if (percentage >= 75) {
+                    kcResultsIcon.textContent = '🌟';
+                    kcResultsTitle.textContent = 'Great Job!';
+                    kcResultsMessage.textContent = 'You have a solid grasp of AI concepts. Keep learning!';
+                } else if (percentage >= 50) {
+                    kcResultsIcon.textContent = '👍';
+                    kcResultsTitle.textContent = 'Good Effort!';
+                    kcResultsMessage.textContent = 'Review the lesson content to strengthen your understanding.';
+                } else {
+                    kcResultsIcon.textContent = '📚';
+                    kcResultsTitle.textContent = 'Keep Learning!';
+                    kcResultsMessage.textContent = 'Take another look at the material and try again.';
+                }
+            }
+
+            function resetKCQuiz() {
+                kcCurrentQuestion = 0;
+                kcUserAnswers = {};
+
+                document.querySelector('.kc-progress-bar').style.display = 'block';
+                kcQuestionsContainer.style.display = 'block';
+                document.querySelector('.kc-navigation').style.display = 'flex';
+                kcResults.style.display = 'none';
+
+                renderKCQuestion();
+                updateKCProgress();
+            }
+
+            initKCQuiz();
         })();
     </script>
 
