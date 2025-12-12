@@ -1204,6 +1204,487 @@
             margin-top: 0.5rem;
         }
 
+        /* Resource Efficiency Activity Styles */
+        .efficiency-activity {
+            background: var(--taa-white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 25px rgba(27, 58, 95, 0.1);
+            margin-top: 3rem;
+        }
+
+        .efficiency-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .efficiency-header h3 {
+            color: var(--taa-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+        }
+
+        .efficiency-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--taa-resource-color) 0%, #047857 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+        }
+
+        .efficiency-icon svg {
+            color: var(--taa-white);
+        }
+
+        .efficiency-header p {
+            color: var(--taa-text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .efficiency-instructions {
+            background: linear-gradient(135deg, var(--taa-resource-light) 0%, #ECFDF5 100%);
+            border-left: 4px solid var(--taa-resource-color);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 2rem;
+        }
+
+        .efficiency-instructions p {
+            color: var(--taa-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .efficiency-instructions svg {
+            flex-shrink: 0;
+            color: var(--taa-resource-color);
+            margin-top: 2px;
+        }
+
+        /* Resource Icons Section */
+        .resource-icons-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .resource-icons-section h4 {
+            color: var(--taa-primary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resource-icons-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .resource-icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--taa-light-grey);
+            border-radius: 12px;
+            cursor: grab;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            user-select: none;
+        }
+
+        .resource-icon-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(27, 58, 95, 0.15);
+            border-color: var(--taa-secondary);
+        }
+
+        .resource-icon-item:active {
+            cursor: grabbing;
+        }
+
+        .resource-icon-item.dragging {
+            opacity: 0.5;
+            transform: scale(1.05);
+        }
+
+        .resource-icon-item .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .resource-icon-item .icon-circle svg {
+            color: var(--taa-white);
+        }
+
+        .resource-icon-item .icon-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--taa-primary);
+            text-align: center;
+        }
+
+        .icon-circle.cloud-server {
+            background: linear-gradient(135deg, var(--taa-gpu-color) 0%, #6D28D9 100%);
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+        }
+
+        .icon-circle.gpu {
+            background: linear-gradient(135deg, var(--taa-electricity-color) 0%, #D97706 100%);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .icon-circle.water-droplet {
+            background: linear-gradient(135deg, var(--taa-water-color) 0%, #0284C7 100%);
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .icon-circle.energy {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .icon-circle.recycle {
+            background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Drop Zones */
+        .drop-zones-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .drop-zones-section h4 {
+            color: var(--taa-primary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .drop-zones-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .drop-zone {
+            border: 2px dashed var(--taa-secondary);
+            border-radius: 16px;
+            padding: 1.5rem;
+            min-height: 180px;
+            background: rgba(0, 165, 181, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .drop-zone.drag-over {
+            border-color: var(--taa-resource-color);
+            background: rgba(5, 150, 105, 0.1);
+            box-shadow: 0 0 20px rgba(5, 150, 105, 0.2);
+        }
+
+        .drop-zone-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(0, 165, 181, 0.2);
+        }
+
+        .drop-zone-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .drop-zone-icon svg {
+            color: var(--taa-white);
+        }
+
+        .drop-zone-icon.energy-zone {
+            background: linear-gradient(135deg, var(--taa-electricity-color) 0%, #D97706 100%);
+        }
+
+        .drop-zone-icon.water-zone {
+            background: linear-gradient(135deg, var(--taa-water-color) 0%, #0284C7 100%);
+        }
+
+        .drop-zone-title {
+            font-weight: 600;
+            color: var(--taa-primary);
+            font-size: 1rem;
+        }
+
+        .drop-zone-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            min-height: 60px;
+        }
+
+        .drop-zone-placeholder {
+            color: var(--taa-text-light);
+            font-size: 0.9rem;
+            font-style: italic;
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .dropped-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--taa-white);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--taa-primary);
+            box-shadow: 0 2px 8px rgba(27, 58, 95, 0.1);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .dropped-item:hover {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        .dropped-item .remove-btn {
+            font-size: 1rem;
+            line-height: 1;
+            color: var(--taa-text-light);
+        }
+
+        .dropped-item:hover .remove-btn {
+            color: #DC2626;
+        }
+
+        /* Brainstorm Text Areas */
+        .brainstorm-section {
+            margin-bottom: 2rem;
+        }
+
+        .brainstorm-section h4 {
+            color: var(--taa-primary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .brainstorm-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .brainstorm-card {
+            background: var(--taa-light-grey);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .brainstorm-card:focus-within {
+            border-color: var(--taa-secondary);
+        }
+
+        .brainstorm-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .brainstorm-card-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .brainstorm-card-icon svg {
+            color: var(--taa-white);
+        }
+
+        .brainstorm-card-icon.energy-icon {
+            background: linear-gradient(135deg, var(--taa-electricity-color) 0%, #D97706 100%);
+        }
+
+        .brainstorm-card-icon.water-icon {
+            background: linear-gradient(135deg, var(--taa-water-color) 0%, #0284C7 100%);
+        }
+
+        .brainstorm-card-title {
+            font-weight: 600;
+            color: var(--taa-primary);
+            font-size: 0.95rem;
+        }
+
+        .brainstorm-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 1rem;
+            border: 1px solid rgba(27, 58, 95, 0.15);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--taa-text);
+            resize: vertical;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: var(--taa-white);
+        }
+
+        .brainstorm-textarea:focus {
+            outline: none;
+            border-color: var(--taa-secondary);
+            box-shadow: 0 0 0 3px rgba(0, 165, 181, 0.15);
+        }
+
+        .brainstorm-textarea::placeholder {
+            color: var(--taa-text-light);
+            font-style: italic;
+        }
+
+        .char-counter {
+            text-align: right;
+            font-size: 0.8rem;
+            color: var(--taa-text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Activity Summary */
+        .activity-summary {
+            background: linear-gradient(135deg, var(--taa-resource-light) 0%, #ECFDF5 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .activity-summary.visible {
+            display: block;
+        }
+
+        .activity-summary h4 {
+            color: var(--taa-resource-color);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .summary-item {
+            background: var(--taa-white);
+            border-radius: 10px;
+            padding: 1rem;
+        }
+
+        .summary-item h5 {
+            font-size: 0.85rem;
+            color: var(--taa-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-item p {
+            font-size: 0.9rem;
+            color: var(--taa-text);
+            line-height: 1.5;
+        }
+
+        /* Reset Button */
+        .activity-reset {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .reset-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--taa-white);
+            color: var(--taa-primary);
+            border: 2px solid var(--taa-primary);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            background: var(--taa-primary);
+            color: var(--taa-white);
+        }
+
+        .sustainability-note {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border-radius: 12px;
+            margin-top: 2rem;
+            border-left: 4px solid #F59E0B;
+        }
+
+        .sustainability-note p {
+            color: #92400E;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 0;
+        }
+
+        .sustainability-note svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .page-hero {
@@ -1240,6 +1721,22 @@
             .poll-question {
                 font-size: 1rem;
                 padding: 1rem;
+            }
+
+            .efficiency-activity {
+                padding: 1.5rem;
+            }
+
+            .drop-zones-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brainstorm-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-content {
+                grid-template-columns: 1fr;
             }
 
             .discussion-card {
@@ -1804,6 +2301,240 @@
                         </div>
                     </div>
 
+                    <!-- Efficient Use of Resources Activity -->
+                    <div class="efficiency-activity" id="efficiency-activity" role="region" aria-labelledby="efficiency-heading">
+                        <div class="efficiency-header">
+                            <h3 id="efficiency-heading">
+                                <span class="efficiency-icon" aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/>
+                                        <circle cx="12" cy="12" r="4"/>
+                                    </svg>
+                                </span>
+                                Efficient Use of Resources
+                            </h3>
+                            <p>Brainstorm ways to minimise energy and water consumption when using AI tools. This activity encourages sustainable thinking about AI resource usage.</p>
+                        </div>
+
+                        <div class="efficiency-instructions">
+                            <p>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 16v-4M12 8h.01"/>
+                                </svg>
+                                <span><strong>Instructions:</strong> Drag the resource icons below into the appropriate drop zones based on which conservation strategy applies. Then, use the text boxes to brainstorm your own ideas for reducing AI's environmental impact.</span>
+                            </p>
+                        </div>
+
+                        <!-- Resource Icons to Drag -->
+                        <div class="resource-icons-section">
+                            <h4>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="9" y1="3" x2="9" y2="21"/>
+                                </svg>
+                                Resource Icons (Drag to categorise)
+                            </h4>
+                            <div class="resource-icons-grid" id="resource-icons" role="list" aria-label="Draggable resource icons">
+                                <!-- Cloud Server Icon -->
+                                <div class="resource-icon-item" draggable="true" data-resource="cloud-server" data-label="Cloud Server" tabindex="0" role="listitem" aria-label="Cloud Server - drag to a drop zone">
+                                    <div class="icon-circle cloud-server" aria-hidden="true">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="icon-label">Cloud Server</span>
+                                </div>
+
+                                <!-- GPU Icon -->
+                                <div class="resource-icon-item" draggable="true" data-resource="gpu" data-label="GPU Processing" tabindex="0" role="listitem" aria-label="GPU Processing - drag to a drop zone">
+                                    <div class="icon-circle gpu" aria-hidden="true">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+                                            <rect x="9" y="9" width="6" height="6"/>
+                                            <line x1="9" y1="1" x2="9" y2="4"/>
+                                            <line x1="15" y1="1" x2="15" y2="4"/>
+                                            <line x1="9" y1="20" x2="9" y2="23"/>
+                                            <line x1="15" y1="20" x2="15" y2="23"/>
+                                        </svg>
+                                    </div>
+                                    <span class="icon-label">GPU Processing</span>
+                                </div>
+
+                                <!-- Water Droplet Icon -->
+                                <div class="resource-icon-item" draggable="true" data-resource="water" data-label="Water Cooling" tabindex="0" role="listitem" aria-label="Water Cooling - drag to a drop zone">
+                                    <div class="icon-circle water-droplet" aria-hidden="true">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="icon-label">Water Cooling</span>
+                                </div>
+
+                                <!-- Energy Icon -->
+                                <div class="resource-icon-item" draggable="true" data-resource="energy" data-label="Electricity Grid" tabindex="0" role="listitem" aria-label="Electricity Grid - drag to a drop zone">
+                                    <div class="icon-circle energy" aria-hidden="true">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                        </svg>
+                                    </div>
+                                    <span class="icon-label">Electricity Grid</span>
+                                </div>
+
+                                <!-- Recycle/Sustainability Icon -->
+                                <div class="resource-icon-item" draggable="true" data-resource="recycle" data-label="Sustainable Practice" tabindex="0" role="listitem" aria-label="Sustainable Practice - drag to a drop zone">
+                                    <div class="icon-circle recycle" aria-hidden="true">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m0 0a9 9 0 0 1 9-9m-9 9a9 9 0 0 0 9 9"/>
+                                        </svg>
+                                    </div>
+                                    <span class="icon-label">Sustainable Practice</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Drop Zones -->
+                        <div class="drop-zones-section">
+                            <h4>Conservation Strategy Categories</h4>
+                            <div class="drop-zones-grid">
+                                <!-- Energy Conservation Drop Zone -->
+                                <div class="drop-zone" id="energy-drop-zone" data-category="energy" role="region" aria-label="Energy conservation strategies drop zone">
+                                    <div class="drop-zone-header">
+                                        <div class="drop-zone-icon energy-zone" aria-hidden="true">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                            </svg>
+                                        </div>
+                                        <span class="drop-zone-title">Energy Conservation</span>
+                                    </div>
+                                    <div class="drop-zone-content" id="energy-drop-content">
+                                        <span class="drop-zone-placeholder">Drag icons here that relate to reducing energy consumption</span>
+                                    </div>
+                                </div>
+
+                                <!-- Water Conservation Drop Zone -->
+                                <div class="drop-zone" id="water-drop-zone" data-category="water" role="region" aria-label="Water conservation strategies drop zone">
+                                    <div class="drop-zone-header">
+                                        <div class="drop-zone-icon water-zone" aria-hidden="true">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                                            </svg>
+                                        </div>
+                                        <span class="drop-zone-title">Water Conservation</span>
+                                    </div>
+                                    <div class="drop-zone-content" id="water-drop-content">
+                                        <span class="drop-zone-placeholder">Drag icons here that relate to reducing water usage</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Brainstorm Text Areas -->
+                        <div class="brainstorm-section">
+                            <h4>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                                </svg>
+                                Brainstorm Your Ideas
+                            </h4>
+                            <div class="brainstorm-grid">
+                                <!-- Energy Ideas Text Area -->
+                                <div class="brainstorm-card">
+                                    <div class="brainstorm-card-header">
+                                        <div class="brainstorm-card-icon energy-icon" aria-hidden="true">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                            </svg>
+                                        </div>
+                                        <span class="brainstorm-card-title">Ways to Reduce Energy Consumption</span>
+                                    </div>
+                                    <textarea
+                                        class="brainstorm-textarea"
+                                        id="energy-ideas"
+                                        placeholder="Type your ideas here... For example:&#10;- Use AI only when necessary&#10;- Batch multiple questions together&#10;- Choose energy-efficient AI providers"
+                                        maxlength="500"
+                                        aria-label="Enter your ideas for reducing energy consumption when using AI"
+                                    ></textarea>
+                                    <div class="char-counter"><span id="energy-char-count">0</span>/500 characters</div>
+                                </div>
+
+                                <!-- Water Ideas Text Area -->
+                                <div class="brainstorm-card">
+                                    <div class="brainstorm-card-header">
+                                        <div class="brainstorm-card-icon water-icon" aria-hidden="true">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                                            </svg>
+                                        </div>
+                                        <span class="brainstorm-card-title">Ways to Reduce Water Consumption</span>
+                                    </div>
+                                    <textarea
+                                        class="brainstorm-textarea"
+                                        id="water-ideas"
+                                        placeholder="Type your ideas here... For example:&#10;- Support data centres using recycled water&#10;- Advocate for water-efficient cooling systems&#10;- Reduce unnecessary AI requests"
+                                        maxlength="500"
+                                        aria-label="Enter your ideas for reducing water consumption related to AI"
+                                    ></textarea>
+                                    <div class="char-counter"><span id="water-char-count">0</span>/500 characters</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Activity Summary (appears when user interacts) -->
+                        <div class="activity-summary" id="activity-summary">
+                            <h4>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                Your Sustainability Contributions
+                            </h4>
+                            <div class="summary-content">
+                                <div class="summary-item">
+                                    <h5>
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                        </svg>
+                                        Energy Ideas
+                                    </h5>
+                                    <p id="summary-energy">No ideas added yet</p>
+                                </div>
+                                <div class="summary-item">
+                                    <h5>
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                                        </svg>
+                                        Water Ideas
+                                    </h5>
+                                    <p id="summary-water">No ideas added yet</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reset Button -->
+                        <div class="activity-reset">
+                            <button type="button" class="reset-btn" id="reset-activity" aria-label="Reset the activity and clear all entries">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M2.5 2v6h6M21.5 22v-6h-6"/>
+                                    <path d="M22 11.5A10 10 0 0 0 3.2 7.2M2 12.5a10 10 0 0 0 18.8 4.2"/>
+                                </svg>
+                                Reset Activity
+                            </button>
+                        </div>
+
+                        <!-- Sustainability Note -->
+                        <div class="sustainability-note">
+                            <p>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 16v-4M12 8h.01"/>
+                                </svg>
+                                <span><strong>Remember:</strong> Being mindful of resource usage when using AI aligns with broader sustainability goals. Every small action contributes to reducing AI's environmental footprint.</span>
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -1935,6 +2666,348 @@
                 pollResults.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             });
         });
+    </script>
+
+    <!-- Efficiency Activity JavaScript -->
+    <script>
+        (function() {
+            'use strict';
+
+            // State management
+            var droppedItems = {
+                energy: [],
+                water: []
+            };
+            var draggedElement = null;
+            var selectedElement = null;
+
+            // DOM Elements
+            var resourceIcons = document.querySelectorAll('.resource-icon-item');
+            var energyDropZone = document.getElementById('energy-drop-zone');
+            var waterDropZone = document.getElementById('water-drop-zone');
+            var energyDropContent = document.getElementById('energy-drop-content');
+            var waterDropContent = document.getElementById('water-drop-content');
+            var energyTextarea = document.getElementById('energy-ideas');
+            var waterTextarea = document.getElementById('water-ideas');
+            var energyCharCount = document.getElementById('energy-char-count');
+            var waterCharCount = document.getElementById('water-char-count');
+            var activitySummary = document.getElementById('activity-summary');
+            var summaryEnergy = document.getElementById('summary-energy');
+            var summaryWater = document.getElementById('summary-water');
+            var resetButton = document.getElementById('reset-activity');
+
+            // Initialize drag and drop for resource icons
+            resourceIcons.forEach(function(icon) {
+                // Drag events
+                icon.addEventListener('dragstart', handleDragStart);
+                icon.addEventListener('dragend', handleDragEnd);
+
+                // Keyboard accessibility - click to select
+                icon.addEventListener('click', handleIconClick);
+                icon.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleIconClick.call(this, e);
+                    }
+                });
+            });
+
+            // Initialize drop zones
+            [energyDropZone, waterDropZone].forEach(function(zone) {
+                zone.addEventListener('dragover', handleDragOver);
+                zone.addEventListener('dragenter', handleDragEnter);
+                zone.addEventListener('dragleave', handleDragLeave);
+                zone.addEventListener('drop', handleDrop);
+
+                // Keyboard accessibility - click to drop selected item
+                zone.addEventListener('click', handleZoneClick);
+                zone.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleZoneClick.call(this, e);
+                    }
+                });
+            });
+
+            // Text area character counters
+            energyTextarea.addEventListener('input', function() {
+                energyCharCount.textContent = this.value.length;
+                updateSummary();
+            });
+
+            waterTextarea.addEventListener('input', function() {
+                waterCharCount.textContent = this.value.length;
+                updateSummary();
+            });
+
+            // Reset button
+            resetButton.addEventListener('click', resetActivity);
+
+            // Drag and Drop Handlers
+            function handleDragStart(e) {
+                draggedElement = this;
+                this.classList.add('dragging');
+                e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.setData('text/plain', this.dataset.resource);
+
+                // Clear any keyboard selection
+                clearSelection();
+            }
+
+            function handleDragEnd(e) {
+                this.classList.remove('dragging');
+                draggedElement = null;
+
+                // Remove drag-over class from all zones
+                [energyDropZone, waterDropZone].forEach(function(zone) {
+                    zone.classList.remove('drag-over');
+                });
+            }
+
+            function handleDragOver(e) {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+            }
+
+            function handleDragEnter(e) {
+                e.preventDefault();
+                this.classList.add('drag-over');
+            }
+
+            function handleDragLeave(e) {
+                // Only remove class if leaving the drop zone entirely
+                if (!this.contains(e.relatedTarget)) {
+                    this.classList.remove('drag-over');
+                }
+            }
+
+            function handleDrop(e) {
+                e.preventDefault();
+                this.classList.remove('drag-over');
+
+                var resourceId = e.dataTransfer.getData('text/plain');
+                var category = this.dataset.category;
+
+                if (draggedElement && resourceId) {
+                    addItemToZone(resourceId, draggedElement.dataset.label, category);
+                    draggedElement.style.display = 'none';
+                }
+            }
+
+            // Click-to-select handlers for keyboard accessibility
+            function handleIconClick(e) {
+                // Toggle selection
+                if (selectedElement === this) {
+                    clearSelection();
+                } else {
+                    clearSelection();
+                    selectedElement = this;
+                    this.classList.add('selected');
+                    this.setAttribute('aria-selected', 'true');
+
+                    // Announce selection for screen readers
+                    announceToScreenReader('Selected ' + this.dataset.label + '. Click a drop zone to place it.');
+                }
+            }
+
+            function handleZoneClick(e) {
+                // Don't process clicks on dropped items (they have their own handlers)
+                if (e.target.closest('.dropped-item')) {
+                    return;
+                }
+
+                if (selectedElement) {
+                    var category = this.dataset.category;
+                    addItemToZone(selectedElement.dataset.resource, selectedElement.dataset.label, category);
+                    selectedElement.style.display = 'none';
+                    clearSelection();
+                }
+            }
+
+            function clearSelection() {
+                if (selectedElement) {
+                    selectedElement.classList.remove('selected');
+                    selectedElement.removeAttribute('aria-selected');
+                    selectedElement = null;
+                }
+            }
+
+            // Add item to a drop zone
+            function addItemToZone(resourceId, label, category) {
+                // Check if already in this zone
+                if (droppedItems[category].includes(resourceId)) {
+                    return;
+                }
+
+                // Remove from other zone if present
+                var otherCategory = category === 'energy' ? 'water' : 'energy';
+                var otherIndex = droppedItems[otherCategory].indexOf(resourceId);
+                if (otherIndex > -1) {
+                    droppedItems[otherCategory].splice(otherIndex, 1);
+                    updateDropZoneDisplay(otherCategory);
+                }
+
+                // Add to this zone
+                droppedItems[category].push(resourceId);
+                updateDropZoneDisplay(category);
+                updateSummary();
+
+                // Announce for screen readers
+                announceToScreenReader(label + ' added to ' + category + ' conservation.');
+            }
+
+            // Remove item from a drop zone
+            function removeItemFromZone(resourceId, category) {
+                var index = droppedItems[category].indexOf(resourceId);
+                if (index > -1) {
+                    droppedItems[category].splice(index, 1);
+                    updateDropZoneDisplay(category);
+
+                    // Show the icon again
+                    var icon = document.querySelector('[data-resource="' + resourceId + '"]');
+                    if (icon) {
+                        icon.style.display = 'flex';
+                    }
+
+                    updateSummary();
+                }
+            }
+
+            // Update the visual display of a drop zone
+            function updateDropZoneDisplay(category) {
+                var content = category === 'energy' ? energyDropContent : waterDropContent;
+                var items = droppedItems[category];
+
+                if (items.length === 0) {
+                    content.innerHTML = '<span class="drop-zone-placeholder">Drag icons here that relate to reducing ' + (category === 'energy' ? 'energy consumption' : 'water usage') + '</span>';
+                } else {
+                    content.innerHTML = '';
+                    items.forEach(function(resourceId) {
+                        var icon = document.querySelector('[data-resource="' + resourceId + '"]');
+                        var label = icon ? icon.dataset.label : resourceId;
+
+                        var droppedItem = document.createElement('div');
+                        droppedItem.className = 'dropped-item';
+                        droppedItem.setAttribute('tabindex', '0');
+                        droppedItem.setAttribute('role', 'button');
+                        droppedItem.setAttribute('aria-label', 'Remove ' + label + ' from ' + category + ' conservation');
+                        droppedItem.innerHTML = '<span>' + label + '</span><span class="remove-btn" aria-hidden="true">&times;</span>';
+
+                        droppedItem.addEventListener('click', function() {
+                            removeItemFromZone(resourceId, category);
+                        });
+
+                        droppedItem.addEventListener('keydown', function(e) {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                removeItemFromZone(resourceId, category);
+                            }
+                        });
+
+                        content.appendChild(droppedItem);
+                    });
+                }
+            }
+
+            // Update the summary section
+            function updateSummary() {
+                var hasContent = droppedItems.energy.length > 0 ||
+                                droppedItems.water.length > 0 ||
+                                energyTextarea.value.trim().length > 0 ||
+                                waterTextarea.value.trim().length > 0;
+
+                if (hasContent) {
+                    activitySummary.classList.add('visible');
+
+                    // Energy summary
+                    var energySummaryText = [];
+                    if (droppedItems.energy.length > 0) {
+                        var labels = droppedItems.energy.map(function(id) {
+                            var icon = document.querySelector('[data-resource="' + id + '"]');
+                            return icon ? icon.dataset.label : id;
+                        });
+                        energySummaryText.push('Resources: ' + labels.join(', '));
+                    }
+                    if (energyTextarea.value.trim()) {
+                        energySummaryText.push('Ideas: ' + energyTextarea.value.trim().substring(0, 100) + (energyTextarea.value.length > 100 ? '...' : ''));
+                    }
+                    summaryEnergy.textContent = energySummaryText.length > 0 ? energySummaryText.join(' | ') : 'No ideas added yet';
+
+                    // Water summary
+                    var waterSummaryText = [];
+                    if (droppedItems.water.length > 0) {
+                        var waterLabels = droppedItems.water.map(function(id) {
+                            var icon = document.querySelector('[data-resource="' + id + '"]');
+                            return icon ? icon.dataset.label : id;
+                        });
+                        waterSummaryText.push('Resources: ' + waterLabels.join(', '));
+                    }
+                    if (waterTextarea.value.trim()) {
+                        waterSummaryText.push('Ideas: ' + waterTextarea.value.trim().substring(0, 100) + (waterTextarea.value.length > 100 ? '...' : ''));
+                    }
+                    summaryWater.textContent = waterSummaryText.length > 0 ? waterSummaryText.join(' | ') : 'No ideas added yet';
+                } else {
+                    activitySummary.classList.remove('visible');
+                }
+            }
+
+            // Reset the activity
+            function resetActivity() {
+                // Clear dropped items
+                droppedItems.energy = [];
+                droppedItems.water = [];
+
+                // Reset drop zone displays
+                updateDropZoneDisplay('energy');
+                updateDropZoneDisplay('water');
+
+                // Show all resource icons again
+                resourceIcons.forEach(function(icon) {
+                    icon.style.display = 'flex';
+                });
+
+                // Clear text areas
+                energyTextarea.value = '';
+                waterTextarea.value = '';
+                energyCharCount.textContent = '0';
+                waterCharCount.textContent = '0';
+
+                // Hide summary
+                activitySummary.classList.remove('visible');
+
+                // Clear any selection
+                clearSelection();
+
+                // Announce reset
+                announceToScreenReader('Activity has been reset.');
+            }
+
+            // Screen reader announcement helper
+            function announceToScreenReader(message) {
+                var announcement = document.createElement('div');
+                announcement.setAttribute('role', 'status');
+                announcement.setAttribute('aria-live', 'polite');
+                announcement.setAttribute('aria-atomic', 'true');
+                announcement.style.position = 'absolute';
+                announcement.style.left = '-9999px';
+                announcement.style.width = '1px';
+                announcement.style.height = '1px';
+                announcement.style.overflow = 'hidden';
+                announcement.textContent = message;
+
+                document.body.appendChild(announcement);
+
+                setTimeout(function() {
+                    document.body.removeChild(announcement);
+                }, 1000);
+            }
+
+            // Add focus styles for keyboard navigation
+            var style = document.createElement('style');
+            style.textContent = '.resource-icon-item.selected { border-color: var(--taa-resource-color); box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.3); }';
+            document.head.appendChild(style);
+
+        })();
     </script>
 </body>
 </html>
