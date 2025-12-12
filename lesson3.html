@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lesson 3: How Artificial Intelligence Works - Learn about machine learning and how AI systems learn from data to make predictions and decisions.">
+    <title>Lesson 3: How Artificial Intelligence Works | TAA Course</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* TAA Colour Palette */
+        :root {
+            --taa-primary: #1B3A5F;
+            --taa-primary-dark: #122840;
+            --taa-secondary: #00A5B5;
+            --taa-secondary-light: #E6F7F8;
+            --taa-white: #FFFFFF;
+            --taa-light-grey: #F5F7FA;
+            --taa-text: #333333;
+            --taa-text-light: #666666;
+            --taa-data-color: #4CAF50;
+            --taa-model-color: #FF9800;
+            --taa-prediction-color: #9C27B0;
+        }
+
+        /* Reset and Base Styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--taa-text);
+            background-color: var(--taa-white);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: var(--taa-primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+        }
+
+        h3 {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--taa-white);
+            box-shadow: 0 2px 10px rgba(27, 58, 95, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--taa-primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--taa-secondary);
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--taa-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--taa-secondary);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--taa-secondary);
+            color: var(--taa-white);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: #008A99;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 165, 181, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            background-color: var(--taa-primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, var(--taa-primary) 0%, var(--taa-primary-dark) 100%);
+            padding: 4rem 0;
+            text-align: center;
+            color: var(--taa-white);
+        }
+
+        .page-hero h1 {
+            color: var(--taa-white);
+            margin-bottom: 1rem;
+        }
+
+        .page-hero .lesson-badge {
+            display: inline-block;
+            background-color: var(--taa-secondary);
+            color: var(--taa-white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+            font-size: 1.125rem;
+        }
+
+        /* Main Content Section */
+        .lesson-content {
+            padding: 4rem 0;
+        }
+
+        .content-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-intro h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-intro p {
+            color: var(--taa-text-light);
+            font-size: 1.1rem;
+        }
+
+        /* How AI Works Section */
+        .how-ai-works {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 3rem;
+        }
+
+        .intro-text p {
+            font-size: 1.125rem;
+            color: var(--taa-text);
+            line-height: 1.8;
+        }
+
+        /* Infographic Container */
+        .infographic-container {
+            background: linear-gradient(135deg, var(--taa-light-grey) 0%, var(--taa-white) 100%);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .infographic {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+        }
+
+        /* Infographic Elements */
+        .infographic-element {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .infographic-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .infographic-icon:hover {
+            transform: scale(1.05);
+        }
+
+        .infographic-icon.data {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+
+        .infographic-icon.model {
+            background: linear-gradient(135deg, var(--taa-secondary) 0%, #008A99 100%);
+            box-shadow: 0 8px 25px rgba(0, 165, 181, 0.4);
+            width: 140px;
+            height: 140px;
+        }
+
+        .infographic-icon.predictions {
+            background: linear-gradient(135deg, #9C27B0 0%, #6A1B9A 100%);
+            box-shadow: 0 8px 25px rgba(156, 39, 176, 0.4);
+        }
+
+        .infographic-icon svg {
+            color: var(--taa-white);
+        }
+
+        .infographic-label {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--taa-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .infographic-sublabel {
+            font-size: 0.875rem;
+            color: var(--taa-text-light);
+            max-width: 140px;
+        }
+
+        /* Flow Arrow */
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            padding: 0 0.5rem;
+        }
+
+        .flow-arrow svg {
+            color: var(--taa-secondary);
+            animation: pulse-arrow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-arrow {
+            0%, 100% {
+                opacity: 0.6;
+                transform: translateX(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(5px);
+            }
+        }
+
+        /* Data Items Animation */
+        .data-items {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .data-item {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 2px;
+            animation: float-data 3s ease-in-out infinite;
+        }
+
+        .data-item:nth-child(1) { top: 20%; left: 25%; animation-delay: 0s; }
+        .data-item:nth-child(2) { top: 40%; left: 60%; animation-delay: 0.5s; }
+        .data-item:nth-child(3) { top: 65%; left: 35%; animation-delay: 1s; }
+        .data-item:nth-child(4) { top: 30%; left: 70%; animation-delay: 1.5s; }
+
+        @keyframes float-data {
+            0%, 100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(-8px); opacity: 1; }
+        }
+
+        /* Neural Network Animation */
+        .neural-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .neural-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            animation: pulse-neural 2s ease-in-out infinite;
+        }
+
+        .neural-dot:nth-child(1) { top: 25%; left: 30%; animation-delay: 0s; }
+        .neural-dot:nth-child(2) { top: 50%; left: 20%; animation-delay: 0.3s; }
+        .neural-dot:nth-child(3) { top: 75%; left: 30%; animation-delay: 0.6s; }
+        .neural-dot:nth-child(4) { top: 25%; left: 70%; animation-delay: 0.2s; }
+        .neural-dot:nth-child(5) { top: 50%; left: 80%; animation-delay: 0.5s; }
+        .neural-dot:nth-child(6) { top: 75%; left: 70%; animation-delay: 0.8s; }
+
+        @keyframes pulse-neural {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+
+        /* Caption Box */
+        .infographic-caption {
+            background-color: var(--taa-secondary-light);
+            border-left: 4px solid var(--taa-secondary);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .infographic-caption h4 {
+            color: var(--taa-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .infographic-caption p {
+            color: var(--taa-text);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .caption-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background-color: var(--taa-secondary);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .caption-icon svg {
+            color: var(--taa-white);
+        }
+
+        /* Navigation Footer */
+        .lesson-nav {
+            padding: 3rem 0;
+            background-color: var(--taa-light-grey);
+        }
+
+        .lesson-nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--taa-primary);
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background-color: var(--taa-white);
+            box-shadow: 0 2px 10px rgba(27, 58, 95, 0.08);
+        }
+
+        .nav-button:hover {
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--taa-primary-dark);
+            color: var(--taa-white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 0 0 8px 8px;
+            z-index: 1000;
+            transition: top 0.3s ease;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--taa-secondary);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 3rem 0;
+            }
+
+            .lesson-content {
+                padding: 3rem 0;
+            }
+
+            .infographic {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+                padding: 0.5rem 0;
+            }
+
+            .infographic-icon {
+                width: 100px;
+                height: 100px;
+            }
+
+            .infographic-icon.model {
+                width: 120px;
+                height: 120px;
+            }
+
+            .infographic-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .lesson-nav-content {
+                flex-direction: column;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .infographic-container {
+                padding: 1.5rem 1rem;
+            }
+
+            .infographic-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .infographic-icon.model {
+                width: 100px;
+                height: 100px;
+            }
+
+            .infographic-icon svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .infographic-sublabel {
+                max-width: 100px;
+                font-size: 0.75rem;
+            }
+
+            .infographic-caption {
+                padding: 1rem 1.25rem;
+            }
+
+            .intro-text p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo" aria-label="TAA Learning Home">
+                    TAA<span>Learning</span>
+                </a>
+                <nav class="nav-links" aria-label="Main navigation">
+                    <a href="index.html">Home</a>
+                    <a href="lesson2.html">Previous Lesson</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero" aria-labelledby="page-title">
+            <div class="container">
+                <span class="lesson-badge">Lesson 3</span>
+                <h1 id="page-title">How Artificial Intelligence Works</h1>
+                <p>Explore the fundamental mechanisms behind AI systems and discover how machines learn from data to make intelligent predictions and decisions.</p>
+            </div>
+        </section>
+
+        <!-- Lesson Content -->
+        <section class="lesson-content" aria-labelledby="how-ai-works-title">
+            <div class="container">
+                <div class="how-ai-works">
+                    <!-- Section Introduction -->
+                    <div class="section-intro">
+                        <h2 id="how-ai-works-title">How Does AI Work?</h2>
+                    </div>
+
+                    <!-- Introduction Text -->
+                    <div class="intro-text">
+                        <p>At its core, artificial intelligence is about creating systems that can learn from data to make predictions or decisions. Rather than being explicitly programmed with rules for every possible scenario, AI systems analyze patterns in large amounts of data and use those patterns to make informed judgments about new, unseen information. This ability to learn and adapt is what makes AI so powerful and versatile.</p>
+                    </div>
+
+                    <!-- Infographic -->
+                    <figure class="infographic-container" role="img" aria-labelledby="infographic-caption-title">
+                        <div class="infographic">
+                            <!-- Data Input -->
+                            <div class="infographic-element">
+                                <div class="infographic-icon data" aria-hidden="true">
+                                    <div class="data-items">
+                                        <div class="data-item"></div>
+                                        <div class="data-item"></div>
+                                        <div class="data-item"></div>
+                                        <div class="data-item"></div>
+                                    </div>
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                                    </svg>
+                                </div>
+                                <span class="infographic-label">Data</span>
+                                <span class="infographic-sublabel">Images, text, numbers, and more</span>
+                            </div>
+
+                            <!-- Arrow 1 -->
+                            <div class="flow-arrow" aria-hidden="true">
+                                <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h30M28 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+
+                            <!-- AI Model -->
+                            <div class="infographic-element">
+                                <div class="infographic-icon model" aria-hidden="true">
+                                    <div class="neural-dots">
+                                        <div class="neural-dot"></div>
+                                        <div class="neural-dot"></div>
+                                        <div class="neural-dot"></div>
+                                        <div class="neural-dot"></div>
+                                        <div class="neural-dot"></div>
+                                        <div class="neural-dot"></div>
+                                    </div>
+                                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 2a4 4 0 0 1 4 4c0 1.1-.9 2-2 2h-4a2 2 0 0 1-2-2 4 4 0 0 1 4-4z"/>
+                                        <path d="M12 8v4"/>
+                                        <path d="M12 16a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
+                                        <path d="M6 12a2 2 0 1 0 0 4"/>
+                                        <path d="M18 12a2 2 0 1 1 0 4"/>
+                                        <path d="M8 14h2"/>
+                                        <path d="M14 14h2"/>
+                                    </svg>
+                                </div>
+                                <span class="infographic-label">AI Model</span>
+                                <span class="infographic-sublabel">Learns patterns and relationships</span>
+                            </div>
+
+                            <!-- Arrow 2 -->
+                            <div class="flow-arrow" aria-hidden="true">
+                                <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h30M28 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+
+                            <!-- Predictions Output -->
+                            <div class="infographic-element">
+                                <div class="infographic-icon predictions" aria-hidden="true">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                        <polyline points="22 4 12 14.01 9 11.01"/>
+                                    </svg>
+                                </div>
+                                <span class="infographic-label">Predictions</span>
+                                <span class="infographic-sublabel">Decisions, classifications, insights</span>
+                            </div>
+                        </div>
+                    </figure>
+
+                    <!-- Caption -->
+                    <figcaption class="infographic-caption">
+                        <h4 id="infographic-caption-title">
+                            <span class="caption-icon" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2a4 4 0 0 1 4 4v2a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V6a4 4 0 0 1 4-4z"/>
+                                    <path d="M8 10v6a4 4 0 0 0 8 0v-6"/>
+                                    <path d="M12 16v4"/>
+                                    <path d="M8 22h8"/>
+                                </svg>
+                            </span>
+                            The Core Mechanism: Machine Learning
+                        </h4>
+                        <p><strong>Machine learning</strong> is the engine that powers modern AI. Instead of following pre-written instructions, machine learning algorithms discover patterns in training data and build mathematical models that can generalize to new situations. This process of learning from examples&mdash;rather than being explicitly programmed&mdash;is what enables AI systems to recognize faces, understand speech, recommend products, and make countless other intelligent decisions.</p>
+                    </figcaption>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson Navigation -->
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <div class="container">
+                <div class="lesson-nav-content">
+                    <a href="lesson2.html" class="nav-button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        Previous: Narrow vs General AI
+                    </a>
+                    <a href="index.html" class="nav-button btn-primary">
+                        Back to Course Home
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 TAA Learning. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
