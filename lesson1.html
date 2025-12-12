@@ -11,10 +11,12 @@
     <style>
         /* TAA Colour Palette */
         :root {
-            --taa-primary: #1B3A5F;
-            --taa-primary-dark: #122840;
-            --taa-secondary: #00A5B5;
-            --taa-secondary-light: #E6F7F8;
+            --taa-primary: #2B3D6D;       /* Navy - sidebar, headings, key titles */
+            --taa-primary-dark: #1E2D54;  /* Navy Dark - sidebar header, hover/active states */
+            --taa-secondary: #00A5B5;     /* Teal accent - icons, highlights */
+            --taa-secondary-light: #E6F7F8; /* Light teal for backgrounds */
+            --taa-accent: #FFA500;        /* Orange - progress fill, active nav highlight, warnings */
+            --taa-accent-light: #FFF3E0;  /* Light orange for backgrounds */
             --taa-white: #FFFFFF;
             --taa-light-grey: #F5F7FA;
             --taa-text: #333333;
@@ -72,7 +74,7 @@
         /* Header */
         header {
             background-color: var(--taa-white);
-            box-shadow: 0 2px 10px rgba(27, 58, 95, 0.08);
+            box-shadow: 0 2px 10px rgba(43, 61, 109, 0.08);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -283,14 +285,14 @@
             background-color: var(--taa-white);
             padding: 1.5rem;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+            box-shadow: 0 4px 20px rgba(43, 61, 109, 0.1);
             position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .timeline-content:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(27, 58, 95, 0.15);
+            box-shadow: 0 8px 30px rgba(43, 61, 109, 0.15);
         }
 
         .timeline-era {
@@ -337,7 +339,7 @@
         .video-block {
             background-color: var(--taa-white);
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+            box-shadow: 0 4px 20px rgba(43, 61, 109, 0.1);
             max-width: 900px;
             margin: 0 auto 4rem;
             overflow: hidden;
@@ -345,7 +347,7 @@
         }
 
         .video-block:hover {
-            box-shadow: 0 8px 30px rgba(27, 58, 95, 0.15);
+            box-shadow: 0 8px 30px rgba(43, 61, 109, 0.15);
         }
 
         .video-header {
@@ -456,7 +458,7 @@
             border-radius: 16px;
             font-size: 0.8rem;
             font-weight: 600;
-            border: 1px solid rgba(27, 58, 95, 0.15);
+            border: 1px solid rgba(43, 61, 109, 0.15);
         }
 
         /* Summary Section */
@@ -506,7 +508,7 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             background-color: var(--taa-white);
-            box-shadow: 0 2px 10px rgba(27, 58, 95, 0.08);
+            box-shadow: 0 2px 10px rgba(43, 61, 109, 0.08);
         }
 
         .nav-button:hover {
@@ -704,7 +706,7 @@
             background-color: var(--taa-white);
             border-radius: 12px;
             padding: 2rem;
-            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+            box-shadow: 0 4px 20px rgba(43, 61, 109, 0.1);
             margin-bottom: 1.5rem;
         }
 
@@ -777,7 +779,7 @@
             padding: 2.5rem;
             background-color: var(--taa-white);
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+            box-shadow: 0 4px 20px rgba(43, 61, 109, 0.1);
         }
 
         .results-icon {
