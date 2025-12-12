@@ -1209,6 +1209,334 @@
         }
 
         /* =====================================================
+           VIDEO PLAYER SECTION - Narrow vs General AI
+           ===================================================== */
+
+        .video-section {
+            margin-bottom: 4rem;
+        }
+
+        .video-block {
+            background-color: var(--taa-white);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .video-block:hover {
+            box-shadow: 0 8px 30px rgba(27, 58, 95, 0.15);
+        }
+
+        /* Split-screen header design echoing narrow vs general AI */
+        .video-header-split {
+            display: flex;
+            position: relative;
+        }
+
+        .video-header-narrow,
+        .video-header-general {
+            flex: 1;
+            padding: 1.5rem;
+            color: var(--taa-white);
+            position: relative;
+        }
+
+        .video-header-narrow {
+            background: linear-gradient(135deg, var(--taa-narrow-ai) 0%, #008A99 100%);
+            text-align: right;
+            padding-right: 2rem;
+        }
+
+        .video-header-general {
+            background: linear-gradient(135deg, var(--taa-general-ai) 0%, #6D28D9 100%);
+            text-align: left;
+            padding-left: 2rem;
+        }
+
+        .video-header-split::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: var(--taa-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .video-vs-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: var(--taa-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 3;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--taa-primary);
+        }
+
+        .video-header-type {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            margin-bottom: 0.25rem;
+        }
+
+        .video-header-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Central video title bar */
+        .video-title-bar {
+            background: linear-gradient(135deg, var(--taa-primary) 0%, var(--taa-primary-dark) 100%);
+            padding: 1rem 2rem;
+            text-align: center;
+            color: var(--taa-white);
+        }
+
+        .video-title-bar h3 {
+            color: var(--taa-white);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .video-title-bar p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin: 0;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .video-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--taa-secondary);
+            color: var(--taa-white);
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .video-container {
+            position: relative;
+            background-color: #000;
+            width: 100%;
+        }
+
+        .video-container video {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+        }
+
+        .video-footer {
+            background-color: var(--taa-light-grey);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .video-accessibility {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--taa-text-light);
+            font-size: 0.85rem;
+        }
+
+        .video-accessibility svg {
+            color: var(--taa-secondary);
+        }
+
+        .transcript-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--taa-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background-color: var(--taa-white);
+            border: 1px solid var(--taa-secondary);
+        }
+
+        .transcript-link:hover,
+        .transcript-link:focus {
+            background-color: var(--taa-secondary);
+            color: var(--taa-white);
+        }
+
+        .video-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background-color: var(--taa-secondary-light);
+            border-top: 1px solid rgba(0, 165, 181, 0.2);
+        }
+
+        .video-topic-tag {
+            background-color: var(--taa-white);
+            color: var(--taa-primary);
+            padding: 0.375rem 0.75rem;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(27, 58, 95, 0.15);
+        }
+
+        .video-topic-tag.narrow {
+            background-color: rgba(0, 165, 181, 0.1);
+            color: #007A87;
+            border-color: rgba(0, 165, 181, 0.3);
+        }
+
+        .video-topic-tag.general {
+            background-color: rgba(139, 92, 246, 0.1);
+            color: #6D28D9;
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        /* Video section responsive styles */
+        @media (max-width: 768px) {
+            .video-header-split {
+                flex-direction: column;
+            }
+
+            .video-header-narrow,
+            .video-header-general {
+                text-align: center;
+                padding: 1.25rem;
+            }
+
+            .video-header-narrow {
+                padding-right: 1.25rem;
+            }
+
+            .video-header-general {
+                padding-left: 1.25rem;
+            }
+
+            .video-vs-badge {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                margin: -1.25rem auto -1.25rem;
+                z-index: 3;
+            }
+
+            .video-header-split::after {
+                display: none;
+            }
+
+            .video-title-bar {
+                padding: 1rem 1.5rem;
+            }
+
+            .video-title-bar h3 {
+                font-size: 1.1rem;
+            }
+
+            .video-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 1.5rem;
+            }
+
+            .video-topics {
+                padding: 1rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-header-split {
+                flex-direction: row;
+            }
+
+            .video-header-narrow,
+            .video-header-general {
+                padding: 1rem 0.75rem;
+            }
+
+            .video-header-title {
+                font-size: 0.95rem;
+            }
+
+            .video-vs-badge {
+                width: 40px;
+                height: 40px;
+                font-size: 0.75rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin: 0;
+            }
+
+            .video-header-split::after {
+                display: block;
+                width: 40px;
+                height: 40px;
+            }
+
+            .video-title-bar {
+                padding: 1rem;
+            }
+
+            .video-title-bar h3 {
+                font-size: 1rem;
+            }
+
+            .video-footer {
+                padding: 1rem;
+            }
+
+            .video-topics {
+                padding: 1rem;
+            }
+        }
+
+        /* =====================================================
            DRAG-AND-DROP SORTING QUIZ
            ===================================================== */
 
@@ -1710,6 +2038,87 @@
                 <div class="section-intro">
                     <h2 id="comparison-title">Understanding the Two Types of AI</h2>
                     <p>Not all artificial intelligence is created equal. The AI systems we interact with daily are fundamentally different from the sci-fi vision of machines that think like humans. Understanding this distinction is crucial for grasping both the current capabilities and future possibilities of AI technology.</p>
+                </div>
+
+                <!-- Video Section: Narrow vs General AI -->
+                <div class="video-section" aria-labelledby="video-title">
+                    <article class="video-block" aria-labelledby="video-title">
+                        <!-- Split-screen header echoing the narrow vs general visual -->
+                        <div class="video-header-split">
+                            <div class="video-header-narrow">
+                                <p class="video-header-type">Task-Specific</p>
+                                <p class="video-header-title">Narrow AI</p>
+                            </div>
+                            <span class="video-vs-badge" aria-hidden="true">VS</span>
+                            <div class="video-header-general">
+                                <p class="video-header-type">Theoretical</p>
+                                <p class="video-header-title">General AI</p>
+                            </div>
+                        </div>
+
+                        <!-- Central title bar -->
+                        <div class="video-title-bar">
+                            <span class="video-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polygon points="23 7 16 12 23 17 23 7"/>
+                                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                                </svg>
+                                Video
+                            </span>
+                            <h3 id="video-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polygon points="10 8 16 12 10 16 10 8"/>
+                                </svg>
+                                Narrow vs General AI
+                            </h3>
+                            <p>This video compares narrow AI—task-specific systems like search engines and virtual assistants that we use every day—with the theoretical concept of general AI that could match human-level intelligence across all domains. It also explores the ethical considerations surrounding these technologies.</p>
+                        </div>
+
+                        <!-- Video Container -->
+                        <div class="video-container">
+                            <video
+                                controls
+                                preload="metadata"
+                                aria-describedby="video-description"
+                                poster="videos/narrow-vs-general-ai-poster.jpg">
+                                <source src="videos/narrow-vs-general-ai.mp4" type="video/mp4">
+                                <p>Your browser does not support HTML5 video. <a href="videos/narrow-vs-general-ai.mp4">Download the video</a> instead.</p>
+                            </video>
+                        </div>
+
+                        <!-- Topics covered tags -->
+                        <div class="video-topics" aria-label="Topics covered in this video">
+                            <span class="video-topic-tag narrow">Search Engines</span>
+                            <span class="video-topic-tag narrow">Virtual Assistants</span>
+                            <span class="video-topic-tag narrow">Recommendation Systems</span>
+                            <span class="video-topic-tag general">Human-Level Intelligence</span>
+                            <span class="video-topic-tag general">Cross-Domain Learning</span>
+                            <span class="video-topic-tag">Ethical Considerations</span>
+                        </div>
+
+                        <!-- Footer with accessibility info -->
+                        <footer class="video-footer">
+                            <div class="video-accessibility" id="video-description">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="12" y1="16" x2="12" y2="12"/>
+                                    <line x1="12" y1="8" x2="12.01" y2="8"/>
+                                </svg>
+                                <span>TAA Character explains the key differences between AI types</span>
+                            </div>
+                            <a href="transcripts/narrow-vs-general-ai-transcript.html" class="transcript-link">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                                View Transcript
+                            </a>
+                        </footer>
+                    </article>
                 </div>
 
                 <!-- AI Comparison Cards -->
