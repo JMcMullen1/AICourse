@@ -2105,6 +2105,200 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
+        /* Ethics Scenario Quiz Styles */
+        .ethics-quiz-section {
+            margin: 4rem 0;
+            padding: 3rem;
+            background: linear-gradient(135deg, #F0F4F8 0%, #E8EEF4 100%);
+            border-radius: 16px;
+        }
+
+        .ethics-quiz-section .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .ethics-quiz-section .section-intro h2 {
+            margin-bottom: 0.75rem;
+            color: var(--taa-primary);
+        }
+
+        .ethics-quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ethics-progress {
+            background-color: var(--taa-white);
+            border-radius: 20px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(27, 58, 95, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ethics-progress-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--taa-primary) 0%, var(--taa-secondary) 100%);
+            border-radius: 20px;
+            transition: width 0.4s ease;
+        }
+
+        .ethics-progress-text {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-weight: 600;
+            color: var(--taa-primary);
+            padding: 0.5rem;
+        }
+
+        .ethics-scenario-card {
+            background-color: var(--taa-white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .ethics-scenario-card .scenario-label {
+            display: inline-block;
+            background-color: var(--taa-secondary-light);
+            color: var(--taa-secondary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .ethics-scenario-card .scenario-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--taa-text);
+            padding: 1rem;
+            background-color: var(--taa-light-grey);
+            border-left: 4px solid var(--taa-primary);
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .ethics-scenario-card h4 {
+            font-size: 1.125rem;
+            color: var(--taa-primary);
+            margin-bottom: 1rem;
+        }
+
+        .ethics-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .ethics-option {
+            display: flex;
+            align-items: flex-start;
+            padding: 1rem 1.25rem;
+            background-color: var(--taa-light-grey);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .ethics-option:hover {
+            background-color: var(--taa-secondary-light);
+            border-color: var(--taa-secondary);
+        }
+
+        .ethics-option.selected {
+            background-color: var(--taa-secondary-light);
+            border-color: var(--taa-secondary);
+        }
+
+        .ethics-option input[type="radio"] {
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--taa-secondary);
+            flex-shrink: 0;
+        }
+
+        .ethics-option label {
+            cursor: pointer;
+            flex: 1;
+            line-height: 1.5;
+        }
+
+        .ethics-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .ethics-results {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: var(--taa-white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+        }
+
+        .ethics-results-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .ethics-results h3 {
+            color: var(--taa-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .ethics-results p {
+            color: var(--taa-text-light);
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ethics-score {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ethics-score-value {
+            font-weight: 700;
+            color: var(--taa-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .ethics-quiz-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .ethics-nav {
+                flex-direction: column;
+            }
+
+            .ethics-nav .btn {
+                width: 100%;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -2979,6 +3173,44 @@
             </div>
         </section>
 
+        <!-- Ethics Scenario Quiz Section -->
+        <section class="ethics-quiz-section" role="region" aria-labelledby="ethics-quiz-title">
+            <div class="container">
+                <div class="section-intro">
+                    <h2 id="ethics-quiz-title">Ethics Scenario Challenge</h2>
+                    <p>Apply your understanding of AI ethics by evaluating these real-world scenarios. Choose the most ethical response for each situation.</p>
+                </div>
+
+                <div class="ethics-quiz-container">
+                    <div class="ethics-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4">
+                        <div class="ethics-progress-fill" id="ethics-progress-fill" style="width: 25%"></div>
+                        <span class="ethics-progress-text" id="ethics-progress-text">Scenario 1 of 4</span>
+                    </div>
+
+                    <div id="ethics-questions-container">
+                        <!-- Scenarios will be inserted by JavaScript -->
+                    </div>
+
+                    <div class="ethics-nav">
+                        <button class="btn btn-outline" id="ethics-prev-btn" disabled>Previous</button>
+                        <button class="btn btn-primary" id="ethics-next-btn">Next</button>
+                        <button class="btn btn-primary" id="ethics-submit-btn" style="display: none;">Submit</button>
+                    </div>
+
+                    <div class="ethics-results" id="ethics-results" style="display: none;" role="alert" aria-live="polite">
+                        <div class="ethics-results-icon" id="ethics-results-icon"></div>
+                        <h3 id="ethics-results-title">Challenge Complete!</h3>
+                        <p id="ethics-results-message"></p>
+                        <div class="ethics-score">
+                            <span>Your Score:</span>
+                            <span class="ethics-score-value" id="ethics-score-value">0/4</span>
+                        </div>
+                        <button class="btn btn-secondary" id="ethics-retry-btn">Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Lesson Navigation -->
         <nav class="lesson-nav" aria-label="Lesson navigation">
             <div class="container">
@@ -3565,6 +3797,220 @@
             srOnlyStyle.textContent = '.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }';
             document.head.appendChild(srOnlyStyle);
 
+        })();
+    </script>
+
+    <!-- Ethics Scenario Quiz Script -->
+    <script>
+        (function() {
+            'use strict';
+
+            var ethicsScenarios = [
+                {
+                    id: 1,
+                    scenario: "A company wants to use AI to screen job applications. The AI was trained on data from the past 10 years of successful hires, which were predominantly male. What is the most ethical approach?",
+                    question: "What should the company do?",
+                    options: [
+                        { id: 'a', text: "Deploy the AI as-is since it reflects historical hiring success" },
+                        { id: 'b', text: "Audit the AI for bias, retrain with balanced data, and implement human oversight" },
+                        { id: 'c', text: "Only use the AI for male candidates to ensure accuracy" },
+                        { id: 'd', text: "Deploy the AI but ignore its recommendations" }
+                    ],
+                    correct: 'b'
+                },
+                {
+                    id: 2,
+                    scenario: "A healthcare provider is considering using AI to assist with diagnoses. The AI can analyze medical images faster than doctors but occasionally makes errors that a trained physician would catch.",
+                    question: "What is the most ethical implementation approach?",
+                    options: [
+                        { id: 'a', text: "Replace doctors with the AI to improve efficiency" },
+                        { id: 'b', text: "Use AI as a support tool with mandatory physician review of all recommendations" },
+                        { id: 'c', text: "Only use the AI for low-risk patients" },
+                        { id: 'd', text: "Avoid using AI in healthcare entirely" }
+                    ],
+                    correct: 'b'
+                },
+                {
+                    id: 3,
+                    scenario: "A social media company's AI content moderation system has been found to disproportionately flag and remove content from certain cultural groups, even when the content doesn't violate policies.",
+                    question: "What is the most responsible response?",
+                    options: [
+                        { id: 'a', text: "Continue using the AI as it reduces moderation costs" },
+                        { id: 'b', text: "Investigate the bias, diversify training data, add human review, and publish transparency reports" },
+                        { id: 'c', text: "Remove all content moderation to avoid bias" },
+                        { id: 'd', text: "Blame the training data and take no action" }
+                    ],
+                    correct: 'b'
+                },
+                {
+                    id: 4,
+                    scenario: "A school wants to use AI-powered proctoring software that monitors students through their webcams during exams. Some students have raised privacy concerns.",
+                    question: "What approach best balances exam integrity with student rights?",
+                    options: [
+                        { id: 'a', text: "Implement the AI without changes since exam integrity is paramount" },
+                        { id: 'b', text: "Abandon online exams entirely" },
+                        { id: 'c', text: "Use the AI but inform students, provide opt-out alternatives, minimize data collection, and delete footage promptly" },
+                        { id: 'd', text: "Collect as much data as possible for better accuracy" }
+                    ],
+                    correct: 'c'
+                }
+            ];
+
+            var ethicsCurrentQuestion = 0;
+            var ethicsUserAnswers = {};
+
+            var ethicsQuestionsContainer = document.getElementById('ethics-questions-container');
+            var ethicsProgressFill = document.getElementById('ethics-progress-fill');
+            var ethicsProgressText = document.getElementById('ethics-progress-text');
+            var ethicsPrevBtn = document.getElementById('ethics-prev-btn');
+            var ethicsNextBtn = document.getElementById('ethics-next-btn');
+            var ethicsSubmitBtn = document.getElementById('ethics-submit-btn');
+            var ethicsResults = document.getElementById('ethics-results');
+            var ethicsResultsIcon = document.getElementById('ethics-results-icon');
+            var ethicsResultsTitle = document.getElementById('ethics-results-title');
+            var ethicsResultsMessage = document.getElementById('ethics-results-message');
+            var ethicsScoreValue = document.getElementById('ethics-score-value');
+            var ethicsRetryBtn = document.getElementById('ethics-retry-btn');
+
+            function initEthicsQuiz() {
+                renderEthicsScenario();
+                updateEthicsProgress();
+
+                ethicsPrevBtn.addEventListener('click', function() {
+                    if (ethicsCurrentQuestion > 0) {
+                        ethicsCurrentQuestion--;
+                        renderEthicsScenario();
+                        updateEthicsProgress();
+                    }
+                });
+
+                ethicsNextBtn.addEventListener('click', function() {
+                    if (ethicsCurrentQuestion < ethicsScenarios.length - 1) {
+                        ethicsCurrentQuestion++;
+                        renderEthicsScenario();
+                        updateEthicsProgress();
+                    }
+                });
+
+                ethicsSubmitBtn.addEventListener('click', showEthicsResults);
+                ethicsRetryBtn.addEventListener('click', resetEthicsQuiz);
+            }
+
+            function renderEthicsScenario() {
+                var s = ethicsScenarios[ethicsCurrentQuestion];
+                var selected = ethicsUserAnswers[s.id];
+
+                ethicsQuestionsContainer.innerHTML =
+                    '<div class="ethics-scenario-card">' +
+                        '<span class="scenario-label">Scenario ' + (ethicsCurrentQuestion + 1) + '</span>' +
+                        '<p class="scenario-text">' + s.scenario + '</p>' +
+                        '<h4>' + s.question + '</h4>' +
+                        '<div class="ethics-options" role="radiogroup">' +
+                            s.options.map(function(opt) {
+                                return '<div class="ethics-option' + (selected === opt.id ? ' selected' : '') + '" ' +
+                                    'data-option="' + opt.id + '" role="radio" ' +
+                                    'aria-checked="' + (selected === opt.id) + '" tabindex="0">' +
+                                    '<input type="radio" name="ethics' + s.id + '" id="ethics' + s.id + '_' + opt.id + '" ' +
+                                    'value="' + opt.id + '"' + (selected === opt.id ? ' checked' : '') + '>' +
+                                    '<label for="ethics' + s.id + '_' + opt.id + '">' + opt.text + '</label>' +
+                                '</div>';
+                            }).join('') +
+                        '</div>' +
+                    '</div>';
+
+                document.querySelectorAll('.ethics-option').forEach(function(option) {
+                    option.addEventListener('click', handleEthicsOptionSelect);
+                    option.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleEthicsOptionSelect.call(this, e);
+                        }
+                    });
+                });
+            }
+
+            function handleEthicsOptionSelect() {
+                var optionId = this.getAttribute('data-option');
+                var scenarioId = ethicsScenarios[ethicsCurrentQuestion].id;
+                ethicsUserAnswers[scenarioId] = optionId;
+
+                document.querySelectorAll('.ethics-option').forEach(function(opt) {
+                    opt.classList.remove('selected');
+                    opt.setAttribute('aria-checked', 'false');
+                    opt.querySelector('input').checked = false;
+                });
+
+                this.classList.add('selected');
+                this.setAttribute('aria-checked', 'true');
+                this.querySelector('input').checked = true;
+            }
+
+            function updateEthicsProgress() {
+                var progress = ((ethicsCurrentQuestion + 1) / ethicsScenarios.length) * 100;
+                ethicsProgressFill.style.width = progress + '%';
+                ethicsProgressText.textContent = 'Scenario ' + (ethicsCurrentQuestion + 1) + ' of ' + ethicsScenarios.length;
+
+                ethicsPrevBtn.disabled = ethicsCurrentQuestion === 0;
+
+                if (ethicsCurrentQuestion === ethicsScenarios.length - 1) {
+                    ethicsNextBtn.style.display = 'none';
+                    ethicsSubmitBtn.style.display = 'inline-flex';
+                } else {
+                    ethicsNextBtn.style.display = 'inline-flex';
+                    ethicsSubmitBtn.style.display = 'none';
+                }
+            }
+
+            function showEthicsResults() {
+                var score = 0;
+                ethicsScenarios.forEach(function(s) {
+                    if (ethicsUserAnswers[s.id] === s.correct) {
+                        score++;
+                    }
+                });
+
+                var percentage = (score / ethicsScenarios.length) * 100;
+
+                document.querySelector('.ethics-progress').style.display = 'none';
+                ethicsQuestionsContainer.style.display = 'none';
+                document.querySelector('.ethics-nav').style.display = 'none';
+                ethicsResults.style.display = 'block';
+
+                ethicsScoreValue.textContent = score + '/' + ethicsScenarios.length;
+
+                if (percentage === 100) {
+                    ethicsResultsIcon.textContent = '🏆';
+                    ethicsResultsTitle.textContent = 'Ethics Champion!';
+                    ethicsResultsMessage.textContent = 'Outstanding! You demonstrate excellent understanding of AI ethics principles and responsible AI deployment.';
+                } else if (percentage >= 75) {
+                    ethicsResultsIcon.textContent = '🌟';
+                    ethicsResultsTitle.textContent = 'Great Ethical Reasoning!';
+                    ethicsResultsMessage.textContent = 'You have a strong grasp of AI ethics. Keep applying these principles in real-world situations.';
+                } else if (percentage >= 50) {
+                    ethicsResultsIcon.textContent = '👍';
+                    ethicsResultsTitle.textContent = 'Good Foundation!';
+                    ethicsResultsMessage.textContent = 'You understand some key concepts. Review the lesson on AI bias, transparency, and human oversight.';
+                } else {
+                    ethicsResultsIcon.textContent = '📚';
+                    ethicsResultsTitle.textContent = 'Keep Learning!';
+                    ethicsResultsMessage.textContent = 'AI ethics is complex. Review the lesson materials on bias, accountability, and responsible AI use.';
+                }
+            }
+
+            function resetEthicsQuiz() {
+                ethicsCurrentQuestion = 0;
+                ethicsUserAnswers = {};
+
+                document.querySelector('.ethics-progress').style.display = 'block';
+                ethicsQuestionsContainer.style.display = 'block';
+                document.querySelector('.ethics-nav').style.display = 'flex';
+                ethicsResults.style.display = 'none';
+
+                renderEthicsScenario();
+                updateEthicsProgress();
+            }
+
+            initEthicsQuiz();
         })();
     </script>
 </body>

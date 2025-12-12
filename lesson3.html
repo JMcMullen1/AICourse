@@ -2541,6 +2541,343 @@
                 font-size: 1rem;
             }
         }
+
+        /* ML Concepts Quiz Styles */
+        .ml-quiz-section {
+            margin: 4rem 0;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--taa-light-grey) 0%, #E8F5F5 100%);
+            border-radius: 16px;
+        }
+
+        .ml-quiz-section .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .ml-quiz-section .section-intro h2 {
+            margin-bottom: 0.75rem;
+            color: var(--taa-primary);
+        }
+
+        .ml-quiz-section .section-intro p {
+            color: var(--taa-text-light);
+        }
+
+        .ml-quiz-container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .ml-quiz-progress {
+            background-color: var(--taa-white);
+            border-radius: 20px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(27, 58, 95, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ml-quiz-progress-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--taa-secondary) 0%, #00D4A4 100%);
+            border-radius: 20px;
+            transition: width 0.4s ease;
+        }
+
+        .ml-quiz-progress-text {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-weight: 600;
+            color: var(--taa-primary);
+            padding: 0.5rem;
+        }
+
+        .ml-quiz-question {
+            background-color: var(--taa-white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .ml-quiz-question h4 {
+            font-size: 1.125rem;
+            color: var(--taa-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .ml-quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .ml-quiz-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            background-color: var(--taa-light-grey);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .ml-quiz-option:hover {
+            background-color: var(--taa-secondary-light);
+            border-color: var(--taa-secondary);
+        }
+
+        .ml-quiz-option.selected {
+            background-color: var(--taa-secondary-light);
+            border-color: var(--taa-secondary);
+        }
+
+        .ml-quiz-option.correct {
+            background-color: #E8F5E9;
+            border-color: #4CAF50;
+        }
+
+        .ml-quiz-option.incorrect {
+            background-color: #FFEBEE;
+            border-color: #F44336;
+        }
+
+        .ml-quiz-option input[type="radio"] {
+            margin-right: 1rem;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--taa-secondary);
+        }
+
+        .ml-quiz-option label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .ml-quiz-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .ml-quiz-results {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: var(--taa-white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.1);
+        }
+
+        .ml-quiz-results-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .ml-quiz-results h3 {
+            color: var(--taa-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .ml-quiz-results p {
+            color: var(--taa-text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .ml-quiz-score {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ml-quiz-score-label {
+            color: var(--taa-text-light);
+        }
+
+        .ml-quiz-score-value {
+            font-weight: 700;
+            color: var(--taa-secondary);
+        }
+
+        /* Pattern Matching Activity Styles */
+        .pattern-match-section {
+            margin: 4rem 0;
+            padding: 3rem;
+        }
+
+        .pattern-match-section .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .pattern-match-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pattern-match-concepts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: var(--taa-light-grey);
+            border-radius: 12px;
+            min-height: 70px;
+        }
+
+        .pattern-concept {
+            background-color: var(--taa-white);
+            border: 2px solid var(--taa-primary);
+            color: var(--taa-primary);
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .pattern-concept:hover {
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+            transform: translateY(-2px);
+        }
+
+        .pattern-concept.selected {
+            background-color: var(--taa-secondary);
+            border-color: var(--taa-secondary);
+            color: var(--taa-white);
+            transform: scale(1.05);
+        }
+
+        .pattern-concept.placed {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .pattern-concept.correct {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+            color: white;
+        }
+
+        .pattern-concept.incorrect {
+            background-color: #F44336;
+            border-color: #F44336;
+            color: white;
+        }
+
+        .pattern-definitions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .pattern-def-card {
+            background-color: var(--taa-white);
+            border: 3px dashed var(--taa-secondary);
+            border-radius: 12px;
+            padding: 1.25rem;
+            min-height: 140px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .pattern-def-card:hover,
+        .pattern-def-card.active {
+            background-color: var(--taa-secondary-light);
+            border-style: solid;
+        }
+
+        .pattern-def-card .def-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--taa-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .pattern-def-card .def-text {
+            font-size: 0.95rem;
+            color: var(--taa-text-light);
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .pattern-def-card .placed-concept {
+            margin-top: 0.75rem;
+        }
+
+        .pattern-def-card .placed-concept .pattern-concept {
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+        .pattern-match-feedback {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pattern-match-results {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--taa-secondary-light);
+            border-radius: 12px;
+        }
+
+        .pattern-match-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pattern-score-stars {
+            font-size: 2rem;
+        }
+
+        .pattern-score-text {
+            font-weight: 600;
+            color: var(--taa-primary);
+        }
+
+        @media (max-width: 768px) {
+            .ml-quiz-section,
+            .pattern-match-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .ml-quiz-nav {
+                flex-direction: column;
+            }
+
+            .ml-quiz-nav .btn {
+                width: 100%;
+            }
+
+            .pattern-definitions {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -3271,6 +3608,95 @@
             </div>
         </section>
 
+        <!-- ML Concepts Quiz Section -->
+        <section class="ml-quiz-section" role="region" aria-labelledby="ml-quiz-title">
+            <div class="container">
+                <div class="section-intro">
+                    <h2 id="ml-quiz-title">Test Your Understanding</h2>
+                    <p>Check how well you understand the key concepts of how AI and Machine Learning work.</p>
+                </div>
+
+                <div class="ml-quiz-container">
+                    <div class="ml-quiz-progress" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="5">
+                        <div class="ml-quiz-progress-fill" id="ml-quiz-progress-fill" style="width: 20%"></div>
+                        <span class="ml-quiz-progress-text" id="ml-quiz-progress-text">Question 1 of 5</span>
+                    </div>
+
+                    <div id="ml-quiz-questions-container">
+                        <!-- Questions will be inserted by JavaScript -->
+                    </div>
+
+                    <div class="ml-quiz-nav">
+                        <button class="btn btn-outline" id="ml-quiz-prev-btn" disabled>Previous</button>
+                        <button class="btn btn-primary" id="ml-quiz-next-btn">Next</button>
+                        <button class="btn btn-primary" id="ml-quiz-submit-btn" style="display: none;">Submit</button>
+                    </div>
+
+                    <div class="ml-quiz-results" id="ml-quiz-results" style="display: none;" role="alert" aria-live="polite">
+                        <div class="ml-quiz-results-icon" id="ml-quiz-results-icon"></div>
+                        <h3 id="ml-quiz-results-title">Quiz Complete!</h3>
+                        <p id="ml-quiz-results-message"></p>
+                        <div class="ml-quiz-score">
+                            <span class="ml-quiz-score-label">Your Score:</span>
+                            <span class="ml-quiz-score-value" id="ml-quiz-score-value">0/5</span>
+                        </div>
+                        <button class="btn btn-secondary" id="ml-quiz-retry-btn">Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pattern Matching Activity Section -->
+        <section class="pattern-match-section" role="region" aria-labelledby="pattern-match-title">
+            <div class="container">
+                <div class="section-intro">
+                    <h2 id="pattern-match-title">Concept Matching Challenge</h2>
+                    <p>Match each AI/ML concept with its correct definition. Click on a concept, then click the definition where it belongs.</p>
+                </div>
+
+                <div class="pattern-match-container">
+                    <div class="pattern-match-concepts" id="pattern-concepts" role="listbox" aria-label="Concepts to match">
+                        <!-- Concepts will be inserted by JavaScript -->
+                    </div>
+
+                    <div class="pattern-definitions" id="pattern-definitions">
+                        <div class="pattern-def-card" data-concept="training-data" role="button" tabindex="0">
+                            <span class="def-title">Definition 1</span>
+                            <p class="def-text">The collection of examples used to teach an AI system patterns and behaviors.</p>
+                            <div class="placed-concept"></div>
+                        </div>
+                        <div class="pattern-def-card" data-concept="algorithm" role="button" tabindex="0">
+                            <span class="def-title">Definition 2</span>
+                            <p class="def-text">A step-by-step procedure or set of rules that a computer follows to solve problems.</p>
+                            <div class="placed-concept"></div>
+                        </div>
+                        <div class="pattern-def-card" data-concept="neural-network" role="button" tabindex="0">
+                            <span class="def-title">Definition 3</span>
+                            <p class="def-text">A computing system inspired by the human brain, consisting of interconnected nodes that process information.</p>
+                            <div class="placed-concept"></div>
+                        </div>
+                        <div class="pattern-def-card" data-concept="prediction" role="button" tabindex="0">
+                            <span class="def-title">Definition 4</span>
+                            <p class="def-text">The output generated by an AI model when given new, unseen data to analyze.</p>
+                            <div class="placed-concept"></div>
+                        </div>
+                    </div>
+
+                    <div class="pattern-match-feedback" id="pattern-match-feedback" role="status" aria-live="polite">
+                        <button class="btn btn-primary" id="check-pattern-match">Check Answers</button>
+                        <button class="btn btn-outline" id="reset-pattern-match" style="display: none;">Reset Activity</button>
+                    </div>
+
+                    <div class="pattern-match-results" id="pattern-match-results" style="display: none;">
+                        <div class="pattern-match-score">
+                            <span class="pattern-score-stars" id="pattern-score-stars"></span>
+                            <span class="pattern-score-text" id="pattern-score-text"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Lesson Navigation -->
         <nav class="lesson-nav" aria-label="Lesson navigation">
             <div class="container">
@@ -3281,11 +3707,10 @@
                         </svg>
                         Previous: Narrow vs General AI
                     </a>
-                    <a href="index.html" class="nav-button btn-primary">
-                        Back to Course Home
+                    <a href="lesson4.html" class="nav-button btn-primary">
+                        Next: Generative AI
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9 22 9 12 15 12 15 22"/>
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </a>
                 </div>
@@ -3493,6 +3918,411 @@
                     }
                 });
             }
+        })();
+    </script>
+
+    <!-- ML Concepts Quiz Script -->
+    <script>
+        (function() {
+            'use strict';
+
+            const mlQuizQuestions = [
+                {
+                    id: 1,
+                    question: "What is the first step in training a machine learning model?",
+                    options: [
+                        { id: 'a', text: "Making predictions on new data" },
+                        { id: 'b', text: "Gathering and preparing training data" },
+                        { id: 'c', text: "Deploying the model to production" },
+                        { id: 'd', text: "Testing the model's accuracy" }
+                    ],
+                    correct: 'b'
+                },
+                {
+                    id: 2,
+                    question: "What does 'pattern recognition' mean in the context of AI?",
+                    options: [
+                        { id: 'a', text: "Creating decorative patterns in images" },
+                        { id: 'b', text: "Identifying regularities and structures in data" },
+                        { id: 'c', text: "Following a set sequence of operations" },
+                        { id: 'd', text: "Memorizing all training examples exactly" }
+                    ],
+                    correct: 'b'
+                },
+                {
+                    id: 3,
+                    question: "Why is high-quality training data important for AI systems?",
+                    options: [
+                        { id: 'a', text: "It makes the AI run faster" },
+                        { id: 'b', text: "Poor quality data leads to poor quality results (garbage in, garbage out)" },
+                        { id: 'c', text: "It reduces the cost of computing" },
+                        { id: 'd', text: "Quality doesn't matter as long as there's enough data" }
+                    ],
+                    correct: 'b'
+                },
+                {
+                    id: 4,
+                    question: "What is a neural network modeled after?",
+                    options: [
+                        { id: 'a', text: "Traditional computer circuits" },
+                        { id: 'b', text: "The structure and function of the human brain" },
+                        { id: 'c', text: "Social media networks" },
+                        { id: 'd', text: "Internet routing systems" }
+                    ],
+                    correct: 'b'
+                },
+                {
+                    id: 5,
+                    question: "What happens during the 'iteration' phase of machine learning?",
+                    options: [
+                        { id: 'a', text: "The AI permanently saves all data" },
+                        { id: 'b', text: "The model repeatedly adjusts to reduce errors and improve accuracy" },
+                        { id: 'c', text: "The training data is deleted" },
+                        { id: 'd', text: "The AI creates new training examples" }
+                    ],
+                    correct: 'b'
+                }
+            ];
+
+            let mlCurrentQuestion = 0;
+            let mlUserAnswers = {};
+
+            const mlQuestionsContainer = document.getElementById('ml-quiz-questions-container');
+            const mlProgressFill = document.getElementById('ml-quiz-progress-fill');
+            const mlProgressText = document.getElementById('ml-quiz-progress-text');
+            const mlPrevBtn = document.getElementById('ml-quiz-prev-btn');
+            const mlNextBtn = document.getElementById('ml-quiz-next-btn');
+            const mlSubmitBtn = document.getElementById('ml-quiz-submit-btn');
+            const mlResults = document.getElementById('ml-quiz-results');
+            const mlResultsIcon = document.getElementById('ml-quiz-results-icon');
+            const mlResultsTitle = document.getElementById('ml-quiz-results-title');
+            const mlResultsMessage = document.getElementById('ml-quiz-results-message');
+            const mlScoreValue = document.getElementById('ml-quiz-score-value');
+            const mlRetryBtn = document.getElementById('ml-quiz-retry-btn');
+
+            function initMLQuiz() {
+                renderMLQuestion();
+                updateMLProgress();
+
+                mlPrevBtn.addEventListener('click', function() {
+                    if (mlCurrentQuestion > 0) {
+                        mlCurrentQuestion--;
+                        renderMLQuestion();
+                        updateMLProgress();
+                    }
+                });
+
+                mlNextBtn.addEventListener('click', function() {
+                    if (mlCurrentQuestion < mlQuizQuestions.length - 1) {
+                        mlCurrentQuestion++;
+                        renderMLQuestion();
+                        updateMLProgress();
+                    }
+                });
+
+                mlSubmitBtn.addEventListener('click', showMLResults);
+                mlRetryBtn.addEventListener('click', resetMLQuiz);
+            }
+
+            function renderMLQuestion() {
+                var q = mlQuizQuestions[mlCurrentQuestion];
+                var selected = mlUserAnswers[q.id];
+
+                mlQuestionsContainer.innerHTML =
+                    '<div class="ml-quiz-question">' +
+                        '<h4>' + (mlCurrentQuestion + 1) + '. ' + q.question + '</h4>' +
+                        '<div class="ml-quiz-options" role="radiogroup">' +
+                            q.options.map(function(opt) {
+                                return '<div class="ml-quiz-option' + (selected === opt.id ? ' selected' : '') + '" ' +
+                                    'data-option="' + opt.id + '" role="radio" ' +
+                                    'aria-checked="' + (selected === opt.id) + '" tabindex="0">' +
+                                    '<input type="radio" name="mlq' + q.id + '" id="mlq' + q.id + '_' + opt.id + '" ' +
+                                    'value="' + opt.id + '"' + (selected === opt.id ? ' checked' : '') + '>' +
+                                    '<label for="mlq' + q.id + '_' + opt.id + '">' + opt.text + '</label>' +
+                                '</div>';
+                            }).join('') +
+                        '</div>' +
+                    '</div>';
+
+                document.querySelectorAll('.ml-quiz-option').forEach(function(option) {
+                    option.addEventListener('click', handleMLOptionSelect);
+                    option.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleMLOptionSelect.call(this, e);
+                        }
+                    });
+                });
+            }
+
+            function handleMLOptionSelect() {
+                var optionId = this.getAttribute('data-option');
+                var questionId = mlQuizQuestions[mlCurrentQuestion].id;
+                mlUserAnswers[questionId] = optionId;
+
+                document.querySelectorAll('.ml-quiz-option').forEach(function(opt) {
+                    opt.classList.remove('selected');
+                    opt.setAttribute('aria-checked', 'false');
+                    opt.querySelector('input').checked = false;
+                });
+
+                this.classList.add('selected');
+                this.setAttribute('aria-checked', 'true');
+                this.querySelector('input').checked = true;
+            }
+
+            function updateMLProgress() {
+                var progress = ((mlCurrentQuestion + 1) / mlQuizQuestions.length) * 100;
+                mlProgressFill.style.width = progress + '%';
+                mlProgressText.textContent = 'Question ' + (mlCurrentQuestion + 1) + ' of ' + mlQuizQuestions.length;
+
+                mlPrevBtn.disabled = mlCurrentQuestion === 0;
+
+                if (mlCurrentQuestion === mlQuizQuestions.length - 1) {
+                    mlNextBtn.style.display = 'none';
+                    mlSubmitBtn.style.display = 'inline-flex';
+                } else {
+                    mlNextBtn.style.display = 'inline-flex';
+                    mlSubmitBtn.style.display = 'none';
+                }
+            }
+
+            function showMLResults() {
+                var score = 0;
+                mlQuizQuestions.forEach(function(q) {
+                    if (mlUserAnswers[q.id] === q.correct) {
+                        score++;
+                    }
+                });
+
+                var percentage = (score / mlQuizQuestions.length) * 100;
+
+                document.querySelector('.ml-quiz-progress').style.display = 'none';
+                mlQuestionsContainer.style.display = 'none';
+                document.querySelector('.ml-quiz-nav').style.display = 'none';
+                mlResults.style.display = 'block';
+
+                mlScoreValue.textContent = score + '/' + mlQuizQuestions.length;
+
+                if (percentage === 100) {
+                    mlResultsIcon.textContent = '🏆';
+                    mlResultsTitle.textContent = 'Perfect Score!';
+                    mlResultsMessage.textContent = 'Outstanding! You have mastered the fundamentals of how AI works.';
+                } else if (percentage >= 80) {
+                    mlResultsIcon.textContent = '🌟';
+                    mlResultsTitle.textContent = 'Great Job!';
+                    mlResultsMessage.textContent = 'Excellent understanding of machine learning concepts!';
+                } else if (percentage >= 60) {
+                    mlResultsIcon.textContent = '👍';
+                    mlResultsTitle.textContent = 'Good Effort!';
+                    mlResultsMessage.textContent = 'Review the lesson to strengthen your understanding.';
+                } else {
+                    mlResultsIcon.textContent = '📚';
+                    mlResultsTitle.textContent = 'Keep Learning!';
+                    mlResultsMessage.textContent = 'Take another look at how AI works and try again.';
+                }
+            }
+
+            function resetMLQuiz() {
+                mlCurrentQuestion = 0;
+                mlUserAnswers = {};
+
+                document.querySelector('.ml-quiz-progress').style.display = 'block';
+                mlQuestionsContainer.style.display = 'block';
+                document.querySelector('.ml-quiz-nav').style.display = 'flex';
+                mlResults.style.display = 'none';
+
+                renderMLQuestion();
+                updateMLProgress();
+            }
+
+            initMLQuiz();
+        })();
+    </script>
+
+    <!-- Pattern Matching Activity Script -->
+    <script>
+        (function() {
+            'use strict';
+
+            var patternConcepts = [
+                { id: 'training-data', text: 'Training Data' },
+                { id: 'algorithm', text: 'Algorithm' },
+                { id: 'neural-network', text: 'Neural Network' },
+                { id: 'prediction', text: 'Prediction' }
+            ];
+
+            var selectedPatternConcept = null;
+            var patternPlacements = {};
+            var patternChecked = false;
+
+            var conceptsContainer = document.getElementById('pattern-concepts');
+            var checkPatternBtn = document.getElementById('check-pattern-match');
+            var resetPatternBtn = document.getElementById('reset-pattern-match');
+            var patternResults = document.getElementById('pattern-match-results');
+            var patternScoreStars = document.getElementById('pattern-score-stars');
+            var patternScoreText = document.getElementById('pattern-score-text');
+            var defCards = document.querySelectorAll('.pattern-def-card');
+
+            function shuffleArray(array) {
+                var shuffled = array.slice();
+                for (var i = shuffled.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var temp = shuffled[i];
+                    shuffled[i] = shuffled[j];
+                    shuffled[j] = temp;
+                }
+                return shuffled;
+            }
+
+            function renderPatternConcepts() {
+                var shuffled = shuffleArray(patternConcepts);
+                conceptsContainer.innerHTML = shuffled.map(function(concept) {
+                    return '<div class="pattern-concept" data-id="' + concept.id + '" ' +
+                        'role="option" tabindex="0" aria-selected="false">' +
+                        concept.text +
+                        '</div>';
+                }).join('');
+
+                document.querySelectorAll('#pattern-concepts .pattern-concept').forEach(function(item) {
+                    item.addEventListener('click', handlePatternConceptClick);
+                    item.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handlePatternConceptClick.call(this, e);
+                        }
+                    });
+                });
+            }
+
+            function handlePatternConceptClick() {
+                if (patternChecked) return;
+
+                document.querySelectorAll('.pattern-concept.selected').forEach(function(item) {
+                    item.classList.remove('selected');
+                    item.setAttribute('aria-selected', 'false');
+                });
+
+                this.classList.add('selected');
+                this.setAttribute('aria-selected', 'true');
+                selectedPatternConcept = {
+                    id: this.getAttribute('data-id'),
+                    text: this.textContent.trim(),
+                    element: this
+                };
+            }
+
+            function handleDefCardClick() {
+                if (patternChecked || !selectedPatternConcept) return;
+
+                var conceptId = this.getAttribute('data-concept');
+                var placedContainer = this.querySelector('.placed-concept');
+
+                // Remove any existing placed concept from this card
+                var existing = placedContainer.querySelector('.pattern-concept');
+                if (existing) {
+                    var existingId = existing.getAttribute('data-id');
+                    delete patternPlacements[existingId];
+                    var originalConcept = document.querySelector('#pattern-concepts .pattern-concept[data-id="' + existingId + '"]');
+                    if (originalConcept) {
+                        originalConcept.classList.remove('placed');
+                    }
+                    existing.remove();
+                }
+
+                // Create placed concept
+                var placedConcept = document.createElement('div');
+                placedConcept.className = 'pattern-concept';
+                placedConcept.setAttribute('data-id', selectedPatternConcept.id);
+                placedConcept.textContent = selectedPatternConcept.text;
+                placedConcept.setAttribute('tabindex', '0');
+                placedConcept.addEventListener('click', function() {
+                    removeFromDefCard(this, conceptId);
+                });
+
+                placedContainer.appendChild(placedConcept);
+                patternPlacements[selectedPatternConcept.id] = conceptId;
+
+                selectedPatternConcept.element.classList.add('placed');
+                selectedPatternConcept.element.classList.remove('selected');
+                selectedPatternConcept = null;
+            }
+
+            function removeFromDefCard(item, fromDef) {
+                if (patternChecked) return;
+
+                var itemId = item.getAttribute('data-id');
+                delete patternPlacements[itemId];
+                item.remove();
+
+                var originalConcept = document.querySelector('#pattern-concepts .pattern-concept[data-id="' + itemId + '"]');
+                if (originalConcept) {
+                    originalConcept.classList.remove('placed');
+                }
+            }
+
+            function checkPatternAnswers() {
+                patternChecked = true;
+                var correct = 0;
+
+                patternConcepts.forEach(function(concept) {
+                    var placedDef = patternPlacements[concept.id];
+                    var placedElement = document.querySelector('.placed-concept .pattern-concept[data-id="' + concept.id + '"]');
+
+                    if (placedElement) {
+                        if (placedDef === concept.id) {
+                            placedElement.classList.add('correct');
+                            correct++;
+                        } else {
+                            placedElement.classList.add('incorrect');
+                        }
+                    }
+                });
+
+                var total = patternConcepts.length;
+                var stars = correct === total ? '⭐⭐⭐' :
+                           correct >= total * 0.75 ? '⭐⭐' :
+                           correct >= total * 0.5 ? '⭐' : '';
+
+                patternScoreStars.textContent = stars || '📚';
+                patternScoreText.textContent = 'You matched ' + correct + ' out of ' + total + ' correctly!';
+
+                patternResults.style.display = 'block';
+                checkPatternBtn.style.display = 'none';
+                resetPatternBtn.style.display = 'inline-flex';
+            }
+
+            function resetPatternActivity() {
+                patternChecked = false;
+                patternPlacements = {};
+                selectedPatternConcept = null;
+
+                document.querySelectorAll('.placed-concept').forEach(function(container) {
+                    container.innerHTML = '';
+                });
+
+                renderPatternConcepts();
+
+                patternResults.style.display = 'none';
+                checkPatternBtn.style.display = 'inline-flex';
+                resetPatternBtn.style.display = 'none';
+            }
+
+            // Initialize
+            renderPatternConcepts();
+
+            defCards.forEach(function(card) {
+                card.addEventListener('click', handleDefCardClick);
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleDefCardClick.call(this, e);
+                    }
+                });
+            });
+
+            checkPatternBtn.addEventListener('click', checkPatternAnswers);
+            resetPatternBtn.addEventListener('click', resetPatternActivity);
         })();
     </script>
 </body>
