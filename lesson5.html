@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lesson 5: Ethics & Oversight - Learn about bias in AI systems and the importance of GDPR for protecting personal data and privacy rights.">
+    <title>Lesson 5: Ethics & Oversight | TAA Course</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* TAA Colour Palette */
+        :root {
+            --taa-primary: #1B3A5F;
+            --taa-primary-dark: #122840;
+            --taa-secondary: #00A5B5;
+            --taa-secondary-light: #E6F7F8;
+            --taa-white: #FFFFFF;
+            --taa-light-grey: #F5F7FA;
+            --taa-text: #333333;
+            --taa-text-light: #666666;
+            --taa-ethics-color: #D97706;
+            --taa-ethics-light: #FEF3C7;
+            --taa-bias-color: #DC2626;
+            --taa-gdpr-color: #2563EB;
+        }
+
+        /* Reset and Base Styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--taa-text);
+            background-color: var(--taa-white);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: var(--taa-primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+        }
+
+        h3 {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--taa-white);
+            box-shadow: 0 2px 10px rgba(27, 58, 95, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--taa-primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--taa-secondary);
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--taa-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--taa-secondary);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--taa-secondary);
+            color: var(--taa-white);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: #008A99;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 165, 181, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            background-color: var(--taa-primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, var(--taa-primary) 0%, var(--taa-primary-dark) 100%);
+            padding: 4rem 0;
+            text-align: center;
+            color: var(--taa-white);
+        }
+
+        .page-hero h1 {
+            color: var(--taa-white);
+            margin-bottom: 1rem;
+        }
+
+        .page-hero .lesson-badge {
+            display: inline-block;
+            background-color: var(--taa-ethics-color);
+            color: var(--taa-white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+            font-size: 1.125rem;
+        }
+
+        /* Main Content Section */
+        .lesson-content {
+            padding: 4rem 0;
+        }
+
+        .content-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-intro h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-intro p {
+            color: var(--taa-text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Ethics Section */
+        .ethics-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Discussion Cards */
+        .discussion-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .discussion-card {
+            background: var(--taa-white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .discussion-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(27, 58, 95, 0.12);
+        }
+
+        .discussion-card.bias-card:hover {
+            border-color: var(--taa-bias-color);
+        }
+
+        .discussion-card.gdpr-card:hover {
+            border-color: var(--taa-gdpr-color);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon.bias-icon {
+            background: linear-gradient(135deg, var(--taa-bias-color) 0%, #991B1B 100%);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.35);
+        }
+
+        .card-icon.gdpr-icon {
+            background: linear-gradient(135deg, var(--taa-gdpr-color) 0%, #1D4ED8 100%);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35);
+        }
+
+        .card-icon svg {
+            color: var(--taa-white);
+        }
+
+        .discussion-card h3 {
+            color: var(--taa-primary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .discussion-card p {
+            color: var(--taa-text);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Key Points Box */
+        .key-points-box {
+            background: linear-gradient(135deg, var(--taa-ethics-light) 0%, #FFFBEB 100%);
+            border-left: 4px solid var(--taa-ethics-color);
+            padding: 2rem;
+            border-radius: 0 16px 16px 0;
+            margin-bottom: 3rem;
+        }
+
+        .key-points-box h4 {
+            color: var(--taa-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .key-points-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background-color: var(--taa-ethics-color);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .key-points-icon svg {
+            color: var(--taa-white);
+        }
+
+        .key-points-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .key-points-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(217, 119, 6, 0.15);
+            color: var(--taa-text);
+            line-height: 1.6;
+        }
+
+        .key-points-list li:last-child {
+            border-bottom: none;
+        }
+
+        .key-points-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: var(--taa-ethics-color);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+        }
+
+        /* Discussion Questions Section */
+        .questions-section {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(27, 58, 95, 0.1);
+        }
+
+        .questions-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .questions-intro h3 {
+            color: var(--taa-primary);
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .questions-intro p {
+            color: var(--taa-text-light);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .question-card {
+            background: var(--taa-white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .question-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--taa-ethics-color), var(--taa-secondary));
+        }
+
+        .question-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--taa-ethics-color) 0%, #B45309 100%);
+            color: var(--taa-white);
+            font-size: 1.125rem;
+            font-weight: 700;
+            border-radius: 50%;
+            margin-bottom: 1.25rem;
+        }
+
+        .question-card h4 {
+            color: var(--taa-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .question-card p {
+            color: var(--taa-text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .think-prompt {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(27, 58, 95, 0.1);
+            color: var(--taa-ethics-color);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .think-prompt svg {
+            flex-shrink: 0;
+        }
+
+        /* Summary Box */
+        .summary-box {
+            background: linear-gradient(135deg, var(--taa-secondary-light) 0%, #F0FDFA 100%);
+            border-left: 4px solid var(--taa-secondary);
+            padding: 2rem;
+            border-radius: 0 16px 16px 0;
+            margin-top: 3rem;
+        }
+
+        .summary-box h4 {
+            color: var(--taa-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .summary-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background-color: var(--taa-secondary);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .summary-icon svg {
+            color: var(--taa-white);
+        }
+
+        .summary-box p {
+            color: var(--taa-text);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* Navigation Footer */
+        .lesson-nav {
+            padding: 3rem 0;
+            background-color: var(--taa-light-grey);
+        }
+
+        .lesson-nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--taa-primary);
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background-color: var(--taa-white);
+            box-shadow: 0 2px 10px rgba(27, 58, 95, 0.08);
+        }
+
+        .nav-button:hover {
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--taa-primary-dark);
+            color: var(--taa-white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 0 0 8px 8px;
+            z-index: 1000;
+            transition: top 0.3s ease;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--taa-secondary);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 3rem 0;
+            }
+
+            .lesson-content {
+                padding: 3rem 0;
+            }
+
+            .discussion-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .questions-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .discussion-card {
+                padding: 1.5rem;
+            }
+
+            .question-card {
+                padding: 1.5rem;
+            }
+
+            .lesson-nav-content {
+                flex-direction: column;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .discussion-card {
+                padding: 1.25rem;
+            }
+
+            .question-card {
+                padding: 1.25rem;
+            }
+
+            .card-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .key-points-box {
+                padding: 1.5rem;
+            }
+
+            .summary-box {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">TAA<span>Learning</span></a>
+                <nav class="nav-links" aria-label="Main navigation">
+                    <a href="index.html">Home</a>
+                    <a href="lesson1.html">Lesson 1</a>
+                    <a href="lesson2.html">Lesson 2</a>
+                    <a href="lesson3.html">Lesson 3</a>
+                    <a href="lesson4.html">Lesson 4</a>
+                    <a href="lesson5.html" aria-current="page">Lesson 5</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <span class="lesson-badge">Lesson 5</span>
+                <h1>Ethics &amp; Oversight</h1>
+                <p>Explore the critical importance of examining bias in AI systems and understanding how GDPR protects personal data and privacy rights in the digital age.</p>
+            </div>
+        </section>
+
+        <!-- Ethics Discussion Section -->
+        <section class="lesson-content" aria-labelledby="ethics-heading">
+            <div class="container">
+                <div class="ethics-section">
+                    <!-- Section Introduction -->
+                    <div class="section-intro">
+                        <h2 id="ethics-heading">Bias and GDPR</h2>
+                        <p>As AI systems become more prevalent in our daily lives and business operations, understanding the ethical implications and regulatory frameworks becomes essential for responsible implementation.</p>
+                    </div>
+
+                    <!-- Discussion Cards -->
+                    <div class="discussion-grid">
+                        <!-- Bias in AI Card -->
+                        <div class="discussion-card bias-card">
+                            <div class="card-icon bias-icon" aria-hidden="true">
+                                <!-- Scale/Balance icon for fairness -->
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 3v18"/>
+                                    <path d="M16 7l-4-4-4 4"/>
+                                    <path d="M5 14l3.5 3.5L12 14"/>
+                                    <path d="M19 14l-3.5 3.5L12 14"/>
+                                    <circle cx="5" cy="17.5" r="2.5"/>
+                                    <circle cx="19" cy="17.5" r="2.5"/>
+                                </svg>
+                            </div>
+                            <h3>Examining Bias in AI Systems</h3>
+                            <p>Examining bias in AI systems is crucial for ensuring fairness and equity in automated decision-making. AI models learn from historical data, which may contain existing societal biases &mdash; whether related to gender, race, age, or socioeconomic factors. When these biases are embedded in AI systems used for hiring, lending, healthcare, or project management, they can perpetuate and even amplify unfair treatment of certain groups. By actively identifying and addressing bias, organisations can build AI systems that make more equitable decisions and earn the trust of all stakeholders.</p>
+                        </div>
+
+                        <!-- GDPR Card -->
+                        <div class="discussion-card gdpr-card">
+                            <div class="card-icon gdpr-icon" aria-hidden="true">
+                                <!-- Shield/Lock icon for privacy -->
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <path d="M9 12l2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <h3>GDPR and Data Privacy</h3>
+                            <p>The General Data Protection Regulation (GDPR) is vital for protecting personal data and privacy rights in the digital age. As AI systems process vast amounts of personal information to deliver their capabilities, GDPR establishes clear rules about how this data must be collected, stored, and used. It gives individuals control over their personal data, including the right to know how their information is being processed and the right to have it deleted. For organisations deploying AI, GDPR compliance ensures they handle personal data responsibly, maintain transparency about automated decision-making, and respect individual privacy rights.</p>
+                        </div>
+                    </div>
+
+                    <!-- Key Points Box -->
+                    <div class="key-points-box">
+                        <h4>
+                            <span class="key-points-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5"/>
+                                    <path d="M2 12l10 5 10-5"/>
+                                </svg>
+                            </span>
+                            Key Considerations for AI Ethics
+                        </h4>
+                        <ul class="key-points-list">
+                            <li>AI systems should be regularly audited for bias across different demographic groups</li>
+                            <li>Transparency in AI decision-making helps build trust and enables accountability</li>
+                            <li>Data used to train AI must be collected with proper consent and handled securely</li>
+                            <li>Individuals have the right to understand and challenge automated decisions that affect them</li>
+                            <li>Organisations must balance innovation with responsible data stewardship</li>
+                        </ul>
+                    </div>
+
+                    <!-- Discussion Questions Section -->
+                    <div class="questions-section" id="discussion-questions">
+                        <div class="questions-intro">
+                            <h3>Discussion Questions</h3>
+                            <p>Reflect on these questions to deepen your understanding of how bias and privacy considerations affect AI implementation in real-world scenarios.</p>
+                        </div>
+
+                        <div class="questions-grid">
+                            <!-- Question 1 -->
+                            <div class="question-card">
+                                <span class="question-number" aria-hidden="true">1</span>
+                                <h4>How might bias appear in project management tools that use AI?</h4>
+                                <p>Consider how AI-powered project management software might make recommendations about task assignments, resource allocation, or performance evaluations. What types of historical data could introduce bias? How might this affect team members from different backgrounds or with different working styles?</p>
+                                <div class="think-prompt">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                        <path d="M12 17h.01"/>
+                                    </svg>
+                                    Think about your own workplace experiences
+                                </div>
+                            </div>
+
+                            <!-- Question 2 -->
+                            <div class="question-card">
+                                <span class="question-number" aria-hidden="true">2</span>
+                                <h4>How might privacy regulations like GDPR affect AI adoption in your organisation?</h4>
+                                <p>Think about the AI tools your organisation uses or might consider adopting. What personal data do these tools require? How would GDPR requirements for consent, data minimisation, and the right to explanation influence your approach to implementing AI solutions?</p>
+                                <div class="think-prompt">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                        <path d="M12 17h.01"/>
+                                    </svg>
+                                    Consider both opportunities and constraints
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary Box -->
+                    <div class="summary-box">
+                        <h4>
+                            <span class="summary-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 11 12 14 22 4"/>
+                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                                </svg>
+                            </span>
+                            Key Takeaway
+                        </h4>
+                        <p>Understanding bias and data privacy regulations like GDPR is not just about compliance &mdash; it's about building AI systems that are fair, transparent, and trustworthy. As AI continues to transform how we work and make decisions, thoughtful consideration of these ethical dimensions ensures that the benefits of AI are shared equitably while protecting individual rights. By engaging with these questions, you're developing the critical thinking skills needed to navigate the complex landscape of AI ethics in your professional practice.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson Navigation -->
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <div class="container">
+                <div class="lesson-nav-content">
+                    <a href="lesson4.html" class="nav-button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        Previous: Generative AI
+                    </a>
+                    <a href="index.html" class="nav-button btn-primary">
+                        Back to Course Home
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 TAA Learning. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
