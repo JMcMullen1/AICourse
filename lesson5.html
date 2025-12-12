@@ -98,10 +98,18 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--taa-primary);
             text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
         }
 
         .logo span {
@@ -2299,7 +2307,10 @@
     <header role="banner">
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">TAA<span>Learning</span></a>
+                <a href="index.html" class="logo" aria-label="TAA Learning Home">
+                    <img src="https://i.postimg.cc/ZqwqVKdy/TAA-logo-WEB-with-Strap-V2-2.png" alt="TAA Logo">
+                    TAA<span>Learning</span>
+                </a>
                 <nav class="nav-links" aria-label="Main navigation">
                     <a href="index.html">Home</a>
                     <a href="lesson1.html">Lesson 1</a>
