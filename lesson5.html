@@ -555,6 +555,174 @@
             outline-offset: 2px;
         }
 
+        /* Warning Callout Box */
+        .warning-callout {
+            background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+            border: 2px solid #DC2626;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .warning-callout::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #DC2626, #F59E0B);
+        }
+
+        .warning-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .warning-icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+
+        .warning-icon-container svg {
+            color: var(--taa-white);
+        }
+
+        .warning-header-text h3 {
+            color: #991B1B;
+            font-size: 1.35rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .warning-badge {
+            display: inline-block;
+            background-color: #DC2626;
+            color: var(--taa-white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .warning-header-text p {
+            color: var(--taa-text);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .warning-content {
+            background: var(--taa-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .warning-content p {
+            color: var(--taa-text);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .warning-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .warning-content strong {
+            color: #991B1B;
+        }
+
+        .warning-tips {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid #F59E0B;
+        }
+
+        .warning-tips h4 {
+            color: #92400E;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .warning-tips-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background-color: #F59E0B;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .warning-tips-icon svg {
+            color: var(--taa-white);
+        }
+
+        .warning-tips-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .warning-tips-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            color: var(--taa-text);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
+        }
+
+        .warning-tips-list li svg {
+            color: #059669;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .warning-tips-list {
+                grid-template-columns: 1fr;
+            }
+
+            .warning-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .warning-header-text h3 {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
         /* Resource Consumption Section */
         .resource-section {
             background: linear-gradient(135deg, var(--taa-resource-light) 0%, #ECFDF5 100%);
@@ -1315,6 +1483,82 @@
                         <span class="resource-badge">Sustainability</span>
                         <h2 id="resource-heading">The Hidden Cost of AI</h2>
                         <p>Generative AI isn't "free." Behind every AI response lies a significant consumption of hardware, electricity, and water resources. Understanding these costs helps us make more sustainable choices when using AI technology.</p>
+                    </div>
+
+                    <!-- Warning Callout Box -->
+                    <div class="warning-callout" role="alert" aria-labelledby="warning-heading">
+                        <div class="warning-header">
+                            <div class="warning-icon-container" aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                    <line x1="12" y1="9" x2="12" y2="13"/>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                </svg>
+                            </div>
+                            <div class="warning-header-text">
+                                <h3 id="warning-heading">
+                                    <span class="warning-badge">Important</span>
+                                    AI Has Real-World Costs
+                                </h3>
+                                <p>Using generative AI like ChatGPT isn't without consequence &mdash; it has ongoing physical, financial, and environmental costs that are often invisible to users.</p>
+                            </div>
+                        </div>
+
+                        <div class="warning-content">
+                            <p><strong>Every query you send triggers a complex chain of processes</strong> across large-scale data centre infrastructure. Your prompt travels to servers housing thousands of specialised GPUs, which consume substantial electricity to process your request. These processors generate significant heat, requiring extensive cooling systems that use both energy and water.</p>
+                            <p>The financial cost of running AI services is substantial &mdash; from the initial billions invested in hardware to the ongoing operational expenses of electricity, cooling, maintenance, and staffing. While these costs are absorbed by service providers, they represent real resource consumption that impacts our environment and communities.</p>
+                        </div>
+
+                        <div class="warning-tips">
+                            <h4>
+                                <span class="warning-tips-icon" aria-hidden="true">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                        <path d="M2 17l10 5 10-5"/>
+                                        <path d="M2 12l10 5 10-5"/>
+                                    </svg>
+                                </span>
+                                Tips for Reducing Unnecessary AI Use
+                            </h4>
+                            <ul class="warning-tips-list">
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                    <span><strong>Batch your questions</strong> &mdash; combine related queries into a single prompt</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                    <span><strong>Avoid redundant prompts</strong> &mdash; refine your question before sending</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                    <span><strong>Be specific and concise</strong> &mdash; clear prompts reduce back-and-forth</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                    <span><strong>Consider alternatives</strong> &mdash; use search engines for simple lookups</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                    <span><strong>Save useful responses</strong> &mdash; avoid re-asking the same questions</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                    <span><strong>Question necessity</strong> &mdash; could this task be done without AI?</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                     <!-- Infographic Cards Grid -->
