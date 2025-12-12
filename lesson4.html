@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lesson 4: Generative AI - Learn how generative AI creates original content by learning patterns from existing data, including text, images, music, and project plans.">
+    <title>Lesson 4: Generative AI | TAA Course</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* TAA Colour Palette */
+        :root {
+            --taa-primary: #1B3A5F;
+            --taa-primary-dark: #122840;
+            --taa-secondary: #00A5B5;
+            --taa-secondary-light: #E6F7F8;
+            --taa-white: #FFFFFF;
+            --taa-light-grey: #F5F7FA;
+            --taa-text: #333333;
+            --taa-text-light: #666666;
+            --taa-generative-color: #8B5CF6;
+            --taa-content-color: #F59E0B;
+            --taa-text-color: #3B82F6;
+            --taa-image-color: #EC4899;
+            --taa-plan-color: #10B981;
+        }
+
+        /* Reset and Base Styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--taa-text);
+            background-color: var(--taa-white);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: var(--taa-primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+        }
+
+        h3 {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--taa-white);
+            box-shadow: 0 2px 10px rgba(27, 58, 95, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--taa-primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--taa-secondary);
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--taa-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--taa-secondary);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--taa-secondary);
+            color: var(--taa-white);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: #008A99;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 165, 181, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            background-color: var(--taa-primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, var(--taa-primary) 0%, var(--taa-primary-dark) 100%);
+            padding: 4rem 0;
+            text-align: center;
+            color: var(--taa-white);
+        }
+
+        .page-hero h1 {
+            color: var(--taa-white);
+            margin-bottom: 1rem;
+        }
+
+        .page-hero .lesson-badge {
+            display: inline-block;
+            background-color: var(--taa-generative-color);
+            color: var(--taa-white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+            font-size: 1.125rem;
+        }
+
+        /* Main Content Section */
+        .lesson-content {
+            padding: 4rem 0;
+        }
+
+        .content-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .section-intro h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-intro p {
+            color: var(--taa-text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Generative AI Section */
+        .generative-ai-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 3rem;
+        }
+
+        .intro-text p {
+            font-size: 1.125rem;
+            color: var(--taa-text);
+            line-height: 1.8;
+        }
+
+        /* Main Concept Card */
+        .concept-card {
+            background: linear-gradient(135deg, var(--taa-light-grey) 0%, var(--taa-white) 100%);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 8px 40px rgba(27, 58, 95, 0.1);
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--taa-generative-color), var(--taa-secondary));
+        }
+
+        .concept-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .concept-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--taa-generative-color) 0%, #6D28D9 100%);
+            box-shadow: 0 12px 35px rgba(139, 92, 246, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            animation: pulse-icon 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-icon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .concept-icon svg {
+            color: var(--taa-white);
+        }
+
+        .concept-title-area h3 {
+            font-size: 1.5rem;
+            color: var(--taa-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .concept-title-area p {
+            color: var(--taa-text-light);
+            font-size: 1rem;
+        }
+
+        .concept-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--taa-text);
+        }
+
+        .concept-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .concept-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--taa-secondary-light) 0%, #F0FDFA 100%);
+            border-left: 4px solid var(--taa-secondary);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--taa-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--taa-text);
+            line-height: 1.7;
+        }
+
+        .highlight-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background-color: var(--taa-secondary);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .highlight-icon svg {
+            color: var(--taa-white);
+        }
+
+        /* Content Types Showcase */
+        .content-types-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(27, 58, 95, 0.1);
+        }
+
+        .content-types-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .content-types-intro h3 {
+            color: var(--taa-primary);
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .content-types-intro p {
+            color: var(--taa-text-light);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Content Types Grid */
+        .content-types-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .content-type-card {
+            background: var(--taa-white);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .content-type-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(27, 58, 95, 0.15);
+        }
+
+        .content-type-card.text-card:hover {
+            border-color: var(--taa-text-color);
+        }
+
+        .content-type-card.visual-card:hover {
+            border-color: var(--taa-image-color);
+        }
+
+        .content-type-card.plan-card:hover {
+            border-color: var(--taa-plan-color);
+        }
+
+        .content-type-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            transition: transform 0.3s ease;
+        }
+
+        .content-type-card:hover .content-type-icon {
+            transform: scale(1.1);
+        }
+
+        .content-type-icon.text-icon {
+            background: linear-gradient(135deg, var(--taa-text-color) 0%, #1D4ED8 100%);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
+        }
+
+        .content-type-icon.visual-icon {
+            background: linear-gradient(135deg, var(--taa-image-color) 0%, #BE185D 100%);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.35);
+        }
+
+        .content-type-icon.plan-icon {
+            background: linear-gradient(135deg, var(--taa-plan-color) 0%, #047857 100%);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.35);
+        }
+
+        .content-type-icon svg {
+            color: var(--taa-white);
+        }
+
+        .content-type-card h4 {
+            color: var(--taa-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+        }
+
+        .content-type-card p {
+            color: var(--taa-text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* Example Tags */
+        .example-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .example-tag {
+            display: inline-block;
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: var(--taa-light-grey);
+            color: var(--taa-text);
+            transition: all 0.2s ease;
+        }
+
+        .text-card .example-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--taa-text-color);
+        }
+
+        .visual-card .example-tag {
+            background: rgba(236, 72, 153, 0.1);
+            color: var(--taa-image-color);
+        }
+
+        .plan-card .example-tag {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--taa-plan-color);
+        }
+
+        /* Process Flow Visual */
+        .process-flow {
+            background: linear-gradient(135deg, var(--taa-light-grey) 0%, var(--taa-white) 100%);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.08);
+        }
+
+        .process-flow-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .process-flow-title h4 {
+            color: var(--taa-primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-flow-title p {
+            color: var(--taa-text-light);
+            font-size: 0.95rem;
+        }
+
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+        }
+
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .flow-step-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .flow-step:hover .flow-step-icon {
+            transform: scale(1.08);
+        }
+
+        .flow-step-icon.data-icon {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        .flow-step-icon.learn-icon {
+            background: linear-gradient(135deg, var(--taa-generative-color) 0%, #6D28D9 100%);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+            width: 100px;
+            height: 100px;
+        }
+
+        .flow-step-icon.create-icon {
+            background: linear-gradient(135deg, var(--taa-secondary) 0%, #008A99 100%);
+            box-shadow: 0 8px 25px rgba(0, 165, 181, 0.4);
+        }
+
+        .flow-step-icon svg {
+            color: var(--taa-white);
+        }
+
+        .flow-step-label {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--taa-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .flow-step-desc {
+            font-size: 0.85rem;
+            color: var(--taa-text-light);
+            max-width: 120px;
+        }
+
+        /* Flow Arrow */
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            padding: 0 0.5rem;
+        }
+
+        .flow-arrow svg {
+            color: var(--taa-secondary);
+            animation: pulse-arrow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-arrow {
+            0%, 100% {
+                opacity: 0.6;
+                transform: translateX(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(5px);
+            }
+        }
+
+        /* Navigation Footer */
+        .lesson-nav {
+            padding: 3rem 0;
+            background-color: var(--taa-light-grey);
+        }
+
+        .lesson-nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--taa-primary);
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background-color: var(--taa-white);
+            box-shadow: 0 2px 10px rgba(27, 58, 95, 0.08);
+        }
+
+        .nav-button:hover {
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--taa-primary-dark);
+            color: var(--taa-white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--taa-primary);
+            color: var(--taa-white);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 0 0 8px 8px;
+            z-index: 1000;
+            transition: top 0.3s ease;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--taa-secondary);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 3rem 0;
+            }
+
+            .lesson-content {
+                padding: 3rem 0;
+            }
+
+            .concept-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .concept-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .concept-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .content-types-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .flow-diagram {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+                padding: 0.5rem 0;
+            }
+
+            .flow-step-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .flow-step-icon.learn-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .lesson-nav-content {
+                flex-direction: column;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .concept-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .content-type-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .content-type-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .flow-step-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .flow-step-icon.learn-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .highlight-box {
+                padding: 1rem 1.25rem;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header role="banner">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">TAA<span>Learning</span></a>
+                <nav class="nav-links" aria-label="Main navigation">
+                    <a href="index.html">Home</a>
+                    <a href="lesson1.html">Lesson 1</a>
+                    <a href="lesson2.html">Lesson 2</a>
+                    <a href="lesson3.html">Lesson 3</a>
+                    <a href="lesson4.html" aria-current="page">Lesson 4</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <span class="lesson-badge">Lesson 4</span>
+                <h1>Generative AI</h1>
+                <p>Discover how AI systems create original content by learning patterns from existing data &mdash; from text and images to music and project plans.</p>
+            </div>
+        </section>
+
+        <!-- Generative AI Introduction Section -->
+        <section class="lesson-content" aria-labelledby="generative-ai-heading">
+            <div class="container">
+                <div class="generative-ai-section">
+                    <!-- Section Introduction -->
+                    <div class="section-intro">
+                        <h2 id="generative-ai-heading">What is Generative AI?</h2>
+                        <p>A revolutionary type of artificial intelligence that produces original content by understanding and applying patterns learned from vast amounts of existing data.</p>
+                    </div>
+
+                    <!-- Main Concept Card -->
+                    <div class="concept-card">
+                        <div class="concept-header">
+                            <div class="concept-icon" aria-hidden="true">
+                                <!-- Sparkles/Magic icon -->
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3Z"/>
+                                    <path d="M5 3v4"/>
+                                    <path d="M3 5h4"/>
+                                    <path d="M19 17v4"/>
+                                    <path d="M17 19h4"/>
+                                </svg>
+                            </div>
+                            <div class="concept-title-area">
+                                <h3>Creating from Learned Insights</h3>
+                                <p>Understanding the foundation of generative AI</p>
+                            </div>
+                        </div>
+                        <div class="concept-body">
+                            <p>Generative AI represents a significant advancement in artificial intelligence &mdash; it's designed to <strong>produce original content</strong> including text, images, music, code, and even project plans. Unlike traditional AI that simply analyses or classifies data, generative AI creates something new.</p>
+
+                            <p>These systems work by analysing vast datasets to identify patterns, structures, and relationships. A text generator, for example, learns how words and sentences typically flow together by studying millions of documents. An image generator learns the visual patterns that make up different objects, styles, and compositions.</p>
+
+                            <div class="highlight-box">
+                                <h4>
+                                    <span class="highlight-icon" aria-hidden="true">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <path d="M12 16v-4"/>
+                                            <path d="M12 8h.01"/>
+                                        </svg>
+                                    </span>
+                                    Important to Understand
+                                </h4>
+                                <p>Generative AI doesn't create from "nothing" &mdash; it creates from <strong>learned insights</strong>. Every piece of content it generates is built upon patterns and knowledge extracted from the data it was trained on. This is why the quality and diversity of training data significantly impacts what the AI can produce.</p>
+                            </div>
+
+                            <p>When you ask a generative AI to write a poem or create an image, it's combining and recombining the patterns it has learned in novel ways. It's similar to how a human artist draws upon their experiences and influences to create something new &mdash; except the AI's "experiences" are the data patterns it has absorbed during training.</p>
+                        </div>
+                    </div>
+
+                    <!-- Process Flow Visual -->
+                    <div class="process-flow">
+                        <div class="process-flow-title">
+                            <h4>How Generative AI Creates Content</h4>
+                            <p>From training data to original output</p>
+                        </div>
+                        <div class="flow-diagram" role="img" aria-label="Flow diagram showing: Existing Data leads to Pattern Learning leads to New Content Creation">
+                            <div class="flow-step">
+                                <div class="flow-step-icon data-icon" aria-hidden="true">
+                                    <!-- Database icon -->
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                                        <path d="M3 5v14a9 3 0 0 0 18 0V5"/>
+                                        <path d="M3 12a9 3 0 0 0 18 0"/>
+                                    </svg>
+                                </div>
+                                <span class="flow-step-label">Existing Data</span>
+                                <span class="flow-step-desc">Text, images, music &amp; more</span>
+                            </div>
+
+                            <div class="flow-arrow" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"/>
+                                    <path d="m12 5 7 7-7 7"/>
+                                </svg>
+                            </div>
+
+                            <div class="flow-step">
+                                <div class="flow-step-icon learn-icon" aria-hidden="true">
+                                    <!-- Brain/Network icon -->
+                                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08A2.5 2.5 0 0 0 12 19.5a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 12 4.5"/>
+                                        <path d="m15.7 10.4-.9.4"/>
+                                        <path d="m9.2 13.2-.9.4"/>
+                                        <path d="m13.6 15.7-.4-.9"/>
+                                        <path d="m10.8 9.2-.4-.9"/>
+                                        <path d="m15.7 13.5-.9-.4"/>
+                                        <path d="m9.2 10.9-.9-.4"/>
+                                        <path d="m10.5 15.7.4-.9"/>
+                                        <path d="m13.1 9.2.4-.9"/>
+                                    </svg>
+                                </div>
+                                <span class="flow-step-label">Pattern Learning</span>
+                                <span class="flow-step-desc">AI identifies structures &amp; relationships</span>
+                            </div>
+
+                            <div class="flow-arrow" aria-hidden="true">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"/>
+                                    <path d="m12 5 7 7-7 7"/>
+                                </svg>
+                            </div>
+
+                            <div class="flow-step">
+                                <div class="flow-step-icon create-icon" aria-hidden="true">
+                                    <!-- Wand/Create icon -->
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/>
+                                        <path d="m14 7 3 3"/>
+                                        <path d="M5 6v4"/>
+                                        <path d="M19 14v4"/>
+                                        <path d="M10 2v2"/>
+                                        <path d="M7 8H3"/>
+                                        <path d="M21 16h-4"/>
+                                        <path d="M11 3H9"/>
+                                    </svg>
+                                </div>
+                                <span class="flow-step-label">New Content</span>
+                                <span class="flow-step-desc">Original creations based on learned patterns</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Generation Sub-section -->
+                    <div class="content-types-section" id="content-generation">
+                        <div class="content-types-intro">
+                            <h3>Content Generation</h3>
+                            <p>Generative AI can automatically create a wide variety of content types, from written text and visual imagery to structured plans and creative works.</p>
+                        </div>
+
+                        <!-- Content Types Grid -->
+                        <div class="content-types-grid">
+                            <!-- Text Content Card -->
+                            <div class="content-type-card text-card">
+                                <div class="content-type-icon text-icon" aria-hidden="true">
+                                    <!-- Document/Text icon -->
+                                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                        <polyline points="14,2 14,8 20,8"/>
+                                        <line x1="16" y1="13" x2="8" y2="13"/>
+                                        <line x1="16" y1="17" x2="8" y2="17"/>
+                                        <line x1="10" y1="9" x2="8" y2="9"/>
+                                    </svg>
+                                </div>
+                                <h4>Written Text</h4>
+                                <p>From articles and reports to creative stories and technical documentation.</p>
+                                <div class="example-tags">
+                                    <span class="example-tag">Blog Posts</span>
+                                    <span class="example-tag">Emails</span>
+                                    <span class="example-tag">Reports</span>
+                                </div>
+                            </div>
+
+                            <!-- Visual Content Card -->
+                            <div class="content-type-card visual-card">
+                                <div class="content-type-icon visual-icon" aria-hidden="true">
+                                    <!-- Image icon -->
+                                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                                        <polyline points="21,15 16,10 5,21"/>
+                                    </svg>
+                                </div>
+                                <h4>Visual Content</h4>
+                                <p>Images, illustrations, graphics, and visual designs created from text descriptions.</p>
+                                <div class="example-tags">
+                                    <span class="example-tag">Marketing Images</span>
+                                    <span class="example-tag">Artwork</span>
+                                    <span class="example-tag">Logos</span>
+                                </div>
+                            </div>
+
+                            <!-- Structured Plans Card -->
+                            <div class="content-type-card plan-card">
+                                <div class="content-type-icon plan-icon" aria-hidden="true">
+                                    <!-- Clipboard/Plan icon -->
+                                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                        <path d="M3 9h18"/>
+                                        <path d="M9 21V9"/>
+                                    </svg>
+                                </div>
+                                <h4>Structured Plans</h4>
+                                <p>Project outlines, schedules, strategies, and organised frameworks for achieving goals.</p>
+                                <div class="example-tags">
+                                    <span class="example-tag">Project Plans</span>
+                                    <span class="example-tag">Roadmaps</span>
+                                    <span class="example-tag">Strategies</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Summary Box -->
+                        <div class="highlight-box">
+                            <h4>
+                                <span class="highlight-icon" aria-hidden="true">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="9 11 12 14 22 4"/>
+                                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                                    </svg>
+                                </span>
+                                Key Takeaway
+                            </h4>
+                            <p>Whether you need a blog post drafted, a marketing image designed, or a project plan outlined, generative AI can serve as a powerful starting point. Remember that these outputs are built from learned patterns &mdash; they work best when combined with human creativity, expertise, and oversight.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Lesson Navigation -->
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+            <div class="container">
+                <div class="lesson-nav-content">
+                    <a href="lesson3.html" class="nav-button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        Previous: How AI Works
+                    </a>
+                    <a href="index.html" class="nav-button btn-primary">
+                        Back to Course Home
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 TAA Learning. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
