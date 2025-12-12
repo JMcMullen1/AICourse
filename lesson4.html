@@ -960,6 +960,378 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
+        /* Interactive Model Cards Section */
+        .model-cards-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(27, 58, 95, 0.1);
+        }
+
+        .model-cards-intro {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .model-cards-intro h3 {
+            color: var(--taa-primary);
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .model-cards-intro p {
+            color: var(--taa-text-light);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .model-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Flip Card Container */
+        .flip-card {
+            perspective: 1000px;
+            height: 380px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.08);
+            overflow: hidden;
+        }
+
+        .flip-card-front {
+            background: var(--taa-white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .flip-card:hover .flip-card-front {
+            box-shadow: 0 12px 35px rgba(27, 58, 95, 0.15);
+        }
+
+        .flip-card-back {
+            background: var(--taa-white);
+            transform: rotateY(180deg);
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Card Type Colors */
+        .flip-card.language-model:hover .flip-card-front {
+            border-color: var(--taa-text-color);
+        }
+
+        .flip-card.language-model .flip-card-back {
+            border-top: 4px solid var(--taa-text-color);
+        }
+
+        .flip-card.image-model:hover .flip-card-front {
+            border-color: var(--taa-image-color);
+        }
+
+        .flip-card.image-model .flip-card-back {
+            border-top: 4px solid var(--taa-image-color);
+        }
+
+        .flip-card.audio-model:hover .flip-card-front {
+            border-color: var(--taa-audio-color);
+        }
+
+        .flip-card.audio-model .flip-card-back {
+            border-top: 4px solid var(--taa-audio-color);
+        }
+
+        .flip-card.video-model:hover .flip-card-front {
+            border-color: var(--taa-video-color);
+        }
+
+        .flip-card.video-model .flip-card-back {
+            border-top: 4px solid var(--taa-video-color);
+        }
+
+        .flip-card.code-model:hover .flip-card-front {
+            border-color: var(--taa-code-color);
+        }
+
+        .flip-card.code-model .flip-card-back {
+            border-top: 4px solid var(--taa-code-color);
+        }
+
+        /* Front Card Content */
+        .model-card-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .flip-card:hover .model-card-icon {
+            transform: scale(1.1);
+        }
+
+        .model-card-icon.language-icon {
+            background: linear-gradient(135deg, var(--taa-text-color) 0%, #1D4ED8 100%);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .model-card-icon.image-icon {
+            background: linear-gradient(135deg, var(--taa-image-color) 0%, #BE185D 100%);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
+        }
+
+        .model-card-icon.audio-icon {
+            background: linear-gradient(135deg, var(--taa-audio-color) 0%, #C2410C 100%);
+            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
+        }
+
+        .model-card-icon.video-icon {
+            background: linear-gradient(135deg, var(--taa-video-color) 0%, #B91C1C 100%);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+        }
+
+        .model-card-icon.code-icon {
+            background: linear-gradient(135deg, var(--taa-code-color) 0%, #0891B2 100%);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+        }
+
+        .model-card-icon svg {
+            color: var(--taa-white);
+        }
+
+        .flip-card-front h4 {
+            color: var(--taa-primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .flip-card-front .card-preview {
+            color: var(--taa-text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            max-width: 260px;
+        }
+
+        .flip-hint {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--taa-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: auto;
+        }
+
+        .flip-hint svg {
+            transition: transform 0.3s ease;
+        }
+
+        .flip-card:hover .flip-hint svg {
+            transform: rotate(180deg);
+        }
+
+        /* Back Card Content */
+        .flip-card-back h4 {
+            color: var(--taa-primary);
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-header-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .language-model .back-header-icon {
+            background: var(--taa-text-color);
+        }
+
+        .image-model .back-header-icon {
+            background: var(--taa-image-color);
+        }
+
+        .audio-model .back-header-icon {
+            background: var(--taa-audio-color);
+        }
+
+        .video-model .back-header-icon {
+            background: var(--taa-video-color);
+        }
+
+        .code-model .back-header-icon {
+            background: var(--taa-code-color);
+        }
+
+        .back-header-icon svg {
+            color: var(--taa-white);
+        }
+
+        .flip-card-back .card-description {
+            color: var(--taa-text);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .models-list-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--taa-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .models-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+        }
+
+        .models-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(27, 58, 95, 0.08);
+            font-size: 0.875rem;
+            color: var(--taa-text);
+        }
+
+        .models-list li:last-child {
+            border-bottom: none;
+        }
+
+        .model-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .language-model .model-badge {
+            background: var(--taa-text-color);
+        }
+
+        .image-model .model-badge {
+            background: var(--taa-image-color);
+        }
+
+        .audio-model .model-badge {
+            background: var(--taa-audio-color);
+        }
+
+        .video-model .model-badge {
+            background: var(--taa-video-color);
+        }
+
+        .code-model .model-badge {
+            background: var(--taa-code-color);
+        }
+
+        .model-company {
+            color: var(--taa-text-light);
+            font-size: 0.75rem;
+            margin-left: auto;
+        }
+
+        .back-to-front {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--taa-secondary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: auto;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(27, 58, 95, 0.1);
+        }
+
+        .back-to-front svg {
+            transition: transform 0.3s ease;
+        }
+
+        .flip-card.flipped:hover .back-to-front svg {
+            transform: rotate(-180deg);
+        }
+
+        /* Responsive for Model Cards */
+        @media (max-width: 768px) {
+            .model-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flip-card {
+                height: 360px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .flip-card {
+                height: 340px;
+            }
+
+            .flip-card-front {
+                padding: 1.5rem 1rem;
+            }
+
+            .flip-card-back {
+                padding: 1.25rem;
+            }
+
+            .model-card-icon {
+                width: 70px;
+                height: 70px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1317,6 +1689,310 @@
                         </div>
                     </div>
 
+                    <!-- Interactive Model Cards Section -->
+                    <div class="model-cards-section" id="ai-models">
+                        <div class="model-cards-intro">
+                            <h3>Explore AI Models in Detail</h3>
+                            <p>Click on each card to discover more about each type of generative AI and the leading models powering these capabilities today.</p>
+                        </div>
+
+                        <!-- Model Cards Grid -->
+                        <div class="model-cards-grid">
+                            <!-- Language Generation Card -->
+                            <div class="flip-card language-model" tabindex="0" role="button" aria-label="Language Generation - click to learn more">
+                                <div class="flip-card-inner">
+                                    <!-- Front -->
+                                    <div class="flip-card-front">
+                                        <div class="model-card-icon language-icon" aria-hidden="true">
+                                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M4 7V4h16v3"/>
+                                                <path d="M9 20h6"/>
+                                                <path d="M12 4v16"/>
+                                            </svg>
+                                        </div>
+                                        <h4>Language Generation</h4>
+                                        <p class="card-preview">Large Language Models (LLMs) that create human-like text for conversations, writing, and analysis.</p>
+                                        <span class="flip-hint">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M17 2.1l4 4-4 4"/>
+                                                <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8"/>
+                                                <path d="M7 21.9l-4-4 4-4"/>
+                                                <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/>
+                                            </svg>
+                                            Click to explore models
+                                        </span>
+                                    </div>
+                                    <!-- Back -->
+                                    <div class="flip-card-back">
+                                        <h4>
+                                            <span class="back-header-icon" aria-hidden="true">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M4 7V4h16v3"/>
+                                                    <path d="M9 20h6"/>
+                                                    <path d="M12 4v16"/>
+                                                </svg>
+                                            </span>
+                                            Language Generation
+                                        </h4>
+                                        <p class="card-description">These models excel at understanding and generating human language. They power chatbots, writing assistants, translation services, and content creation tools, producing coherent and contextually relevant text.</p>
+                                        <span class="models-list-title">Popular Models</span>
+                                        <ul class="models-list">
+                                            <li><span class="model-badge"></span>GPT-4 / GPT-4o<span class="model-company">OpenAI</span></li>
+                                            <li><span class="model-badge"></span>Claude 3<span class="model-company">Anthropic</span></li>
+                                            <li><span class="model-badge"></span>Gemini 1.5<span class="model-company">Google</span></li>
+                                            <li><span class="model-badge"></span>LLaMA 3<span class="model-company">Meta</span></li>
+                                            <li><span class="model-badge"></span>Mistral / Mixtral<span class="model-company">Mistral AI</span></li>
+                                        </ul>
+                                        <span class="back-to-front">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M17 2.1l4 4-4 4"/>
+                                                <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8"/>
+                                                <path d="M7 21.9l-4-4 4-4"/>
+                                                <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/>
+                                            </svg>
+                                            Click to flip back
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Image Generation Card -->
+                            <div class="flip-card image-model" tabindex="0" role="button" aria-label="Image Generation - click to learn more">
+                                <div class="flip-card-inner">
+                                    <!-- Front -->
+                                    <div class="flip-card-front">
+                                        <div class="model-card-icon image-icon" aria-hidden="true">
+                                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                                <polyline points="21,15 16,10 5,21"/>
+                                            </svg>
+                                        </div>
+                                        <h4>Image Generation</h4>
+                                        <p class="card-preview">Text-to-image models that transform written descriptions into stunning visual content and artwork.</p>
+                                        <span class="flip-hint">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M17 2.1l4 4-4 4"/>
+                                                <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8"/>
+                                                <path d="M7 21.9l-4-4 4-4"/>
+                                                <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/>
+                                            </svg>
+                                            Click to explore models
+                                        </span>
+                                    </div>
+                                    <!-- Back -->
+                                    <div class="flip-card-back">
+                                        <h4>
+                                            <span class="back-header-icon" aria-hidden="true">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                                    <polyline points="21,15 16,10 5,21"/>
+                                                </svg>
+                                            </span>
+                                            Image Generation
+                                        </h4>
+                                        <p class="card-description">These models convert text prompts into visual content, revolutionising marketing, graphic design, and digital art. They can create photorealistic images, illustrations, and creative artwork from simple descriptions.</p>
+                                        <span class="models-list-title">Popular Models</span>
+                                        <ul class="models-list">
+                                            <li><span class="model-badge"></span>Midjourney v6<span class="model-company">Midjourney</span></li>
+                                            <li><span class="model-badge"></span>DALL&middot;E 3<span class="model-company">OpenAI</span></li>
+                                            <li><span class="model-badge"></span>Stable Diffusion XL<span class="model-company">Stability AI</span></li>
+                                            <li><span class="model-badge"></span>Adobe Firefly<span class="model-company">Adobe</span></li>
+                                        </ul>
+                                        <span class="back-to-front">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M17 2.1l4 4-4 4"/>
+                                                <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8"/>
+                                                <path d="M7 21.9l-4-4 4-4"/>
+                                                <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/>
+                                            </svg>
+                                            Click to flip back
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Audio & Music Generation Card -->
+                            <div class="flip-card audio-model" tabindex="0" role="button" aria-label="Audio and Music Generation - click to learn more">
+                                <div class="flip-card-inner">
+                                    <!-- Front -->
+                                    <div class="flip-card-front">
+                                        <div class="model-card-icon audio-icon" aria-hidden="true">
+                                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M9 18V5l12-2v13"/>
+                                                <circle cx="6" cy="18" r="3"/>
+                                                <circle cx="18" cy="16" r="3"/>
+                                            </svg>
+                                        </div>
+                                        <h4>Audio &amp; Music Generation</h4>
+                                        <p class="card-preview">AI models that produce lifelike voices, sound effects, and original music compositions from text.</p>
+                                        <span class="flip-hint">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M17 2.1l4 4-4 4"/>
+                                                <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8"/>
+                                                <path d="M7 21.9l-4-4 4-4"/>
+                                                <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/>
+                                            </svg>
+                                            Click to explore models
+                                        </span>
+                                    </div>
+                                    <!-- Back -->
+                                    <div class="flip-card-back">
+                                        <h4>
+                                            <span class="back-header-icon" aria-hidden="true">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M9 18V5l12-2v13"/>
+                                                    <circle cx="6" cy="18" r="3"/>
+                                                    <circle cx="18" cy="16" r="3"/>
+                                                </svg>
+                                            </span>
+                                            Audio &amp; Music
+                                        </h4>
+                                        <p class="card-description">These tools produce lifelike voices, speech synthesis, and complete songs from text input. They're transforming podcasting, voiceovers, music production, and accessibility services.</p>
+                                        <span class="models-list-title">Popular Models</span>
+                                        <ul class="models-list">
+                                            <li><span class="model-badge"></span>Suno AI<span class="model-company">Suno</span></li>
+                                            <li><span class="model-badge"></span>ElevenLabs<span class="model-company">ElevenLabs</span></li>
+                                            <li><span class="model-badge"></span>Voicemod Text-to-Song<span class="model-company">Voicemod</span></li>
+                                        </ul>
+                                        <span class="back-to-front">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M17 2.1l4 4-4 4"/>
+                                                <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8"/>
+                                                <path d="M7 21.9l-4-4 4-4"/>
+                                                <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/>
+                                            </svg>
+                                            Click to flip back
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video Generation Card -->
+                            <div class="flip-card video-model" tabindex="0" role="button" aria-label="Video Generation - click to learn more">
+                                <div class="flip-card-inner">
+                                    <!-- Front -->
+                                    <div class="flip-card-front">
+                                        <div class="model-card-icon video-icon" aria-hidden="true">
+                                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="m22 8-6 4 6 4V8Z"/>
+                                                <rect x="2" y="6" width="14" height="12" rx="2" ry="2"/>
+                                            </svg>
+                                        </div>
+                                        <h4>Video Generation</h4>
+                                        <p class="card-preview">Emerging AI technology that creates short, realistic video clips from text descriptions or images.</p>
+                                        <span class="flip-hint">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M17 2.1l4 4-4 4"/>
+                                                <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8"/>
+                                                <path d="M7 21.9l-4-4 4-4"/>
+                                                <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/>
+                                            </svg>
+                                            Click to explore models
+                                        </span>
+                                    </div>
+                                    <!-- Back -->
+                                    <div class="flip-card-back">
+                                        <h4>
+                                            <span class="back-header-icon" aria-hidden="true">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="m22 8-6 4 6 4V8Z"/>
+                                                    <rect x="2" y="6" width="14" height="12" rx="2" ry="2"/>
+                                                </svg>
+                                            </span>
+                                            Video Generation
+                                        </h4>
+                                        <p class="card-description">Video generation is an emerging field where AI models can create short, realistic video clips from text prompts or static images. This technology is rapidly advancing and transforming content creation.</p>
+                                        <span class="models-list-title">Popular Models</span>
+                                        <ul class="models-list">
+                                            <li><span class="model-badge"></span>Luma Labs Dream Machine<span class="model-company">Luma AI</span></li>
+                                            <li><span class="model-badge"></span>Runway Gen-2<span class="model-company">Runway</span></li>
+                                            <li><span class="model-badge"></span>Sora (Preview)<span class="model-company">OpenAI</span></li>
+                                        </ul>
+                                        <span class="back-to-front">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M17 2.1l4 4-4 4"/>
+                                                <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8"/>
+                                                <path d="M7 21.9l-4-4 4-4"/>
+                                                <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/>
+                                            </svg>
+                                            Click to flip back
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Code Generation Card -->
+                            <div class="flip-card code-model" tabindex="0" role="button" aria-label="Code Generation - click to learn more">
+                                <div class="flip-card-inner">
+                                    <!-- Front -->
+                                    <div class="flip-card-front">
+                                        <div class="model-card-icon code-icon" aria-hidden="true">
+                                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="16,18 22,12 16,6"/>
+                                                <polyline points="8,6 2,12 8,18"/>
+                                            </svg>
+                                        </div>
+                                        <h4>Code Generation</h4>
+                                        <p class="card-preview">AI assistants that help developers by suggesting, generating, and explaining programming code.</p>
+                                        <span class="flip-hint">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M17 2.1l4 4-4 4"/>
+                                                <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8"/>
+                                                <path d="M7 21.9l-4-4 4-4"/>
+                                                <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/>
+                                            </svg>
+                                            Click to explore models
+                                        </span>
+                                    </div>
+                                    <!-- Back -->
+                                    <div class="flip-card-back">
+                                        <h4>
+                                            <span class="back-header-icon" aria-hidden="true">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polyline points="16,18 22,12 16,6"/>
+                                                    <polyline points="8,6 2,12 8,18"/>
+                                                </svg>
+                                            </span>
+                                            Code Generation
+                                        </h4>
+                                        <p class="card-description">These models assist developers by suggesting, generating, or explaining code. They speed up programming, help with debugging, and make coding more accessible to beginners and experts alike.</p>
+                                        <span class="models-list-title">Popular Models</span>
+                                        <ul class="models-list">
+                                            <li><span class="model-badge"></span>GitHub Copilot<span class="model-company">GitHub / OpenAI</span></li>
+                                            <li><span class="model-badge"></span>Amazon CodeWhisperer<span class="model-company">Amazon</span></li>
+                                            <li><span class="model-badge"></span>Replit Ghostwriter<span class="model-company">Replit</span></li>
+                                        </ul>
+                                        <span class="back-to-front">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M17 2.1l4 4-4 4"/>
+                                                <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8"/>
+                                                <path d="M7 21.9l-4-4 4-4"/>
+                                                <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/>
+                                            </svg>
+                                            Click to flip back
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Cards Summary -->
+                        <div class="highlight-box">
+                            <h4>
+                                <span class="highlight-icon" aria-hidden="true">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                    </svg>
+                                </span>
+                                The AI Landscape
+                            </h4>
+                            <p>The generative AI field is evolving rapidly, with new models and capabilities emerging regularly. Many leading AI companies are developing multimodal systems that combine multiple capabilities &mdash; generating text, images, and audio within a single model. Understanding these foundational categories helps you navigate and leverage these powerful tools effectively.</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -1349,5 +2025,49 @@
             <p>&copy; 2025 TAA Learning. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- JavaScript for Interactive Flip Cards -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const flipCards = document.querySelectorAll('.flip-card');
+
+            flipCards.forEach(card => {
+                // Click handler
+                card.addEventListener('click', function() {
+                    this.classList.toggle('flipped');
+                });
+
+                // Keyboard accessibility - Enter and Space to flip
+                card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.classList.toggle('flipped');
+                    }
+                    // Escape to flip back
+                    if (e.key === 'Escape' && this.classList.contains('flipped')) {
+                        this.classList.remove('flipped');
+                    }
+                });
+
+                // Update aria-pressed state for screen readers
+                card.addEventListener('click', function() {
+                    const isFlipped = this.classList.contains('flipped');
+                    this.setAttribute('aria-pressed', isFlipped);
+                });
+            });
+
+            // Close flipped cards when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.flip-card')) {
+                    flipCards.forEach(card => {
+                        if (card.classList.contains('flipped')) {
+                            card.classList.remove('flipped');
+                            card.setAttribute('aria-pressed', 'false');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
