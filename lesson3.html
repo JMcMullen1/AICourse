@@ -591,6 +591,7 @@
 
         /* =================================
            Four-Step ML Guide Component
+           Interactive Slideshow Version
            ================================= */
 
         .ml-guide-section {
@@ -602,7 +603,7 @@
         .ml-guide-intro {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 2rem;
         }
 
         .ml-guide-intro h3 {
@@ -617,9 +618,279 @@
             line-height: 1.7;
         }
 
-        /* Steps Container */
-        .ml-steps-container {
+        /* Slideshow Container */
+        .ml-slideshow-wrapper {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .ml-slideshow {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--taa-light-grey) 0%, var(--taa-white) 100%);
+            box-shadow: 0 8px 40px rgba(27, 58, 95, 0.12);
+        }
+
+        .ml-slides-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ml-slide {
+            min-width: 100%;
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Progress Bar */
+        .ml-progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: rgba(27, 58, 95, 0.1);
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+        }
+
+        .ml-progress-fill {
+            height: 100%;
+            width: 25%;
+            transition: width 0.5s ease, background 0.3s ease;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .ml-progress-fill[data-step="1"] { width: 25%; background: linear-gradient(90deg, #4CAF50, #66BB6A); }
+        .ml-progress-fill[data-step="2"] { width: 50%; background: linear-gradient(90deg, #4CAF50, #2196F3); }
+        .ml-progress-fill[data-step="3"] { width: 75%; background: linear-gradient(90deg, #4CAF50, #FF9800); }
+        .ml-progress-fill[data-step="4"] { width: 100%; background: linear-gradient(90deg, #4CAF50, #9C27B0); }
+
+        /* Slide Step Badge */
+        .slide-step-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--taa-white);
+            margin-bottom: 1.5rem;
+        }
+
+        .slide-step-badge.step-1 { background: linear-gradient(135deg, #4CAF50, #2E7D32); }
+        .slide-step-badge.step-2 { background: linear-gradient(135deg, #2196F3, #1565C0); }
+        .slide-step-badge.step-3 { background: linear-gradient(135deg, #FF9800, #E65100); }
+        .slide-step-badge.step-4 { background: linear-gradient(135deg, #9C27B0, #6A1B9A); }
+
+        /* Slide Icon */
+        .slide-icon {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.75rem;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .slide-icon:hover {
+            transform: scale(1.05);
+        }
+
+        .slide-icon svg {
+            color: var(--taa-white);
+            position: relative;
+            z-index: 2;
+        }
+
+        .slide-icon.icon-data {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            box-shadow: 0 12px 35px rgba(76, 175, 80, 0.4);
+        }
+
+        .slide-icon.icon-patterns {
+            background: linear-gradient(135deg, #2196F3 0%, #1565C0 100%);
+            box-shadow: 0 12px 35px rgba(33, 150, 243, 0.4);
+        }
+
+        .slide-icon.icon-training {
+            background: linear-gradient(135deg, #FF9800 0%, #E65100 100%);
+            box-shadow: 0 12px 35px rgba(255, 152, 0, 0.4);
+        }
+
+        .slide-icon.icon-prediction {
+            background: linear-gradient(135deg, #9C27B0 0%, #6A1B9A 100%);
+            box-shadow: 0 12px 35px rgba(156, 39, 176, 0.4);
+        }
+
+        /* Slide Content */
+        .slide-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--taa-primary);
+            margin-bottom: 1rem;
+        }
+
+        .slide-description {
+            font-size: 1.1rem;
+            color: var(--taa-text);
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        .slide-description strong {
+            color: var(--taa-primary);
+        }
+
+        /* Navigation Buttons */
+        .ml-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: var(--taa-white);
+            box-shadow: 0 4px 15px rgba(27, 58, 95, 0.15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .ml-nav-btn:hover:not(:disabled) {
+            background: var(--taa-secondary);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 165, 181, 0.4);
+        }
+
+        .ml-nav-btn:hover:not(:disabled) svg {
+            color: var(--taa-white);
+        }
+
+        .ml-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .ml-nav-btn svg {
+            color: var(--taa-primary);
+            transition: color 0.3s ease;
+        }
+
+        .ml-nav-prev { left: -24px; }
+        .ml-nav-next { right: -24px; }
+
+        /* Step Indicators (Dots) */
+        .ml-step-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .ml-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid var(--taa-secondary);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .ml-indicator:hover {
+            background: rgba(0, 165, 181, 0.3);
+            transform: scale(1.2);
+        }
+
+        .ml-indicator.active {
+            background: var(--taa-secondary);
+            transform: scale(1.2);
+        }
+
+        .ml-indicator[data-step="1"].active { background: #4CAF50; border-color: #4CAF50; }
+        .ml-indicator[data-step="2"].active { background: #2196F3; border-color: #2196F3; }
+        .ml-indicator[data-step="3"].active { background: #FF9800; border-color: #FF9800; }
+        .ml-indicator[data-step="4"].active { background: #9C27B0; border-color: #9C27B0; }
+
+        /* Mini Step Cards (visible below slideshow) */
+        .ml-steps-overview {
             display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ml-mini-card {
+            background: var(--taa-white);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(27, 58, 95, 0.06);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ml-mini-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(27, 58, 95, 0.12);
+        }
+
+        .ml-mini-card.active {
+            border-color: var(--taa-secondary);
+            box-shadow: 0 8px 25px rgba(0, 165, 181, 0.2);
+        }
+
+        .ml-mini-card[data-step="1"].active { border-color: #4CAF50; }
+        .ml-mini-card[data-step="2"].active { border-color: #2196F3; }
+        .ml-mini-card[data-step="3"].active { border-color: #FF9800; }
+        .ml-mini-card[data-step="4"].active { border-color: #9C27B0; }
+
+        .mini-card-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--taa-white);
+            margin: 0 auto 0.5rem;
+        }
+
+        .ml-mini-card[data-step="1"] .mini-card-number { background: linear-gradient(135deg, #4CAF50, #2E7D32); }
+        .ml-mini-card[data-step="2"] .mini-card-number { background: linear-gradient(135deg, #2196F3, #1565C0); }
+        .ml-mini-card[data-step="3"] .mini-card-number { background: linear-gradient(135deg, #FF9800, #E65100); }
+        .ml-mini-card[data-step="4"] .mini-card-number { background: linear-gradient(135deg, #9C27B0, #6A1B9A); }
+
+        .mini-card-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--taa-primary);
+        }
+
+        /* Legacy Grid View (hidden by default, available as fallback) */
+        .ml-steps-container {
+            display: none;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
             margin-bottom: 2.5rem;
@@ -974,6 +1245,20 @@
 
         /* Responsive - Tablet */
         @media (max-width: 992px) {
+            .ml-slideshow-wrapper {
+                max-width: 600px;
+                margin: 0 1rem 2rem;
+            }
+
+            .ml-nav-prev { left: -20px; }
+            .ml-nav-next { right: -20px; }
+
+            .ml-steps-overview {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+                padding: 0 1rem;
+            }
+
             .ml-steps-container {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.25rem;
@@ -993,6 +1278,66 @@
 
             .ml-guide-intro h3 {
                 font-size: 1.5rem;
+            }
+
+            .ml-slideshow-wrapper {
+                max-width: 100%;
+                margin: 0 0 2rem;
+            }
+
+            .ml-slideshow {
+                border-radius: 16px;
+                margin: 0 1rem;
+            }
+
+            .ml-slide {
+                padding: 2rem 1.5rem;
+            }
+
+            .slide-icon {
+                width: 110px;
+                height: 110px;
+            }
+
+            .slide-icon svg {
+                width: 48px;
+                height: 48px;
+            }
+
+            .slide-title {
+                font-size: 1.25rem;
+            }
+
+            .slide-description {
+                font-size: 1rem;
+            }
+
+            .ml-nav-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .ml-nav-prev { left: 0.5rem; }
+            .ml-nav-next { right: 0.5rem; }
+
+            .ml-steps-overview {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+                padding: 0 0.5rem;
+            }
+
+            .ml-mini-card {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .mini-card-number {
+                width: 24px;
+                height: 24px;
+                font-size: 0.7rem;
+            }
+
+            .mini-card-title {
+                font-size: 0.7rem;
             }
 
             .ml-steps-container {
@@ -1043,6 +1388,20 @@
         }
 
         @media (max-width: 480px) {
+            .slide-icon {
+                width: 90px;
+                height: 90px;
+            }
+
+            .slide-icon svg {
+                width: 40px;
+                height: 40px;
+            }
+
+            .ml-steps-overview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .step-icon {
                 width: 70px;
                 height: 70px;
@@ -1207,100 +1566,145 @@
                             <p>Imagine teaching a young child to recognise cats. You wouldn't give them a rulebook&mdash;you'd show them many examples until they learned to spot the patterns themselves. Machine learning works the same way.</p>
                         </div>
 
-                        <!-- Four Step Cards -->
-                        <div class="ml-steps-container" role="list" aria-label="Four steps of machine learning">
-
-                            <!-- Step 1: Data -->
-                            <article class="ml-step-card step-data" role="listitem">
-                                <span class="step-number" aria-hidden="true">1</span>
-                                <div class="step-icon" aria-hidden="true">
-                                    <div class="cat-images">
-                                        <div class="cat-image-item"></div>
-                                        <div class="cat-image-item"></div>
-                                        <div class="cat-image-item"></div>
-                                        <div class="cat-image-item"></div>
-                                    </div>
-                                    <!-- Cat icon -->
-                                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3.1-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z"/>
-                                        <path d="M8 14v.5"/>
-                                        <path d="M16 14v.5"/>
-                                        <path d="M11.25 16.25h1.5L12 17l-.75-.75Z"/>
-                                    </svg>
+                        <!-- Interactive Slideshow -->
+                        <div class="ml-slideshow-wrapper">
+                            <div class="ml-slideshow" role="region" aria-roledescription="carousel" aria-label="Four steps of machine learning">
+                                <!-- Progress Bar -->
+                                <div class="ml-progress-bar" aria-hidden="true">
+                                    <div class="ml-progress-fill" data-step="1"></div>
                                 </div>
-                                <h4 class="step-title">Gather Training Data</h4>
-                                <p class="step-description">Show the model <strong>thousands of cat images</strong>&mdash;tabbies, Persians, kittens, and more. Each image is labelled "cat" or "not cat" to help the model learn.</p>
-                            </article>
 
-                            <!-- Step 2: Pattern Learning -->
-                            <article class="ml-step-card step-patterns" role="listitem">
-                                <span class="step-number" aria-hidden="true">2</span>
-                                <div class="step-icon" aria-hidden="true">
-                                    <div class="pattern-dots">
-                                        <div class="pattern-dot"></div>
-                                        <div class="pattern-dot"></div>
-                                        <div class="pattern-dot"></div>
-                                        <div class="pattern-dot"></div>
-                                        <div class="pattern-dot"></div>
+                                <!-- Slides Track -->
+                                <div class="ml-slides-track" id="mlSlidesTrack">
+                                    <!-- Slide 1: Gather Training Data -->
+                                    <div class="ml-slide" role="group" aria-roledescription="slide" aria-label="Step 1 of 4: Gather Training Data">
+                                        <span class="slide-step-badge step-1">Step 1 of 4</span>
+                                        <div class="slide-icon icon-data" aria-hidden="true">
+                                            <div class="cat-images">
+                                                <div class="cat-image-item"></div>
+                                                <div class="cat-image-item"></div>
+                                                <div class="cat-image-item"></div>
+                                                <div class="cat-image-item"></div>
+                                            </div>
+                                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3.1-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z"/>
+                                                <path d="M8 14v.5"/>
+                                                <path d="M16 14v.5"/>
+                                                <path d="M11.25 16.25h1.5L12 17l-.75-.75Z"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="slide-title">Gather Training Data</h4>
+                                        <p class="slide-description">Show the model <strong>thousands of cat images</strong>&mdash;tabbies, Persians, kittens, and more. Each image is labelled "cat" or "not cat" to help the model learn what to look for.</p>
                                     </div>
-                                    <div class="pattern-lines">
-                                        <div class="pattern-line"></div>
-                                        <div class="pattern-line"></div>
-                                        <div class="pattern-line"></div>
-                                    </div>
-                                    <!-- Eye/Search icon -->
-                                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
-                                        <circle cx="12" cy="12" r="3"/>
-                                    </svg>
-                                </div>
-                                <h4 class="step-title">Discover Patterns</h4>
-                                <p class="step-description">The model starts identifying common features: <strong>pointy ears, whiskers, fur texture, eye shape</strong>&mdash;patterns that distinguish cats from other animals.</p>
-                            </article>
 
-                            <!-- Step 3: Training the Model -->
-                            <article class="ml-step-card step-training" role="listitem">
-                                <span class="step-number" aria-hidden="true">3</span>
-                                <div class="step-icon" aria-hidden="true">
-                                    <div class="training-layers">
-                                        <div class="training-node"></div>
-                                        <div class="training-node"></div>
-                                        <div class="training-node"></div>
-                                        <div class="training-node"></div>
-                                        <div class="training-node"></div>
-                                        <div class="training-node"></div>
+                                    <!-- Slide 2: Discover Patterns -->
+                                    <div class="ml-slide" role="group" aria-roledescription="slide" aria-label="Step 2 of 4: Discover Patterns">
+                                        <span class="slide-step-badge step-2">Step 2 of 4</span>
+                                        <div class="slide-icon icon-patterns" aria-hidden="true">
+                                            <div class="pattern-dots">
+                                                <div class="pattern-dot"></div>
+                                                <div class="pattern-dot"></div>
+                                                <div class="pattern-dot"></div>
+                                                <div class="pattern-dot"></div>
+                                                <div class="pattern-dot"></div>
+                                            </div>
+                                            <div class="pattern-lines">
+                                                <div class="pattern-line"></div>
+                                                <div class="pattern-line"></div>
+                                                <div class="pattern-line"></div>
+                                            </div>
+                                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                                                <circle cx="12" cy="12" r="3"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="slide-title">Discover Patterns</h4>
+                                        <p class="slide-description">The model starts identifying common features: <strong>pointy ears, whiskers, fur texture, eye shape</strong>&mdash;patterns that distinguish cats from other animals.</p>
                                     </div>
-                                    <!-- Neural network/brain icon -->
-                                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08A2.5 2.5 0 0 0 12 19.5a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 12 4.5"/>
-                                        <path d="m15.7 10.4-.9.4"/>
-                                        <path d="m9.2 13.2-.9.4"/>
-                                        <path d="m13.6 15.7-.4-.9"/>
-                                        <path d="m10.8 9.2-.4-.9"/>
-                                        <path d="m15.7 13.5-.9-.4"/>
-                                        <path d="m9.2 10.9-.9-.4"/>
-                                        <path d="m10.4 15.7.4-.9"/>
-                                        <path d="m13.1 9.2.4-.9"/>
-                                    </svg>
-                                </div>
-                                <h4 class="step-title">Train Through Iteration</h4>
-                                <p class="step-description">The neural network makes guesses, receives feedback, and <strong>adjusts its weights millions of times</strong>. Each layer learns to detect edges, shapes, and complex features.</p>
-                            </article>
 
-                            <!-- Step 4: Prediction -->
-                            <article class="ml-step-card step-prediction" role="listitem">
-                                <span class="step-number" aria-hidden="true">4</span>
-                                <div class="step-icon" aria-hidden="true">
-                                    <div class="success-ring"></div>
-                                    <!-- Checkmark icon -->
-                                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                        <polyline points="22 4 12 14.01 9 11.01"/>
-                                    </svg>
+                                    <!-- Slide 3: Train Through Iteration -->
+                                    <div class="ml-slide" role="group" aria-roledescription="slide" aria-label="Step 3 of 4: Train Through Iteration">
+                                        <span class="slide-step-badge step-3">Step 3 of 4</span>
+                                        <div class="slide-icon icon-training" aria-hidden="true">
+                                            <div class="training-layers">
+                                                <div class="training-node"></div>
+                                                <div class="training-node"></div>
+                                                <div class="training-node"></div>
+                                                <div class="training-node"></div>
+                                                <div class="training-node"></div>
+                                                <div class="training-node"></div>
+                                            </div>
+                                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08A2.5 2.5 0 0 0 12 19.5a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 12 4.5"/>
+                                                <path d="m15.7 10.4-.9.4"/>
+                                                <path d="m9.2 13.2-.9.4"/>
+                                                <path d="m13.6 15.7-.4-.9"/>
+                                                <path d="m10.8 9.2-.4-.9"/>
+                                                <path d="m15.7 13.5-.9-.4"/>
+                                                <path d="m9.2 10.9-.9-.4"/>
+                                                <path d="m10.4 15.7.4-.9"/>
+                                                <path d="m13.1 9.2.4-.9"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="slide-title">Train Through Iteration</h4>
+                                        <p class="slide-description">The neural network makes guesses, receives feedback, and <strong>adjusts its weights millions of times</strong>. Each layer learns to detect edges, shapes, and complex features.</p>
+                                    </div>
+
+                                    <!-- Slide 4: Make Predictions -->
+                                    <div class="ml-slide" role="group" aria-roledescription="slide" aria-label="Step 4 of 4: Make Predictions">
+                                        <span class="slide-step-badge step-4">Step 4 of 4</span>
+                                        <div class="slide-icon icon-prediction" aria-hidden="true">
+                                            <div class="success-ring"></div>
+                                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                                <polyline points="22 4 12 14.01 9 11.01"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="slide-title">Make Predictions</h4>
+                                        <p class="slide-description">After training, show the model a <strong>brand new cat photo</strong> it's never seen&mdash;it can now confidently recognise it as a cat based on the patterns it learned.</p>
+                                    </div>
                                 </div>
-                                <h4 class="step-title">Make Predictions</h4>
-                                <p class="step-description">After training, show the model a <strong>brand new cat photo</strong> it's never seen&mdash;it can now confidently recognise it as a cat based on learned patterns.</p>
-                            </article>
+
+                                <!-- Navigation Buttons -->
+                                <button class="ml-nav-btn ml-nav-prev" id="mlPrevBtn" aria-label="Previous step" disabled>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M15 18l-6-6 6-6"/>
+                                    </svg>
+                                </button>
+                                <button class="ml-nav-btn ml-nav-next" id="mlNextBtn" aria-label="Next step">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9 18l6-6-6-6"/>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Step Indicators -->
+                            <div class="ml-step-indicators" role="tablist" aria-label="Slide indicators">
+                                <button class="ml-indicator active" data-step="1" role="tab" aria-selected="true" aria-label="Go to step 1"></button>
+                                <button class="ml-indicator" data-step="2" role="tab" aria-selected="false" aria-label="Go to step 2"></button>
+                                <button class="ml-indicator" data-step="3" role="tab" aria-selected="false" aria-label="Go to step 3"></button>
+                                <button class="ml-indicator" data-step="4" role="tab" aria-selected="false" aria-label="Go to step 4"></button>
+                            </div>
+                        </div>
+
+                        <!-- Mini Step Cards Overview -->
+                        <div class="ml-steps-overview" aria-label="Quick navigation to steps">
+                            <button class="ml-mini-card active" data-step="1" aria-label="Jump to Step 1: Gather Data">
+                                <span class="mini-card-number">1</span>
+                                <span class="mini-card-title">Gather Data</span>
+                            </button>
+                            <button class="ml-mini-card" data-step="2" aria-label="Jump to Step 2: Find Patterns">
+                                <span class="mini-card-number">2</span>
+                                <span class="mini-card-title">Find Patterns</span>
+                            </button>
+                            <button class="ml-mini-card" data-step="3" aria-label="Jump to Step 3: Train Model">
+                                <span class="mini-card-number">3</span>
+                                <span class="mini-card-title">Train Model</span>
+                            </button>
+                            <button class="ml-mini-card" data-step="4" aria-label="Jump to Step 4: Predict">
+                                <span class="mini-card-number">4</span>
+                                <span class="mini-card-title">Predict</span>
+                            </button>
                         </div>
 
                         <!-- Summary Box -->
@@ -1348,5 +1752,134 @@
             <p>&copy; 2025 TAA Learning. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- ML Slideshow JavaScript -->
+    <script>
+        (function() {
+            'use strict';
+
+            // Slideshow state
+            let currentSlide = 1;
+            const totalSlides = 4;
+
+            // DOM elements
+            const slidesTrack = document.getElementById('mlSlidesTrack');
+            const prevBtn = document.getElementById('mlPrevBtn');
+            const nextBtn = document.getElementById('mlNextBtn');
+            const progressFill = document.querySelector('.ml-progress-fill');
+            const indicators = document.querySelectorAll('.ml-indicator');
+            const miniCards = document.querySelectorAll('.ml-mini-card');
+
+            // Go to specific slide
+            function goToSlide(slideNum) {
+                if (slideNum < 1 || slideNum > totalSlides) return;
+
+                currentSlide = slideNum;
+
+                // Move slides track
+                const offset = (slideNum - 1) * -100;
+                slidesTrack.style.transform = `translateX(${offset}%)`;
+
+                // Update progress bar
+                progressFill.setAttribute('data-step', slideNum);
+
+                // Update navigation buttons
+                prevBtn.disabled = slideNum === 1;
+                nextBtn.disabled = slideNum === totalSlides;
+
+                // Update indicators
+                indicators.forEach((ind, index) => {
+                    const isActive = index + 1 === slideNum;
+                    ind.classList.toggle('active', isActive);
+                    ind.setAttribute('aria-selected', isActive);
+                });
+
+                // Update mini cards
+                miniCards.forEach((card, index) => {
+                    card.classList.toggle('active', index + 1 === slideNum);
+                });
+
+                // Announce slide change for screen readers
+                const slideEl = slidesTrack.children[slideNum - 1];
+                slideEl.focus({ preventScroll: true });
+            }
+
+            // Navigation handlers
+            function nextSlide() {
+                if (currentSlide < totalSlides) {
+                    goToSlide(currentSlide + 1);
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 1) {
+                    goToSlide(currentSlide - 1);
+                }
+            }
+
+            // Event listeners
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+            // Indicator click handlers
+            indicators.forEach(ind => {
+                ind.addEventListener('click', function() {
+                    const step = parseInt(this.getAttribute('data-step'));
+                    goToSlide(step);
+                });
+            });
+
+            // Mini card click handlers
+            miniCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const step = parseInt(this.getAttribute('data-step'));
+                    goToSlide(step);
+                });
+            });
+
+            // Keyboard navigation
+            document.querySelector('.ml-slideshow').addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                    e.preventDefault();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                    e.preventDefault();
+                }
+            });
+
+            // Touch/swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const slideshow = document.querySelector('.ml-slideshow');
+
+            slideshow.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            slideshow.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swiped left - go next
+                        nextSlide();
+                    } else {
+                        // Swiped right - go prev
+                        prevSlide();
+                    }
+                }
+            }
+
+            // Initialize
+            goToSlide(1);
+        })();
+    </script>
 </body>
 </html>
