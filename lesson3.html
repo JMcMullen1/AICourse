@@ -1523,6 +1523,500 @@
                 padding: 1.25rem;
             }
         }
+
+        /* =================================
+           AI Types You Use Every Day
+           Interactive Tabbed Component
+           ================================= */
+
+        .ai-types-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(27, 58, 95, 0.1);
+        }
+
+        .ai-types-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .ai-types-intro h3 {
+            color: var(--taa-primary);
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .ai-types-intro p {
+            color: var(--taa-text-light);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Tab Container */
+        .ai-tabs-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Tab Navigation */
+        .ai-tabs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0;
+            flex-wrap: wrap;
+            background: var(--taa-light-grey);
+            padding: 0.5rem;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .ai-tab-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.25rem;
+            background: transparent;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--taa-text-light);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .ai-tab-btn:hover {
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--taa-primary);
+        }
+
+        .ai-tab-btn.active {
+            background: var(--taa-white);
+            color: var(--taa-primary);
+            box-shadow: 0 2px 10px rgba(27, 58, 95, 0.1);
+        }
+
+        .ai-tab-btn .tab-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .ai-tab-btn:hover .tab-icon,
+        .ai-tab-btn.active .tab-icon {
+            transform: scale(1.1);
+        }
+
+        .ai-tab-btn .tab-icon svg {
+            width: 18px;
+            height: 18px;
+            color: var(--taa-white);
+        }
+
+        /* Tab Icon Colors */
+        .ai-tab-btn[data-tab="chatbots"] .tab-icon {
+            background: linear-gradient(135deg, #7C4DFF, #536DFE);
+        }
+        .ai-tab-btn[data-tab="image-gen"] .tab-icon {
+            background: linear-gradient(135deg, #E91E63, #AD1457);
+        }
+        .ai-tab-btn[data-tab="recommendations"] .tab-icon {
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+        }
+        .ai-tab-btn[data-tab="self-driving"] .tab-icon {
+            background: linear-gradient(135deg, #00BCD4, #0097A7);
+        }
+
+        /* Tab Content Area */
+        .ai-tabs-content {
+            background: var(--taa-white);
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 8px 40px rgba(27, 58, 95, 0.12);
+            overflow: hidden;
+        }
+
+        .ai-tab-panel {
+            display: none;
+            padding: 2.5rem;
+            animation: fadeInTab 0.4s ease;
+        }
+
+        .ai-tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeInTab {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Panel Layout */
+        .panel-content {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        /* Large Panel Icon */
+        .panel-icon-container {
+            position: relative;
+        }
+
+        .panel-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel-icon svg {
+            width: 56px;
+            height: 56px;
+            color: var(--taa-white);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Panel Icon Backgrounds */
+        .panel-icon.chatbots-icon {
+            background: linear-gradient(135deg, #7C4DFF 0%, #536DFE 100%);
+            box-shadow: 0 12px 35px rgba(124, 77, 255, 0.4);
+        }
+
+        .panel-icon.image-gen-icon {
+            background: linear-gradient(135deg, #E91E63 0%, #AD1457 100%);
+            box-shadow: 0 12px 35px rgba(233, 30, 99, 0.4);
+        }
+
+        .panel-icon.recommendations-icon {
+            background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+            box-shadow: 0 12px 35px rgba(255, 152, 0, 0.4);
+        }
+
+        .panel-icon.self-driving-icon {
+            background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
+            box-shadow: 0 12px 35px rgba(0, 188, 212, 0.4);
+        }
+
+        /* Animated Background Elements */
+        .panel-icon .icon-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .panel-icon .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: floatParticle 3s ease-in-out infinite;
+        }
+
+        .panel-icon .particle:nth-child(1) { width: 8px; height: 8px; top: 15%; left: 20%; animation-delay: 0s; }
+        .panel-icon .particle:nth-child(2) { width: 6px; height: 6px; top: 70%; left: 15%; animation-delay: 0.5s; }
+        .panel-icon .particle:nth-child(3) { width: 10px; height: 10px; top: 25%; left: 75%; animation-delay: 1s; }
+        .panel-icon .particle:nth-child(4) { width: 5px; height: 5px; top: 75%; left: 70%; animation-delay: 1.5s; }
+
+        @keyframes floatParticle {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-8px) scale(1.2); opacity: 0.7; }
+        }
+
+        /* Panel Text Content */
+        .panel-text h4 {
+            color: var(--taa-primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .panel-text .ai-type-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--taa-white);
+        }
+
+        .panel-text .ai-type-badge.chatbots { background: linear-gradient(135deg, #7C4DFF, #536DFE); }
+        .panel-text .ai-type-badge.image-gen { background: linear-gradient(135deg, #E91E63, #AD1457); }
+        .panel-text .ai-type-badge.recommendations { background: linear-gradient(135deg, #FF9800, #F57C00); }
+        .panel-text .ai-type-badge.self-driving { background: linear-gradient(135deg, #00BCD4, #0097A7); }
+
+        .panel-text .description {
+            color: var(--taa-text);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .panel-text .description strong {
+            color: var(--taa-primary);
+        }
+
+        /* Example Box */
+        .example-box {
+            background: linear-gradient(135deg, var(--taa-light-grey) 0%, rgba(0, 165, 181, 0.05) 100%);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            border-left: 4px solid;
+        }
+
+        .example-box.chatbots { border-color: #7C4DFF; }
+        .example-box.image-gen { border-color: #E91E63; }
+        .example-box.recommendations { border-color: #FF9800; }
+        .example-box.self-driving { border-color: #00BCD4; }
+
+        .example-box h5 {
+            color: var(--taa-primary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .example-box h5 svg {
+            width: 16px;
+            height: 16px;
+            color: var(--taa-secondary);
+        }
+
+        .example-box p {
+            color: var(--taa-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .example-box .chat-example {
+            background: var(--taa-white);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 0.75rem;
+        }
+
+        .example-box .chat-bubble {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .example-box .chat-bubble:last-child {
+            margin-bottom: 0;
+        }
+
+        .example-box .chat-bubble .avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.75rem;
+        }
+
+        .example-box .chat-bubble.user .avatar {
+            background: var(--taa-primary);
+            color: var(--taa-white);
+        }
+
+        .example-box .chat-bubble.ai .avatar {
+            background: linear-gradient(135deg, #7C4DFF, #536DFE);
+            color: var(--taa-white);
+        }
+
+        .example-box .chat-bubble .message {
+            background: var(--taa-light-grey);
+            padding: 0.5rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            color: var(--taa-text);
+            max-width: 85%;
+        }
+
+        .example-box .chat-bubble.ai .message {
+            background: linear-gradient(135deg, rgba(124, 77, 255, 0.1), rgba(83, 109, 254, 0.1));
+        }
+
+        /* Fun Emoji Icons */
+        .fun-emoji {
+            font-size: 1.5rem;
+            margin-right: 0.25rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .ai-tabs-nav {
+                gap: 0.375rem;
+            }
+
+            .ai-tab-btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .ai-tab-btn .tab-icon {
+                width: 28px;
+                height: 28px;
+            }
+
+            .ai-tab-btn .tab-icon svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .panel-content {
+                gap: 1.5rem;
+            }
+
+            .panel-icon {
+                width: 100px;
+                height: 100px;
+            }
+
+            .panel-icon svg {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ai-types-section {
+                margin-top: 3rem;
+                padding-top: 2rem;
+            }
+
+            .ai-types-intro h3 {
+                font-size: 1.5rem;
+            }
+
+            .ai-tabs-nav {
+                padding: 0.5rem;
+                border-radius: 12px 12px 0 0;
+            }
+
+            .ai-tab-btn {
+                padding: 0.625rem 0.875rem;
+                font-size: 0.8rem;
+            }
+
+            .ai-tab-btn .tab-text {
+                display: none;
+            }
+
+            .ai-tab-btn .tab-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .ai-tab-btn .tab-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .ai-tab-panel {
+                padding: 1.5rem;
+            }
+
+            .panel-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .panel-icon-container {
+                display: flex;
+                justify-content: center;
+            }
+
+            .panel-icon {
+                width: 100px;
+                height: 100px;
+                border-radius: 20px;
+            }
+
+            .panel-icon svg {
+                width: 44px;
+                height: 44px;
+            }
+
+            .panel-text h4 {
+                justify-content: center;
+                flex-wrap: wrap;
+                font-size: 1.3rem;
+            }
+
+            .example-box {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ai-tabs-nav {
+                gap: 0.25rem;
+                padding: 0.375rem;
+            }
+
+            .ai-tab-btn {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .ai-tab-btn .tab-icon {
+                width: 32px;
+                height: 32px;
+            }
+
+            .ai-tab-panel {
+                padding: 1.25rem;
+            }
+
+            .panel-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .panel-icon svg {
+                width: 36px;
+                height: 36px;
+            }
+
+            .panel-text h4 {
+                font-size: 1.15rem;
+            }
+
+            .panel-text .description {
+                font-size: 1rem;
+            }
+
+            .example-box {
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1841,6 +2335,236 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Types of AI You Might Use Every Day -->
+                    <div class="ai-types-section" aria-labelledby="ai-types-title">
+                        <div class="ai-types-intro">
+                            <h3 id="ai-types-title">Types of AI You Might Use Every Day</h3>
+                            <p>AI isn't just in science fiction&mdash;it's all around us! From the apps on your phone to the shows you watch, AI is working behind the scenes to make your life easier and more entertaining.</p>
+                        </div>
+
+                        <div class="ai-tabs-container">
+                            <!-- Tab Navigation -->
+                            <div class="ai-tabs-nav" role="tablist" aria-label="Types of AI">
+                                <button class="ai-tab-btn active" data-tab="chatbots" role="tab" aria-selected="true" aria-controls="panel-chatbots" id="tab-chatbots">
+                                    <span class="tab-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                        </svg>
+                                    </span>
+                                    <span class="tab-text">Chatbots</span>
+                                </button>
+                                <button class="ai-tab-btn" data-tab="image-gen" role="tab" aria-selected="false" aria-controls="panel-image-gen" id="tab-image-gen">
+                                    <span class="tab-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                                            <polyline points="21 15 16 10 5 21"/>
+                                        </svg>
+                                    </span>
+                                    <span class="tab-text">Image Gen</span>
+                                </button>
+                                <button class="ai-tab-btn" data-tab="recommendations" role="tab" aria-selected="false" aria-controls="panel-recommendations" id="tab-recommendations">
+                                    <span class="tab-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+                                        </svg>
+                                    </span>
+                                    <span class="tab-text">Recommendations</span>
+                                </button>
+                                <button class="ai-tab-btn" data-tab="self-driving" role="tab" aria-selected="false" aria-controls="panel-self-driving" id="tab-self-driving">
+                                    <span class="tab-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10l-2-4H8L6 10l-2.5 1.1C2.7 11.3 2 12.1 2 13v3c0 .6.4 1 1 1h2"/>
+                                            <circle cx="7" cy="17" r="2"/>
+                                            <circle cx="17" cy="17" r="2"/>
+                                            <path d="M14 17H10"/>
+                                        </svg>
+                                    </span>
+                                    <span class="tab-text">Self-Driving</span>
+                                </button>
+                            </div>
+
+                            <!-- Tab Content Panels -->
+                            <div class="ai-tabs-content">
+                                <!-- Chatbots & Language Models Panel -->
+                                <div class="ai-tab-panel active" id="panel-chatbots" role="tabpanel" aria-labelledby="tab-chatbots">
+                                    <div class="panel-content">
+                                        <div class="panel-icon-container">
+                                            <div class="panel-icon chatbots-icon" aria-hidden="true">
+                                                <div class="icon-particles">
+                                                    <div class="particle"></div>
+                                                    <div class="particle"></div>
+                                                    <div class="particle"></div>
+                                                    <div class="particle"></div>
+                                                </div>
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                                    <path d="M8 10h.01"/>
+                                                    <path d="M12 10h.01"/>
+                                                    <path d="M16 10h.01"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="panel-text">
+                                            <h4>
+                                                <span class="fun-emoji" aria-hidden="true">💬</span>
+                                                Chatbots & Language Models
+                                                <span class="ai-type-badge chatbots">LLMs</span>
+                                            </h4>
+                                            <p class="description">
+                                                Large language models (LLMs) like <strong>ChatGPT</strong> learn patterns in billions of words of text and predict what word should come next. They generate remarkably fluent, human-like responses&mdash;but they don't truly "understand" meaning the way humans do. They're pattern-matching experts that produce <strong>plausible text</strong> based on statistical relationships.
+                                            </p>
+                                            <div class="example-box chatbots">
+                                                <h5>
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                                    </svg>
+                                                    Example: Asking for a Joke
+                                                </h5>
+                                                <div class="chat-example">
+                                                    <div class="chat-bubble user">
+                                                        <span class="avatar">You</span>
+                                                        <span class="message">Tell me a joke about programming</span>
+                                                    </div>
+                                                    <div class="chat-bubble ai">
+                                                        <span class="avatar">AI</span>
+                                                        <span class="message">Why do programmers prefer dark mode? Because light attracts bugs! 🐛</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Image Generators Panel -->
+                                <div class="ai-tab-panel" id="panel-image-gen" role="tabpanel" aria-labelledby="tab-image-gen">
+                                    <div class="panel-content">
+                                        <div class="panel-icon-container">
+                                            <div class="panel-icon image-gen-icon" aria-hidden="true">
+                                                <div class="icon-particles">
+                                                    <div class="particle"></div>
+                                                    <div class="particle"></div>
+                                                    <div class="particle"></div>
+                                                    <div class="particle"></div>
+                                                </div>
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                                                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                                                    <path d="M2 2l7.586 7.586"/>
+                                                    <circle cx="11" cy="11" r="2"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="panel-text">
+                                            <h4>
+                                                <span class="fun-emoji" aria-hidden="true">🎨</span>
+                                                Image Generators
+                                                <span class="ai-type-badge image-gen">Creative AI</span>
+                                            </h4>
+                                            <p class="description">
+                                                Tools like <strong>DALL·E</strong>, <strong>Midjourney</strong>, and <strong>Stable Diffusion</strong> transform text descriptions into stunning images. These AI models learned by studying millions of images and their descriptions, enabling them to create original artwork, design concepts, and photorealistic scenes&mdash;all from a few words you type. They're revolutionising <strong>design, art, and prototyping</strong>.
+                                            </p>
+                                            <div class="example-box image-gen">
+                                                <h5>
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                                    </svg>
+                                                    Example: Creating Art from Text
+                                                </h5>
+                                                <p><strong>Prompt:</strong> "A cosy coffee shop on a rainy day, watercolour style, warm lighting"</p>
+                                                <p style="margin-top: 0.5rem; color: var(--taa-text-light); font-style: italic;">→ The AI generates a unique, original image matching this description in seconds!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Recommendation Systems Panel -->
+                                <div class="ai-tab-panel" id="panel-recommendations" role="tabpanel" aria-labelledby="tab-recommendations">
+                                    <div class="panel-content">
+                                        <div class="panel-icon-container">
+                                            <div class="panel-icon recommendations-icon" aria-hidden="true">
+                                                <div class="icon-particles">
+                                                    <div class="particle"></div>
+                                                    <div class="particle"></div>
+                                                    <div class="particle"></div>
+                                                    <div class="particle"></div>
+                                                </div>
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="panel-text">
+                                            <h4>
+                                                <span class="fun-emoji" aria-hidden="true">🎯</span>
+                                                Recommendation Systems
+                                                <span class="ai-type-badge recommendations">Personalisation</span>
+                                            </h4>
+                                            <p class="description">
+                                                Ever wonder how <strong>Netflix</strong> knows what show you'll love next, or how <strong>YouTube</strong> suggests the perfect video? These services use AI to monitor your viewing behaviour&mdash;what you watch, how long you watch, what you skip&mdash;and compare it to <strong>millions of other users</strong> with similar tastes. The result? Eerily accurate suggestions that keep you entertained.
+                                            </p>
+                                            <div class="example-box recommendations">
+                                                <h5>
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                                    </svg>
+                                                    Example: How Netflix Recommends
+                                                </h5>
+                                                <p><strong>You watched:</strong> Stranger Things, Black Mirror, Dark</p>
+                                                <p style="margin-top: 0.5rem;"><strong>Netflix suggests:</strong> "Because you watched Stranger Things..." → The OA, The Rain</p>
+                                                <p style="margin-top: 0.5rem; color: var(--taa-text-light); font-style: italic;">→ AI found thousands of users who loved the same shows&mdash;and noticed they also loved these!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Self-Driving Cars Panel -->
+                                <div class="ai-tab-panel" id="panel-self-driving" role="tabpanel" aria-labelledby="tab-self-driving">
+                                    <div class="panel-content">
+                                        <div class="panel-icon-container">
+                                            <div class="panel-icon self-driving-icon" aria-hidden="true">
+                                                <div class="icon-particles">
+                                                    <div class="particle"></div>
+                                                    <div class="particle"></div>
+                                                    <div class="particle"></div>
+                                                    <div class="particle"></div>
+                                                </div>
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10l-2-4H8L6 10l-2.5 1.1C2.7 11.3 2 12.1 2 13v3c0 .6.4 1 1 1h2"/>
+                                                    <circle cx="7" cy="17" r="2"/>
+                                                    <circle cx="17" cy="17" r="2"/>
+                                                    <path d="M14 17H10"/>
+                                                    <path d="M5 10h14"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="panel-text">
+                                            <h4>
+                                                <span class="fun-emoji" aria-hidden="true">🚗</span>
+                                                Self-Driving Cars
+                                                <span class="ai-type-badge self-driving">Autonomous</span>
+                                            </h4>
+                                            <p class="description">
+                                                Self-driving vehicles are AI's most ambitious real-world application. They use <strong>cameras, radar, and LIDAR sensors</strong> to perceive the world around them. Computer vision models identify pedestrians, other vehicles, traffic signs, and lane markings. Then, <strong>decision-making algorithms</strong> process all this information in real-time to steer, accelerate, and brake safely.
+                                            </p>
+                                            <div class="example-box self-driving">
+                                                <h5>
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                                    </svg>
+                                                    Example: How a Self-Driving Car "Thinks"
+                                                </h5>
+                                                <p><strong>Sensors detect:</strong> Pedestrian stepping off curb 50m ahead</p>
+                                                <p style="margin-top: 0.5rem;"><strong>AI processes:</strong> Object recognition → Trajectory prediction → Risk assessment</p>
+                                                <p style="margin-top: 0.5rem;"><strong>Decision:</strong> Slow down gradually, prepare to stop if pedestrian continues crossing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2000,6 +2724,73 @@
 
             // Initialize
             goToSlide(1);
+        })();
+    </script>
+
+    <!-- AI Types Tabs JavaScript -->
+    <script>
+        (function() {
+            'use strict';
+
+            // DOM elements
+            const tabButtons = document.querySelectorAll('.ai-tab-btn');
+            const tabPanels = document.querySelectorAll('.ai-tab-panel');
+
+            // Switch to a specific tab
+            function switchTab(tabId) {
+                // Update button states
+                tabButtons.forEach(btn => {
+                    const isActive = btn.getAttribute('data-tab') === tabId;
+                    btn.classList.toggle('active', isActive);
+                    btn.setAttribute('aria-selected', isActive);
+                });
+
+                // Update panel visibility
+                tabPanels.forEach(panel => {
+                    const panelId = panel.id.replace('panel-', '');
+                    const isActive = panelId === tabId;
+                    panel.classList.toggle('active', isActive);
+                });
+            }
+
+            // Tab button click handlers
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+
+            // Keyboard navigation for tabs
+            const tabNav = document.querySelector('.ai-tabs-nav');
+            if (tabNav) {
+                tabNav.addEventListener('keydown', function(e) {
+                    const tabs = Array.from(tabButtons);
+                    const currentIndex = tabs.findIndex(tab => tab.classList.contains('active'));
+                    let newIndex = currentIndex;
+
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                        newIndex = (currentIndex + 1) % tabs.length;
+                        e.preventDefault();
+                    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                        newIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+                        e.preventDefault();
+                    } else if (e.key === 'Home') {
+                        newIndex = 0;
+                        e.preventDefault();
+                    } else if (e.key === 'End') {
+                        newIndex = tabs.length - 1;
+                        e.preventDefault();
+                    }
+
+                    if (newIndex !== currentIndex) {
+                        const newTab = tabs[newIndex];
+                        const tabId = newTab.getAttribute('data-tab');
+                        switchTab(tabId);
+                        newTab.focus();
+                    }
+                });
+            }
         })();
     </script>
 </body>
