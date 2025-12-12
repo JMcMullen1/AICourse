@@ -588,6 +588,482 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
+        /* =================================
+           Four-Step ML Guide Component
+           ================================= */
+
+        .ml-guide-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(27, 58, 95, 0.1);
+        }
+
+        .ml-guide-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .ml-guide-intro h3 {
+            color: var(--taa-primary);
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .ml-guide-intro p {
+            color: var(--taa-text-light);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Steps Container */
+        .ml-steps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Individual Step Card */
+        .ml-step-card {
+            background: var(--taa-white);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(27, 58, 95, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ml-step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transition: height 0.3s ease;
+        }
+
+        .ml-step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(27, 58, 95, 0.15);
+        }
+
+        /* Step Number Badge */
+        .step-number {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: var(--taa-white);
+        }
+
+        /* Step Icon Container */
+        .step-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            position: relative;
+        }
+
+        .step-icon svg {
+            color: var(--taa-white);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Step 1 - Data (Green) */
+        .ml-step-card.step-data::before {
+            background: linear-gradient(90deg, #4CAF50, #66BB6A);
+        }
+
+        .ml-step-card.step-data:hover {
+            border-color: rgba(76, 175, 80, 0.3);
+        }
+
+        .ml-step-card.step-data .step-number {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+        }
+
+        .ml-step-card.step-data .step-icon {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.35);
+        }
+
+        /* Step 2 - Pattern Learning (Blue) */
+        .ml-step-card.step-patterns::before {
+            background: linear-gradient(90deg, #2196F3, #42A5F5);
+        }
+
+        .ml-step-card.step-patterns:hover {
+            border-color: rgba(33, 150, 243, 0.3);
+        }
+
+        .ml-step-card.step-patterns .step-number {
+            background: linear-gradient(135deg, #2196F3, #1565C0);
+        }
+
+        .ml-step-card.step-patterns .step-icon {
+            background: linear-gradient(135deg, #2196F3 0%, #1565C0 100%);
+            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.35);
+        }
+
+        /* Step 3 - Training (Orange) */
+        .ml-step-card.step-training::before {
+            background: linear-gradient(90deg, #FF9800, #FFB74D);
+        }
+
+        .ml-step-card.step-training:hover {
+            border-color: rgba(255, 152, 0, 0.3);
+        }
+
+        .ml-step-card.step-training .step-number {
+            background: linear-gradient(135deg, #FF9800, #E65100);
+        }
+
+        .ml-step-card.step-training .step-icon {
+            background: linear-gradient(135deg, #FF9800 0%, #E65100 100%);
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.35);
+        }
+
+        /* Step 4 - Prediction (Purple) */
+        .ml-step-card.step-prediction::before {
+            background: linear-gradient(90deg, #9C27B0, #BA68C8);
+        }
+
+        .ml-step-card.step-prediction:hover {
+            border-color: rgba(156, 39, 176, 0.3);
+        }
+
+        .ml-step-card.step-prediction .step-number {
+            background: linear-gradient(135deg, #9C27B0, #6A1B9A);
+        }
+
+        .ml-step-card.step-prediction .step-icon {
+            background: linear-gradient(135deg, #9C27B0 0%, #6A1B9A 100%);
+            box-shadow: 0 8px 25px rgba(156, 39, 176, 0.35);
+        }
+
+        /* Hover state - expand top bar */
+        .ml-step-card:hover::before {
+            height: 6px;
+        }
+
+        /* Step Content */
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--taa-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .step-description {
+            font-size: 0.95rem;
+            color: var(--taa-text-light);
+            line-height: 1.6;
+        }
+
+        .step-description strong {
+            color: var(--taa-text);
+        }
+
+        /* Cat Icon Animation */
+        .cat-images {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cat-image-item {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            animation: float-cats 2.5s ease-in-out infinite;
+        }
+
+        .cat-image-item:nth-child(1) { top: 15%; left: 20%; animation-delay: 0s; }
+        .cat-image-item:nth-child(2) { top: 60%; left: 15%; animation-delay: 0.4s; }
+        .cat-image-item:nth-child(3) { top: 35%; left: 65%; animation-delay: 0.8s; }
+        .cat-image-item:nth-child(4) { top: 70%; left: 70%; animation-delay: 1.2s; }
+
+        @keyframes float-cats {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+            50% { transform: translateY(-6px) rotate(5deg); opacity: 0.9; }
+        }
+
+        /* Pattern Detection Animation */
+        .pattern-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .pattern-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: pulse-pattern 1.8s ease-in-out infinite;
+        }
+
+        .pattern-dot:nth-child(1) { top: 20%; left: 25%; }
+        .pattern-dot:nth-child(2) { top: 20%; left: 75%; animation-delay: 0.2s; }
+        .pattern-dot:nth-child(3) { top: 50%; left: 50%; animation-delay: 0.4s; }
+        .pattern-dot:nth-child(4) { top: 80%; left: 30%; animation-delay: 0.6s; }
+        .pattern-dot:nth-child(5) { top: 80%; left: 70%; animation-delay: 0.8s; }
+
+        @keyframes pulse-pattern {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.4); opacity: 1; }
+        }
+
+        /* Connecting Lines Animation */
+        .pattern-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
+        .pattern-line {
+            position: absolute;
+            background: var(--taa-white);
+            height: 2px;
+            transform-origin: left center;
+            animation: connect-pattern 2s ease-in-out infinite;
+        }
+
+        .pattern-line:nth-child(1) {
+            top: 25%; left: 32%; width: 36%;
+            transform: rotate(0deg);
+        }
+        .pattern-line:nth-child(2) {
+            top: 55%; left: 32%; width: 20%;
+            transform: rotate(-45deg);
+            animation-delay: 0.3s;
+        }
+        .pattern-line:nth-child(3) {
+            top: 55%; left: 55%; width: 20%;
+            transform: rotate(45deg);
+            animation-delay: 0.6s;
+        }
+
+        @keyframes connect-pattern {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Training Iteration Animation */
+        .training-layers {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .training-node {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: pulse-training 1.5s ease-in-out infinite;
+        }
+
+        /* Input layer */
+        .training-node:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
+        .training-node:nth-child(2) { top: 50%; left: 15%; animation-delay: 0.1s; }
+        .training-node:nth-child(3) { top: 80%; left: 15%; animation-delay: 0.2s; }
+
+        /* Hidden layer */
+        .training-node:nth-child(4) { top: 30%; left: 45%; animation-delay: 0.3s; }
+        .training-node:nth-child(5) { top: 70%; left: 45%; animation-delay: 0.4s; }
+
+        /* Output layer */
+        .training-node:nth-child(6) { top: 50%; left: 80%; animation-delay: 0.5s; }
+
+        @keyframes pulse-training {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.5); }
+            50% { transform: scale(1.2); box-shadow: 0 0 10px 3px rgba(255,255,255,0.3); }
+        }
+
+        /* Checkmark Animation */
+        .success-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: ring-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes ring-pulse {
+            0%, 100% { transform: scale(0.9); opacity: 0.3; }
+            50% { transform: scale(1.05); opacity: 0.6; }
+        }
+
+        /* ML Summary Box */
+        .ml-summary-box {
+            background: linear-gradient(135deg, var(--taa-secondary-light) 0%, rgba(0, 165, 181, 0.1) 100%);
+            border-left: 5px solid var(--taa-secondary);
+            border-radius: 0 16px 16px 0;
+            padding: 2rem 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .ml-summary-box h4 {
+            color: var(--taa-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .ml-summary-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--taa-secondary), #008A99);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .ml-summary-icon svg {
+            color: var(--taa-white);
+        }
+
+        .ml-summary-box p {
+            color: var(--taa-text);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .ml-summary-box p strong {
+            color: var(--taa-primary);
+        }
+
+        .ml-highlight {
+            display: inline-block;
+            background: linear-gradient(90deg, rgba(0, 165, 181, 0.2), rgba(0, 165, 181, 0.1));
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #008A99;
+        }
+
+        /* Responsive - Tablet */
+        @media (max-width: 992px) {
+            .ml-steps-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+            }
+
+            .ml-step-card {
+                padding: 1.75rem 1.25rem;
+            }
+        }
+
+        /* Responsive - Mobile */
+        @media (max-width: 768px) {
+            .ml-guide-section {
+                margin-top: 3rem;
+                padding-top: 2rem;
+            }
+
+            .ml-guide-intro h3 {
+                font-size: 1.5rem;
+            }
+
+            .ml-steps-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .ml-step-card {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .step-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .step-icon svg {
+                width: 36px;
+                height: 36px;
+            }
+
+            .step-number {
+                width: 28px;
+                height: 28px;
+                font-size: 0.8rem;
+            }
+
+            .step-title {
+                font-size: 1.125rem;
+            }
+
+            .step-description {
+                font-size: 0.9rem;
+            }
+
+            .ml-summary-box {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .ml-summary-box h4 {
+                font-size: 1.1rem;
+            }
+
+            .ml-summary-icon {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .step-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .step-icon svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .cat-image-item {
+                width: 12px;
+                height: 12px;
+            }
+
+            .pattern-dot,
+            .training-node {
+                width: 6px;
+                height: 6px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -723,6 +1199,123 @@
                         </h4>
                         <p><strong>Machine learning</strong> is the engine that powers modern AI. Instead of following pre-written instructions, machine learning algorithms discover patterns in training data and build mathematical models that can generalize to new situations. This process of learning from examples&mdash;rather than being explicitly programmed&mdash;is what enables AI systems to recognize faces, understand speech, recommend products, and make countless other intelligent decisions.</p>
                     </figcaption>
+
+                    <!-- Four-Step ML Guide: Cat Recognition Analogy -->
+                    <div class="ml-guide-section" aria-labelledby="ml-guide-title">
+                        <div class="ml-guide-intro">
+                            <h3 id="ml-guide-title">How Machine Learning Works: Teaching a Computer to Recognise Cats</h3>
+                            <p>Imagine teaching a young child to recognise cats. You wouldn't give them a rulebook&mdash;you'd show them many examples until they learned to spot the patterns themselves. Machine learning works the same way.</p>
+                        </div>
+
+                        <!-- Four Step Cards -->
+                        <div class="ml-steps-container" role="list" aria-label="Four steps of machine learning">
+
+                            <!-- Step 1: Data -->
+                            <article class="ml-step-card step-data" role="listitem">
+                                <span class="step-number" aria-hidden="true">1</span>
+                                <div class="step-icon" aria-hidden="true">
+                                    <div class="cat-images">
+                                        <div class="cat-image-item"></div>
+                                        <div class="cat-image-item"></div>
+                                        <div class="cat-image-item"></div>
+                                        <div class="cat-image-item"></div>
+                                    </div>
+                                    <!-- Cat icon -->
+                                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3.1-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z"/>
+                                        <path d="M8 14v.5"/>
+                                        <path d="M16 14v.5"/>
+                                        <path d="M11.25 16.25h1.5L12 17l-.75-.75Z"/>
+                                    </svg>
+                                </div>
+                                <h4 class="step-title">Gather Training Data</h4>
+                                <p class="step-description">Show the model <strong>thousands of cat images</strong>&mdash;tabbies, Persians, kittens, and more. Each image is labelled "cat" or "not cat" to help the model learn.</p>
+                            </article>
+
+                            <!-- Step 2: Pattern Learning -->
+                            <article class="ml-step-card step-patterns" role="listitem">
+                                <span class="step-number" aria-hidden="true">2</span>
+                                <div class="step-icon" aria-hidden="true">
+                                    <div class="pattern-dots">
+                                        <div class="pattern-dot"></div>
+                                        <div class="pattern-dot"></div>
+                                        <div class="pattern-dot"></div>
+                                        <div class="pattern-dot"></div>
+                                        <div class="pattern-dot"></div>
+                                    </div>
+                                    <div class="pattern-lines">
+                                        <div class="pattern-line"></div>
+                                        <div class="pattern-line"></div>
+                                        <div class="pattern-line"></div>
+                                    </div>
+                                    <!-- Eye/Search icon -->
+                                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                </div>
+                                <h4 class="step-title">Discover Patterns</h4>
+                                <p class="step-description">The model starts identifying common features: <strong>pointy ears, whiskers, fur texture, eye shape</strong>&mdash;patterns that distinguish cats from other animals.</p>
+                            </article>
+
+                            <!-- Step 3: Training the Model -->
+                            <article class="ml-step-card step-training" role="listitem">
+                                <span class="step-number" aria-hidden="true">3</span>
+                                <div class="step-icon" aria-hidden="true">
+                                    <div class="training-layers">
+                                        <div class="training-node"></div>
+                                        <div class="training-node"></div>
+                                        <div class="training-node"></div>
+                                        <div class="training-node"></div>
+                                        <div class="training-node"></div>
+                                        <div class="training-node"></div>
+                                    </div>
+                                    <!-- Neural network/brain icon -->
+                                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08A2.5 2.5 0 0 0 12 19.5a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 12 4.5"/>
+                                        <path d="m15.7 10.4-.9.4"/>
+                                        <path d="m9.2 13.2-.9.4"/>
+                                        <path d="m13.6 15.7-.4-.9"/>
+                                        <path d="m10.8 9.2-.4-.9"/>
+                                        <path d="m15.7 13.5-.9-.4"/>
+                                        <path d="m9.2 10.9-.9-.4"/>
+                                        <path d="m10.4 15.7.4-.9"/>
+                                        <path d="m13.1 9.2.4-.9"/>
+                                    </svg>
+                                </div>
+                                <h4 class="step-title">Train Through Iteration</h4>
+                                <p class="step-description">The neural network makes guesses, receives feedback, and <strong>adjusts its weights millions of times</strong>. Each layer learns to detect edges, shapes, and complex features.</p>
+                            </article>
+
+                            <!-- Step 4: Prediction -->
+                            <article class="ml-step-card step-prediction" role="listitem">
+                                <span class="step-number" aria-hidden="true">4</span>
+                                <div class="step-icon" aria-hidden="true">
+                                    <div class="success-ring"></div>
+                                    <!-- Checkmark icon -->
+                                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                        <polyline points="22 4 12 14.01 9 11.01"/>
+                                    </svg>
+                                </div>
+                                <h4 class="step-title">Make Predictions</h4>
+                                <p class="step-description">After training, show the model a <strong>brand new cat photo</strong> it's never seen&mdash;it can now confidently recognise it as a cat based on learned patterns.</p>
+                            </article>
+                        </div>
+
+                        <!-- Summary Box -->
+                        <div class="ml-summary-box">
+                            <h4>
+                                <span class="ml-summary-icon" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                    </svg>
+                                </span>
+                                This Process is Called Machine Learning
+                            </h4>
+                            <p>Just as a child learns to recognise cats by seeing many examples, AI systems use <span class="ml-highlight">machine learning</span> to discover patterns in data without being explicitly programmed. The more quality examples provided, the better the model becomes at making accurate predictions. This same approach powers everything from facial recognition to language translation to medical diagnosis.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
