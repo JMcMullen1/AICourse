@@ -1805,6 +1805,296 @@
             }
         }
 
+        /* Project Application Discussion Section */
+        .application-discussion {
+            background: var(--taa-white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 25px rgba(27, 58, 95, 0.1);
+            margin-top: 3rem;
+        }
+
+        .application-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .application-header h3 {
+            color: var(--taa-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+        }
+
+        .application-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--taa-secondary) 0%, #008A99 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 165, 181, 0.3);
+        }
+
+        .application-icon svg {
+            color: var(--taa-white);
+        }
+
+        .application-header p {
+            color: var(--taa-text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .discussion-prompt-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .discussion-prompt-card {
+            background: var(--taa-light-grey);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .discussion-prompt-card:focus-within {
+            border-color: var(--taa-secondary);
+            box-shadow: 0 8px 25px rgba(0, 165, 181, 0.15);
+        }
+
+        .discussion-prompt-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .discussion-prompt-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--taa-white);
+            flex-shrink: 0;
+        }
+
+        .discussion-prompt-number.generative-ai {
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+        }
+
+        .discussion-prompt-number.tools {
+            background: linear-gradient(135deg, var(--taa-secondary) 0%, #008A99 100%);
+        }
+
+        .discussion-prompt-number.strategies {
+            background: linear-gradient(135deg, var(--taa-ethics-color) 0%, #B45309 100%);
+        }
+
+        .discussion-prompt-title {
+            font-weight: 600;
+            color: var(--taa-primary);
+            font-size: 1rem;
+            line-height: 1.3;
+        }
+
+        .discussion-prompt-question {
+            color: var(--taa-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .discussion-textarea {
+            width: 100%;
+            min-height: 140px;
+            padding: 1rem;
+            border: 1px solid rgba(27, 58, 95, 0.15);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--taa-text);
+            resize: vertical;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: var(--taa-white);
+        }
+
+        .discussion-textarea:focus {
+            outline: none;
+            border-color: var(--taa-secondary);
+            box-shadow: 0 0 0 3px rgba(0, 165, 181, 0.15);
+        }
+
+        .discussion-textarea::placeholder {
+            color: var(--taa-text-light);
+            font-style: italic;
+        }
+
+        .discussion-char-counter {
+            text-align: right;
+            font-size: 0.8rem;
+            color: var(--taa-text-light);
+            margin-top: 0.5rem;
+        }
+
+        .discussion-responses-section {
+            background: linear-gradient(135deg, var(--taa-secondary-light) 0%, #F0FDFA 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .discussion-responses-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .discussion-responses-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: var(--taa-secondary);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .discussion-responses-icon svg {
+            color: var(--taa-white);
+        }
+
+        .discussion-responses-title {
+            font-weight: 600;
+            color: var(--taa-primary);
+            font-size: 1.1rem;
+        }
+
+        .responses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .response-card {
+            background: var(--taa-white);
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 8px rgba(27, 58, 95, 0.08);
+        }
+
+        .response-card h5 {
+            color: var(--taa-primary);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .response-card h5 svg {
+            flex-shrink: 0;
+        }
+
+        .response-card p {
+            color: var(--taa-text);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        .response-placeholder {
+            color: var(--taa-text-light);
+            font-style: italic;
+        }
+
+        .discussion-share-note {
+            text-align: center;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+            border-radius: 12px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--taa-gdpr-color);
+        }
+
+        .discussion-share-note p {
+            color: #1E40AF;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 0;
+        }
+
+        .discussion-share-note svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .discussion-reset-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .discussion-reset-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--taa-white);
+            color: var(--taa-primary);
+            border: 2px solid var(--taa-primary);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .discussion-reset-btn:hover {
+            background: var(--taa-primary);
+            color: var(--taa-white);
+        }
+
+        @media (max-width: 992px) {
+            .discussion-prompt-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .responses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .application-discussion {
+                padding: 1.5rem;
+            }
+
+            .discussion-prompt-card {
+                padding: 1.25rem;
+            }
+        }
+
         /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
             *,
@@ -2539,6 +2829,156 @@
             </div>
         </section>
 
+        <!-- Project Application Discussion Section -->
+        <section class="lesson-content" aria-labelledby="application-heading">
+            <div class="container">
+                <div class="ethics-section">
+                    <div class="application-discussion" id="application-discussion" role="region" aria-labelledby="application-heading">
+                        <div class="application-header">
+                            <h3 id="application-heading">
+                                <span class="application-icon" aria-hidden="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                        <polyline points="14 2 14 8 20 8"/>
+                                        <line x1="16" y1="13" x2="8" y2="13"/>
+                                        <line x1="16" y1="17" x2="8" y2="17"/>
+                                        <polyline points="10 9 9 9 8 9"/>
+                                    </svg>
+                                </span>
+                                What Would You Apply in Your Own Project?
+                            </h3>
+                            <p>Reflect on what you've learned throughout this course and consider how you might apply these concepts to enhance your own projects. Share your ideas below and see how others are thinking about integrating AI into their work.</p>
+                        </div>
+
+                        <!-- Discussion Prompts Grid -->
+                        <div class="discussion-prompt-grid">
+                            <!-- Prompt 1: Application of Generative AI -->
+                            <div class="discussion-prompt-card">
+                                <div class="discussion-prompt-header">
+                                    <span class="discussion-prompt-number generative-ai" aria-hidden="true">1</span>
+                                    <span class="discussion-prompt-title">Application of Generative AI</span>
+                                </div>
+                                <p class="discussion-prompt-question">How could you integrate generative AI into your own projects to improve efficiency and creativity? Consider content creation, problem-solving, or automating repetitive tasks.</p>
+                                <textarea
+                                    class="discussion-textarea"
+                                    id="generative-ai-response"
+                                    placeholder="Share your ideas... For example:&#10;- Using AI to draft initial project documentation&#10;- Generating creative concepts for presentations&#10;- Automating report summaries"
+                                    maxlength="500"
+                                    aria-label="Share your ideas for applying generative AI to your projects"
+                                ></textarea>
+                                <div class="discussion-char-counter"><span id="generative-ai-char-count">0</span>/500 characters</div>
+                            </div>
+
+                            <!-- Prompt 2: Tools for Project Management -->
+                            <div class="discussion-prompt-card">
+                                <div class="discussion-prompt-header">
+                                    <span class="discussion-prompt-number tools" aria-hidden="true">2</span>
+                                    <span class="discussion-prompt-title">Tools for Project Management</span>
+                                </div>
+                                <p class="discussion-prompt-question">What specific AI-powered tools could streamline your project management practices? Think about scheduling, resource allocation, risk assessment, or team collaboration.</p>
+                                <textarea
+                                    class="discussion-textarea"
+                                    id="tools-response"
+                                    placeholder="Share your ideas... For example:&#10;- AI scheduling assistants for meetings&#10;- Automated progress tracking tools&#10;- Smart resource allocation systems"
+                                    maxlength="500"
+                                    aria-label="Share your ideas for AI-powered project management tools"
+                                ></textarea>
+                                <div class="discussion-char-counter"><span id="tools-char-count">0</span>/500 characters</div>
+                            </div>
+
+                            <!-- Prompt 3: Strategies for Improvement -->
+                            <div class="discussion-prompt-card">
+                                <div class="discussion-prompt-header">
+                                    <span class="discussion-prompt-number strategies" aria-hidden="true">3</span>
+                                    <span class="discussion-prompt-title">Strategies for Improvement</span>
+                                </div>
+                                <p class="discussion-prompt-question">What strategies from this course could enhance your project outcomes and team dynamics? Consider ethical considerations, communication practices, or workflow optimisations.</p>
+                                <textarea
+                                    class="discussion-textarea"
+                                    id="strategies-response"
+                                    placeholder="Share your ideas... For example:&#10;- Implementing bias checks in AI recommendations&#10;- Creating guidelines for responsible AI use&#10;- Training team members on AI capabilities"
+                                    maxlength="500"
+                                    aria-label="Share your strategies for improving project outcomes"
+                                ></textarea>
+                                <div class="discussion-char-counter"><span id="strategies-char-count">0</span>/500 characters</div>
+                            </div>
+                        </div>
+
+                        <!-- Responses Summary Section -->
+                        <div class="discussion-responses-section" id="discussion-responses">
+                            <div class="discussion-responses-header">
+                                <div class="discussion-responses-icon" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                    </svg>
+                                </div>
+                                <span class="discussion-responses-title">Your Reflections</span>
+                            </div>
+                            <div class="responses-grid">
+                                <div class="response-card">
+                                    <h5>
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                        Generative AI
+                                    </h5>
+                                    <p id="summary-generative-ai" class="response-placeholder">Your ideas will appear here...</p>
+                                </div>
+                                <div class="response-card">
+                                    <h5>
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--taa-secondary);">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                            <line x1="16" y1="2" x2="16" y2="6"/>
+                                            <line x1="8" y1="2" x2="8" y2="6"/>
+                                            <line x1="3" y1="10" x2="21" y2="10"/>
+                                        </svg>
+                                        Project Tools
+                                    </h5>
+                                    <p id="summary-tools" class="response-placeholder">Your ideas will appear here...</p>
+                                </div>
+                                <div class="response-card">
+                                    <h5>
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                            <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                            <line x1="15" y1="9" x2="15.01" y2="9"/>
+                                        </svg>
+                                        Strategies
+                                    </h5>
+                                    <p id="summary-strategies" class="response-placeholder">Your ideas will appear here...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Share Note -->
+                        <div class="discussion-share-note">
+                            <p>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                                <span><strong>Share with peers:</strong> Consider discussing your responses with colleagues or in team meetings. Sharing perspectives on AI application can spark new ideas and help identify opportunities for collaboration across projects.</span>
+                            </p>
+                        </div>
+
+                        <!-- Reset Button -->
+                        <div class="discussion-reset-container">
+                            <button type="button" class="discussion-reset-btn" id="reset-discussion" aria-label="Clear all discussion responses">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M2.5 2v6h6M21.5 22v-6h-6"/>
+                                    <path d="M22 11.5A10 10 0 0 0 3.2 7.2M2 12.5a10 10 0 0 0 18.8 4.2"/>
+                                </svg>
+                                Clear Responses
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Lesson Navigation -->
         <nav class="lesson-nav" aria-label="Lesson navigation">
             <div class="container">
@@ -3006,6 +3446,124 @@
             var style = document.createElement('style');
             style.textContent = '.resource-icon-item.selected { border-color: var(--taa-resource-color); box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.3); }';
             document.head.appendChild(style);
+
+        })();
+    </script>
+
+    <!-- Project Application Discussion JavaScript -->
+    <script>
+        (function() {
+            'use strict';
+
+            // DOM Elements
+            var generativeAiTextarea = document.getElementById('generative-ai-response');
+            var toolsTextarea = document.getElementById('tools-response');
+            var strategiesTextarea = document.getElementById('strategies-response');
+
+            var generativeAiCharCount = document.getElementById('generative-ai-char-count');
+            var toolsCharCount = document.getElementById('tools-char-count');
+            var strategiesCharCount = document.getElementById('strategies-char-count');
+
+            var summaryGenerativeAi = document.getElementById('summary-generative-ai');
+            var summaryTools = document.getElementById('summary-tools');
+            var summaryStrategies = document.getElementById('summary-strategies');
+
+            var resetButton = document.getElementById('reset-discussion');
+
+            // Update character count and summary for a textarea
+            function updateTextarea(textarea, charCountEl, summaryEl) {
+                if (!textarea || !charCountEl || !summaryEl) return;
+
+                textarea.addEventListener('input', function() {
+                    // Update character count
+                    charCountEl.textContent = this.value.length;
+
+                    // Update summary
+                    var trimmedValue = this.value.trim();
+                    if (trimmedValue) {
+                        summaryEl.textContent = trimmedValue;
+                        summaryEl.classList.remove('response-placeholder');
+                    } else {
+                        summaryEl.textContent = 'Your ideas will appear here...';
+                        summaryEl.classList.add('response-placeholder');
+                    }
+                });
+
+                // Keyboard accessibility
+                textarea.addEventListener('keydown', function(e) {
+                    // Allow Tab to move focus, but don't insert tab characters
+                    if (e.key === 'Tab') {
+                        // Default behavior is fine - let it move focus
+                    }
+                });
+            }
+
+            // Initialize all textareas
+            updateTextarea(generativeAiTextarea, generativeAiCharCount, summaryGenerativeAi);
+            updateTextarea(toolsTextarea, toolsCharCount, summaryTools);
+            updateTextarea(strategiesTextarea, strategiesCharCount, summaryStrategies);
+
+            // Reset button functionality
+            if (resetButton) {
+                resetButton.addEventListener('click', function() {
+                    // Clear all textareas
+                    if (generativeAiTextarea) {
+                        generativeAiTextarea.value = '';
+                        generativeAiCharCount.textContent = '0';
+                    }
+                    if (toolsTextarea) {
+                        toolsTextarea.value = '';
+                        toolsCharCount.textContent = '0';
+                    }
+                    if (strategiesTextarea) {
+                        strategiesTextarea.value = '';
+                        strategiesCharCount.textContent = '0';
+                    }
+
+                    // Reset summaries
+                    if (summaryGenerativeAi) {
+                        summaryGenerativeAi.textContent = 'Your ideas will appear here...';
+                        summaryGenerativeAi.classList.add('response-placeholder');
+                    }
+                    if (summaryTools) {
+                        summaryTools.textContent = 'Your ideas will appear here...';
+                        summaryTools.classList.add('response-placeholder');
+                    }
+                    if (summaryStrategies) {
+                        summaryStrategies.textContent = 'Your ideas will appear here...';
+                        summaryStrategies.classList.add('response-placeholder');
+                    }
+
+                    // Focus the first textarea for accessibility
+                    if (generativeAiTextarea) {
+                        generativeAiTextarea.focus();
+                    }
+
+                    // Announce to screen readers
+                    var announcement = document.createElement('div');
+                    announcement.setAttribute('role', 'status');
+                    announcement.setAttribute('aria-live', 'polite');
+                    announcement.className = 'sr-only';
+                    announcement.textContent = 'All responses have been cleared.';
+                    document.body.appendChild(announcement);
+                    setTimeout(function() {
+                        document.body.removeChild(announcement);
+                    }, 1000);
+                });
+
+                // Keyboard accessibility for reset button
+                resetButton.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            }
+
+            // Add screen reader only class if not already present
+            var srOnlyStyle = document.createElement('style');
+            srOnlyStyle.textContent = '.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }';
+            document.head.appendChild(srOnlyStyle);
 
         })();
     </script>
