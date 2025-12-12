@@ -23,6 +23,12 @@
             --taa-ethics-light: #FEF3C7;
             --taa-bias-color: #DC2626;
             --taa-gdpr-color: #2563EB;
+            --taa-resource-color: #059669;
+            --taa-resource-light: #D1FAE5;
+            --taa-gpu-color: #7C3AED;
+            --taa-electricity-color: #F59E0B;
+            --taa-water-color: #0EA5E9;
+            --taa-politeness-color: #EC4899;
         }
 
         /* Reset and Base Styles */
@@ -549,6 +555,487 @@
             outline-offset: 2px;
         }
 
+        /* Resource Consumption Section */
+        .resource-section {
+            background: linear-gradient(135deg, var(--taa-resource-light) 0%, #ECFDF5 100%);
+            padding: 4rem 0;
+            margin-top: 2rem;
+        }
+
+        .resource-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .resource-intro h2 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .resource-badge {
+            display: inline-block;
+            background-color: var(--taa-resource-color);
+            color: var(--taa-white);
+            padding: 0.375rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .resource-intro p {
+            color: var(--taa-text-light);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Infographic Cards Grid */
+        .infographic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .infographic-card {
+            background: var(--taa-white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 25px rgba(27, 58, 95, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .infographic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+
+        .infographic-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(27, 58, 95, 0.15);
+        }
+
+        .infographic-card.gpu-card::before {
+            background: linear-gradient(90deg, var(--taa-gpu-color), #A78BFA);
+        }
+
+        .infographic-card.electricity-card::before {
+            background: linear-gradient(90deg, var(--taa-electricity-color), #FBBF24);
+        }
+
+        .infographic-card.water-card::before {
+            background: linear-gradient(90deg, var(--taa-water-color), #38BDF8);
+        }
+
+        .infographic-card.politeness-card::before {
+            background: linear-gradient(90deg, var(--taa-politeness-color), #F472B6);
+        }
+
+        .infographic-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .infographic-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: pulse-ring 2s ease-out infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.15; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        .infographic-icon.gpu-icon {
+            background: linear-gradient(135deg, var(--taa-gpu-color) 0%, #6D28D9 100%);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.35);
+        }
+
+        .infographic-icon.gpu-icon::after {
+            background: var(--taa-gpu-color);
+        }
+
+        .infographic-icon.electricity-icon {
+            background: linear-gradient(135deg, var(--taa-electricity-color) 0%, #D97706 100%);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.35);
+        }
+
+        .infographic-icon.electricity-icon::after {
+            background: var(--taa-electricity-color);
+        }
+
+        .infographic-icon.water-icon {
+            background: linear-gradient(135deg, var(--taa-water-color) 0%, #0284C7 100%);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.35);
+        }
+
+        .infographic-icon.water-icon::after {
+            background: var(--taa-water-color);
+        }
+
+        .infographic-icon.politeness-icon {
+            background: linear-gradient(135deg, var(--taa-politeness-color) 0%, #DB2777 100%);
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.35);
+        }
+
+        .infographic-icon.politeness-icon::after {
+            background: var(--taa-politeness-color);
+        }
+
+        .infographic-icon svg {
+            color: var(--taa-white);
+            z-index: 1;
+        }
+
+        .infographic-card h3 {
+            color: var(--taa-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .stat-highlight {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .gpu-card .stat-highlight {
+            color: var(--taa-gpu-color);
+        }
+
+        .electricity-card .stat-highlight {
+            color: var(--taa-electricity-color);
+        }
+
+        .water-card .stat-highlight {
+            color: var(--taa-water-color);
+        }
+
+        .politeness-card .stat-highlight {
+            color: var(--taa-politeness-color);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--taa-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .infographic-card p {
+            color: var(--taa-text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .comparison-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            background: var(--taa-light-grey);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--taa-primary);
+            margin-top: 1rem;
+        }
+
+        .comparison-badge svg {
+            color: var(--taa-resource-color);
+        }
+
+        /* Sustainability Poll Section */
+        .sustainability-poll {
+            background: var(--taa-white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 25px rgba(27, 58, 95, 0.1);
+            margin-top: 2rem;
+        }
+
+        .poll-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .poll-header h3 {
+            color: var(--taa-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .poll-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--taa-resource-color) 0%, #047857 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+        }
+
+        .poll-icon svg {
+            color: var(--taa-white);
+        }
+
+        .poll-header p {
+            color: var(--taa-text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .poll-question {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--taa-primary);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--taa-resource-light) 0%, #ECFDF5 100%);
+            border-radius: 12px;
+            border-left: 4px solid var(--taa-resource-color);
+        }
+
+        .poll-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .poll-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--taa-light-grey);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--taa-white);
+        }
+
+        .poll-option:hover {
+            border-color: var(--taa-resource-color);
+            background: var(--taa-resource-light);
+        }
+
+        .poll-option.selected {
+            border-color: var(--taa-resource-color);
+            background: var(--taa-resource-light);
+        }
+
+        .poll-option input[type="radio"] {
+            width: 22px;
+            height: 22px;
+            accent-color: var(--taa-resource-color);
+            cursor: pointer;
+        }
+
+        .poll-option label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--taa-text);
+            line-height: 1.5;
+        }
+
+        .poll-submit {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--taa-resource-color) 0%, #047857 100%);
+            color: var(--taa-white);
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .poll-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.4);
+        }
+
+        .poll-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .poll-results {
+            display: none;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(27, 58, 95, 0.1);
+        }
+
+        .poll-results.show {
+            display: block;
+        }
+
+        .poll-results h4 {
+            text-align: center;
+            color: var(--taa-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .result-bar-container {
+            margin-bottom: 1rem;
+        }
+
+        .result-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .result-label span:first-child {
+            color: var(--taa-text);
+        }
+
+        .result-label span:last-child {
+            font-weight: 600;
+            color: var(--taa-resource-color);
+        }
+
+        .result-bar {
+            height: 12px;
+            background: var(--taa-light-grey);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .result-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--taa-resource-color), var(--taa-secondary));
+            border-radius: 6px;
+            transition: width 1s ease-out;
+            width: 0;
+        }
+
+        .thank-you-message {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--taa-resource-light) 0%, #ECFDF5 100%);
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .thank-you-message p {
+            color: var(--taa-resource-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Resource Key Points */
+        .resource-key-points {
+            background: linear-gradient(135deg, var(--taa-resource-light) 0%, #ECFDF5 100%);
+            border-left: 4px solid var(--taa-resource-color);
+            padding: 2rem;
+            border-radius: 0 16px 16px 0;
+            margin-top: 3rem;
+        }
+
+        .resource-key-points h4 {
+            color: var(--taa-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .resource-key-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background-color: var(--taa-resource-color);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .resource-key-icon svg {
+            color: var(--taa-white);
+        }
+
+        .resource-key-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .resource-key-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(5, 150, 105, 0.15);
+            color: var(--taa-text);
+            line-height: 1.6;
+        }
+
+        .resource-key-list li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-key-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: var(--taa-resource-color);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .page-hero {
@@ -567,6 +1054,24 @@
             .questions-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
+            }
+
+            .infographic-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .resource-section {
+                padding: 3rem 0;
+            }
+
+            .sustainability-poll {
+                padding: 1.5rem;
+            }
+
+            .poll-question {
+                font-size: 1rem;
+                padding: 1rem;
             }
 
             .discussion-card {
@@ -609,7 +1114,24 @@
                 height: 60px;
             }
 
+            .infographic-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .infographic-card {
+                padding: 1.25rem;
+            }
+
+            .stat-highlight {
+                font-size: 1.75rem;
+            }
+
             .key-points-box {
+                padding: 1.5rem;
+            }
+
+            .resource-key-points {
                 padding: 1.5rem;
             }
 
@@ -784,6 +1306,235 @@
             </div>
         </section>
 
+        <!-- Resource Consumption Section -->
+        <section class="resource-section" aria-labelledby="resource-heading">
+            <div class="container">
+                <div class="ethics-section">
+                    <!-- Section Introduction -->
+                    <div class="resource-intro">
+                        <span class="resource-badge">Sustainability</span>
+                        <h2 id="resource-heading">The Hidden Cost of AI</h2>
+                        <p>Generative AI isn't "free." Behind every AI response lies a significant consumption of hardware, electricity, and water resources. Understanding these costs helps us make more sustainable choices when using AI technology.</p>
+                    </div>
+
+                    <!-- Infographic Cards Grid -->
+                    <div class="infographic-grid" role="list">
+                        <!-- GPU Hardware Card -->
+                        <div class="infographic-card gpu-card" role="listitem">
+                            <div class="infographic-icon gpu-icon" aria-hidden="true">
+                                <!-- GPU/Chip icon -->
+                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+                                    <rect x="9" y="9" width="6" height="6"/>
+                                    <line x1="9" y1="1" x2="9" y2="4"/>
+                                    <line x1="15" y1="1" x2="15" y2="4"/>
+                                    <line x1="9" y1="20" x2="9" y2="23"/>
+                                    <line x1="15" y1="20" x2="15" y2="23"/>
+                                    <line x1="20" y1="9" x2="23" y2="9"/>
+                                    <line x1="20" y1="14" x2="23" y2="14"/>
+                                    <line x1="1" y1="9" x2="4" y2="9"/>
+                                    <line x1="1" y1="14" x2="4" y2="14"/>
+                                </svg>
+                            </div>
+                            <h3>Expensive GPU Hardware</h3>
+                            <div class="stat-highlight">$10K&ndash;$15K</div>
+                            <div class="stat-label">Cost per NVIDIA A100 GPU</div>
+                            <p>AI models rely on specialised Graphics Processing Units (GPUs). A single NVIDIA A100 costs $10,000&ndash;$15,000, and large language models like GPT-4 require <strong>tens of thousands</strong> of these GPUs running simultaneously to operate.</p>
+                            <div class="comparison-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 16v-4M12 8h.01"/>
+                                </svg>
+                                Infrastructure worth billions
+                            </div>
+                        </div>
+
+                        <!-- Electricity Card -->
+                        <div class="infographic-card electricity-card" role="listitem">
+                            <div class="infographic-icon electricity-icon" aria-hidden="true">
+                                <!-- Lightning bolt icon -->
+                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                </svg>
+                            </div>
+                            <h3>Electricity Consumption</h3>
+                            <div class="stat-highlight">~2.9 Wh</div>
+                            <div class="stat-label">Per ChatGPT Request</div>
+                            <p>Each ChatGPT request consumes approximately <strong>2.9 watt-hours</strong> of electricity &mdash; that's roughly <strong>10 times more</strong> than a standard Google search. This adds up to enormous energy demands across millions of daily queries.</p>
+                            <div class="comparison-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                    <polyline points="17 6 23 6 23 12"/>
+                                </svg>
+                                10× a Google search
+                            </div>
+                        </div>
+
+                        <!-- Water Usage Card -->
+                        <div class="infographic-card water-card" role="listitem">
+                            <div class="infographic-icon water-icon" aria-hidden="true">
+                                <!-- Water droplet icon -->
+                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                                </svg>
+                            </div>
+                            <h3>Water for Cooling</h3>
+                            <div class="stat-highlight">Millions</div>
+                            <div class="stat-label">of Litres per Day</div>
+                            <p>AI data centres generate immense heat and require massive cooling systems. These facilities consume <strong>millions of litres of water daily</strong> to keep servers at optimal temperatures, impacting local water resources.</p>
+                            <div class="comparison-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                Affects local communities
+                            </div>
+                        </div>
+
+                        <!-- Politeness Card -->
+                        <div class="infographic-card politeness-card" role="listitem">
+                            <div class="infographic-icon politeness-icon" aria-hidden="true">
+                                <!-- Heart/hand icon -->
+                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                </svg>
+                            </div>
+                            <h3>Politeness Has a Cost</h3>
+                            <div class="stat-highlight">Extra Tokens</div>
+                            <div class="stat-label">Mean Extra Resources</div>
+                            <p>Even small additions to prompts &mdash; like saying <strong>"please"</strong> and <strong>"thank you"</strong> &mdash; increase the number of tokens processed. While being polite is natural, it does consume additional computational resources with each request.</p>
+                            <div class="comparison-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                </svg>
+                                Every word counts
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Points Box -->
+                    <div class="resource-key-points">
+                        <h4>
+                            <span class="resource-key-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </span>
+                            Sustainable AI Practices
+                        </h4>
+                        <ul class="resource-key-list">
+                            <li>Write clear, concise prompts to reduce unnecessary processing</li>
+                            <li>Batch related queries together instead of making multiple separate requests</li>
+                            <li>Consider whether AI is truly needed for simple tasks that could be done manually</li>
+                            <li>Support and advocate for AI providers that use renewable energy sources</li>
+                            <li>Be mindful of unnecessary follow-up queries &mdash; review and refine your initial prompt</li>
+                        </ul>
+                    </div>
+
+                    <!-- Sustainability Poll -->
+                    <div class="sustainability-poll" id="sustainability-poll">
+                        <div class="poll-header">
+                            <h3>
+                                <span class="poll-icon" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+                                    </svg>
+                                </span>
+                                Reflect on Your AI Usage
+                            </h3>
+                            <p>Take a moment to consider how you might adopt more sustainable AI practices in your daily work.</p>
+                        </div>
+
+                        <div class="poll-question">
+                            Which sustainable AI practice do you think would have the biggest impact if widely adopted?
+                        </div>
+
+                        <form id="poll-form">
+                            <div class="poll-options">
+                                <div class="poll-option" tabindex="0" role="radio" aria-checked="false">
+                                    <input type="radio" id="option1" name="sustainability" value="concise">
+                                    <label for="option1">Writing more concise, efficient prompts</label>
+                                </div>
+                                <div class="poll-option" tabindex="0" role="radio" aria-checked="false">
+                                    <input type="radio" id="option2" name="sustainability" value="selective">
+                                    <label for="option2">Being more selective about when to use AI</label>
+                                </div>
+                                <div class="poll-option" tabindex="0" role="radio" aria-checked="false">
+                                    <input type="radio" id="option3" name="sustainability" value="renewable">
+                                    <label for="option3">Supporting AI providers using renewable energy</label>
+                                </div>
+                                <div class="poll-option" tabindex="0" role="radio" aria-checked="false">
+                                    <input type="radio" id="option4" name="sustainability" value="awareness">
+                                    <label for="option4">Raising awareness about AI's environmental impact</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="poll-submit" id="poll-submit" disabled>Submit Your Response</button>
+                        </form>
+
+                        <div class="poll-results" id="poll-results">
+                            <h4>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <line x1="18" y1="20" x2="18" y2="10"/>
+                                    <line x1="12" y1="20" x2="12" y2="4"/>
+                                    <line x1="6" y1="20" x2="6" y2="14"/>
+                                </svg>
+                                Response Summary
+                            </h4>
+                            <div class="result-bar-container">
+                                <div class="result-label">
+                                    <span>Concise prompts</span>
+                                    <span id="result-concise">0%</span>
+                                </div>
+                                <div class="result-bar">
+                                    <div class="result-bar-fill" id="bar-concise"></div>
+                                </div>
+                            </div>
+                            <div class="result-bar-container">
+                                <div class="result-label">
+                                    <span>Selective AI use</span>
+                                    <span id="result-selective">0%</span>
+                                </div>
+                                <div class="result-bar">
+                                    <div class="result-bar-fill" id="bar-selective"></div>
+                                </div>
+                            </div>
+                            <div class="result-bar-container">
+                                <div class="result-label">
+                                    <span>Renewable energy support</span>
+                                    <span id="result-renewable">0%</span>
+                                </div>
+                                <div class="result-bar">
+                                    <div class="result-bar-fill" id="bar-renewable"></div>
+                                </div>
+                            </div>
+                            <div class="result-bar-container">
+                                <div class="result-label">
+                                    <span>Raising awareness</span>
+                                    <span id="result-awareness">0%</span>
+                                </div>
+                                <div class="result-bar">
+                                    <div class="result-bar-fill" id="bar-awareness"></div>
+                                </div>
+                            </div>
+                            <div class="thank-you-message">
+                                <p>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                        <polyline points="22 4 12 14.01 9 11.01"/>
+                                    </svg>
+                                    Thank you for reflecting on sustainable AI practices!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <!-- Lesson Navigation -->
         <nav class="lesson-nav" aria-label="Lesson navigation">
             <div class="container">
@@ -812,5 +1563,105 @@
             <p>&copy; 2025 TAA Learning. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Poll JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pollForm = document.getElementById('poll-form');
+            const pollSubmit = document.getElementById('poll-submit');
+            const pollResults = document.getElementById('poll-results');
+            const pollOptions = document.querySelectorAll('.poll-option');
+            const radioInputs = document.querySelectorAll('input[name="sustainability"]');
+
+            // Handle poll option selection
+            pollOptions.forEach(function(option) {
+                option.addEventListener('click', function() {
+                    const radio = this.querySelector('input[type="radio"]');
+                    radio.checked = true;
+
+                    // Update visual states
+                    pollOptions.forEach(function(opt) {
+                        opt.classList.remove('selected');
+                        opt.setAttribute('aria-checked', 'false');
+                    });
+                    this.classList.add('selected');
+                    this.setAttribute('aria-checked', 'true');
+
+                    // Enable submit button
+                    pollSubmit.disabled = false;
+                });
+
+                // Keyboard accessibility
+                option.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+
+            // Handle form submission
+            pollForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const selectedValue = document.querySelector('input[name="sustainability"]:checked');
+                if (!selectedValue) return;
+
+                // Disable form elements
+                pollSubmit.disabled = true;
+                pollSubmit.textContent = 'Submitted!';
+                radioInputs.forEach(function(input) {
+                    input.disabled = true;
+                });
+                pollOptions.forEach(function(opt) {
+                    opt.style.pointerEvents = 'none';
+                });
+
+                // Simulate aggregated results (in a real app, this would come from a server)
+                // These are illustrative percentages showing diverse responses
+                const simulatedResults = {
+                    concise: Math.floor(Math.random() * 15) + 20,      // 20-35%
+                    selective: Math.floor(Math.random() * 15) + 25,   // 25-40%
+                    renewable: Math.floor(Math.random() * 10) + 15,   // 15-25%
+                    awareness: 0 // Will be calculated
+                };
+
+                // Ensure percentages add up to 100
+                simulatedResults.awareness = 100 - simulatedResults.concise - simulatedResults.selective - simulatedResults.renewable;
+
+                // Boost the selected option slightly to acknowledge the user's choice
+                const userChoice = selectedValue.value;
+                const boost = 5;
+                simulatedResults[userChoice] = Math.min(simulatedResults[userChoice] + boost, 45);
+
+                // Recalculate to maintain 100%
+                const total = Object.values(simulatedResults).reduce(function(a, b) { return a + b; }, 0);
+                Object.keys(simulatedResults).forEach(function(key) {
+                    simulatedResults[key] = Math.round((simulatedResults[key] / total) * 100);
+                });
+
+                // Show results
+                pollResults.classList.add('show');
+
+                // Animate the result bars
+                setTimeout(function() {
+                    document.getElementById('result-concise').textContent = simulatedResults.concise + '%';
+                    document.getElementById('bar-concise').style.width = simulatedResults.concise + '%';
+
+                    document.getElementById('result-selective').textContent = simulatedResults.selective + '%';
+                    document.getElementById('bar-selective').style.width = simulatedResults.selective + '%';
+
+                    document.getElementById('result-renewable').textContent = simulatedResults.renewable + '%';
+                    document.getElementById('bar-renewable').style.width = simulatedResults.renewable + '%';
+
+                    document.getElementById('result-awareness').textContent = simulatedResults.awareness + '%';
+                    document.getElementById('bar-awareness').style.width = simulatedResults.awareness + '%';
+                }, 100);
+
+                // Scroll to results
+                pollResults.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+        });
+    </script>
 </body>
 </html>
