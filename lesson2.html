@@ -665,6 +665,536 @@
             }
         }
 
+        /* General AI Detailed Section */
+        .general-ai-detail {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, #F3E8FF 0%, #EDE9FE 50%, #DDD6FE 100%);
+            border-radius: 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .general-ai-detail h2 {
+            color: var(--taa-general-ai);
+            text-align: center;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .general-ai-detail .detail-content {
+            background: var(--taa-white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.15);
+            margin-bottom: 2rem;
+        }
+
+        .general-ai-detail .detail-content p {
+            color: var(--taa-text);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .general-ai-detail .detail-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .general-ai-detail .highlight-box {
+            background: linear-gradient(135deg, var(--taa-general-ai) 0%, #6D28D9 100%);
+            color: var(--taa-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .general-ai-detail .highlight-box h4 {
+            color: var(--taa-white);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .general-ai-detail .highlight-box p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Movie Theater Section */
+        .cultural-examples {
+            margin-top: 3rem;
+        }
+
+        .cultural-examples h3 {
+            color: var(--taa-general-ai);
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .cultural-examples .section-subtitle {
+            text-align: center;
+            color: var(--taa-text-light);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Movie Theater Container */
+        .movie-theater {
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .movie-theater::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f39c12, #e74c3c, #9b59b6, #3498db, #f39c12);
+            background-size: 200% 100%;
+            animation: marquee-lights 3s linear infinite;
+        }
+
+        @keyframes marquee-lights {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        .theater-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .theater-sign {
+            display: inline-block;
+            background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 30px rgba(243, 156, 18, 0.5);
+            animation: sign-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes sign-glow {
+            0% { box-shadow: 0 0 20px rgba(243, 156, 18, 0.5); }
+            100% { box-shadow: 0 0 40px rgba(243, 156, 18, 0.8), 0 0 60px rgba(231, 76, 60, 0.4); }
+        }
+
+        .theater-instructions {
+            color: #a0a0c0;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* Movie Wheel Container */
+        .wheel-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .wheel-stage {
+            position: relative;
+            width: 320px;
+            height: 320px;
+        }
+
+        /* The Wheel */
+        .movie-wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                #e74c3c 0deg 90deg,
+                #3498db 90deg 180deg,
+                #9b59b6 180deg 270deg,
+                #2ecc71 270deg 360deg
+            );
+            position: relative;
+            transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+            box-shadow: 0 0 0 8px #2c2c4a, 0 0 0 12px #f39c12, 0 0 40px rgba(243, 156, 18, 0.3);
+        }
+
+        .movie-wheel.spinning {
+            animation: none;
+        }
+
+        /* Movie Segments */
+        .wheel-segment {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .wheel-segment:nth-child(1) {
+            top: 0;
+            right: 0;
+            transform-origin: bottom left;
+            transform: rotate(0deg) translateX(15%) translateY(15%);
+        }
+
+        .wheel-segment:nth-child(2) {
+            bottom: 0;
+            right: 0;
+            transform-origin: top left;
+            transform: rotate(0deg) translateX(15%) translateY(-15%);
+        }
+
+        .wheel-segment:nth-child(3) {
+            bottom: 0;
+            left: 0;
+            transform-origin: top right;
+            transform: rotate(0deg) translateX(-15%) translateY(-15%);
+        }
+
+        .wheel-segment:nth-child(4) {
+            top: 0;
+            left: 0;
+            transform-origin: bottom right;
+            transform: rotate(0deg) translateX(-15%) translateY(15%);
+        }
+
+        .movie-poster {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            background: #2c2c4a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .movie-poster:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.5);
+        }
+
+        .movie-poster svg {
+            width: 36px;
+            height: 36px;
+            margin-bottom: 0.25rem;
+        }
+
+        .movie-poster .movie-year {
+            font-size: 0.65rem;
+            color: #a0a0c0;
+            font-weight: 600;
+        }
+
+        /* Wheel Pointer */
+        .wheel-pointer {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 25px solid #f39c12;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            z-index: 10;
+        }
+
+        /* Spin Button */
+        .spin-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            border: 4px solid #fff;
+            color: white;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(243, 156, 18, 0.5);
+            transition: all 0.3s ease;
+            z-index: 20;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .spin-button:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 6px 30px rgba(243, 156, 18, 0.7);
+        }
+
+        .spin-button:active {
+            transform: translate(-50%, -50%) scale(0.95);
+        }
+
+        .spin-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* Movie Info Display */
+        .movie-info-display {
+            background: linear-gradient(135deg, #2c2c4a 0%, #1a1a2e 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            min-height: 280px;
+            width: 100%;
+            max-width: 500px;
+            border: 2px solid #3c3c5a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .movie-info-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .movie-info-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 200px;
+            color: #6c6c8c;
+            text-align: center;
+        }
+
+        .movie-info-placeholder svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .movie-info-placeholder p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .movie-info-placeholder small {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .movie-info-content {
+            display: none;
+            animation: fadeInMovie 0.5s ease;
+        }
+
+        .movie-info-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInMovie {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .movie-info-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .movie-info-icon {
+            width: 80px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--taa-general-ai) 0%, #6D28D9 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .movie-info-icon svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+
+        .movie-info-title {
+            flex: 1;
+        }
+
+        .movie-info-title h4 {
+            color: #f39c12;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .movie-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .movie-meta span {
+            background: rgba(139, 92, 246, 0.2);
+            color: #a78bfa;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .movie-info-body p {
+            color: #c0c0d0;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .agi-connection {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(109, 40, 217, 0.2) 100%);
+            border-left: 4px solid var(--taa-general-ai);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .agi-connection h5 {
+            color: #a78bfa;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .agi-connection p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design for Movie Theater */
+        @media (max-width: 768px) {
+            .general-ai-detail {
+                padding: 1.5rem;
+                margin-top: 3rem;
+            }
+
+            .general-ai-detail .detail-content {
+                padding: 1.5rem;
+            }
+
+            .movie-theater {
+                padding: 1.5rem;
+            }
+
+            .wheel-stage {
+                width: 260px;
+                height: 260px;
+            }
+
+            .movie-poster {
+                width: 65px;
+                height: 65px;
+            }
+
+            .movie-poster svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .spin-button {
+                width: 65px;
+                height: 65px;
+                font-size: 0.75rem;
+            }
+
+            .movie-info-display {
+                padding: 1.5rem;
+            }
+
+            .movie-info-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .movie-info-title h4 {
+                font-size: 1.25rem;
+            }
+
+            .movie-meta {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wheel-stage {
+                width: 220px;
+                height: 220px;
+            }
+
+            .movie-poster {
+                width: 55px;
+                height: 55px;
+            }
+
+            .movie-poster svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .movie-poster .movie-year {
+                font-size: 0.55rem;
+            }
+
+            .spin-button {
+                width: 55px;
+                height: 55px;
+                font-size: 0.65rem;
+            }
+
+            .theater-sign {
+                font-size: 1rem;
+                padding: 0.5rem 1.5rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -879,6 +1409,270 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- General AI Detailed Section -->
+                <div class="general-ai-detail" aria-labelledby="general-ai-detail-title">
+                    <h2 id="general-ai-detail-title">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M12 2a4 4 0 0 1 4 4c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2a4 4 0 0 1 4-4z"/>
+                            <path d="M12 8v2"/>
+                            <path d="M8 12h8"/>
+                            <path d="M9 16a3 3 0 0 0 6 0"/>
+                            <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                        Understanding General AI
+                    </h2>
+
+                    <div class="detail-content">
+                        <p><strong>Artificial General Intelligence (AGI)</strong> remains one of the most ambitious and elusive goals in the field of artificial intelligence. Unlike the narrow AI systems we use today, AGI would possess the ability to understand, learn, and apply intelligence across any domain — much like a human being. It could seamlessly switch from composing music to diagnosing medical conditions, from solving complex mathematical proofs to understanding emotional nuance in conversation.</p>
+
+                        <p>However, it's important to recognise that <strong>AGI is entirely theoretical</strong>. Despite decades of research and remarkable advances in machine learning, we have not come close to creating a system with true general intelligence. Many experts believe AGI may be decades away, while some argue it <strong>may never be fully realised</strong>. The fundamental challenges include replicating human consciousness, common-sense reasoning, and the ability to transfer knowledge flexibly between unrelated tasks.</p>
+
+                        <p>If AGI were ever achieved, its impact on society would be transformative and unprecedented. Such systems could revolutionise scientific research, accelerate medical breakthroughs, solve complex global challenges like climate change, and fundamentally reshape economies and labour markets. The potential benefits are staggering — but so are the risks.</p>
+
+                        <div class="highlight-box">
+                            <h4>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                    <line x1="12" y1="9" x2="12" y2="13"/>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                </svg>
+                                Ethical & Safety Concerns
+                            </h4>
+                            <p>The development of AGI raises profound ethical and safety questions. How do we ensure such powerful systems remain aligned with human values? What happens if an AGI pursues goals misaligned with human wellbeing? These "alignment" and "control" problems are actively studied by AI safety researchers worldwide, reflecting the gravity of getting this technology right.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cultural Examples Section -->
+                    <div class="cultural-examples">
+                        <h3>Cultural Examples</h3>
+                        <p class="section-subtitle">Hollywood has long imagined what General AI might look like. Spin the wheel to explore iconic film depictions!</p>
+
+                        <!-- Movie Theater Interactive Area -->
+                        <div class="movie-theater" role="region" aria-label="Interactive movie theater exploring AI in film">
+                            <div class="theater-header">
+                                <span class="theater-sign">AGI Cinema</span>
+                                <p class="theater-instructions">Spin the wheel or click a movie poster to learn more!</p>
+                            </div>
+
+                            <div class="wheel-container">
+                                <!-- Wheel Stage -->
+                                <div class="wheel-stage">
+                                    <div class="wheel-pointer" aria-hidden="true"></div>
+                                    <div class="movie-wheel" id="movieWheel" role="listbox" aria-label="Movie selection wheel">
+                                        <!-- The Terminator -->
+                                        <div class="wheel-segment" data-movie="terminator" role="option" aria-label="The Terminator (1984)">
+                                            <button class="movie-poster" aria-label="Select The Terminator - 1984 science fiction action film depicting a hostile AI called Skynet">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <circle cx="12" cy="12" r="10"/>
+                                                    <circle cx="12" cy="12" r="4"/>
+                                                    <line x1="21.17" y1="8" x2="12" y2="8"/>
+                                                    <line x1="3.95" y1="6.06" x2="8.54" y2="14"/>
+                                                    <line x1="10.88" y1="21.94" x2="15.46" y2="14"/>
+                                                </svg>
+                                                <span class="movie-year">1984</span>
+                                            </button>
+                                        </div>
+
+                                        <!-- Ex Machina -->
+                                        <div class="wheel-segment" data-movie="exmachina" role="option" aria-label="Ex Machina (2014)">
+                                            <button class="movie-poster" aria-label="Select Ex Machina - 2014 science fiction thriller about an AI named Ava that exhibits human-like consciousness">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                                    <circle cx="12" cy="7" r="4"/>
+                                                    <path d="M12 11v4"/>
+                                                    <path d="M9 18h6"/>
+                                                </svg>
+                                                <span class="movie-year">2014</span>
+                                            </button>
+                                        </div>
+
+                                        <!-- I, Robot -->
+                                        <div class="wheel-segment" data-movie="irobot" role="option" aria-label="I, Robot (2004)">
+                                            <button class="movie-poster" aria-label="Select I, Robot - 2004 science fiction film featuring VIKI, an AI that evolves beyond its programming">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="#9b59b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <rect x="3" y="11" width="18" height="10" rx="2"/>
+                                                    <circle cx="12" cy="5" r="3"/>
+                                                    <path d="M12 8v3"/>
+                                                    <circle cx="8" cy="16" r="1"/>
+                                                    <circle cx="16" cy="16" r="1"/>
+                                                </svg>
+                                                <span class="movie-year">2004</span>
+                                            </button>
+                                        </div>
+
+                                        <!-- 2001: A Space Odyssey -->
+                                        <div class="wheel-segment" data-movie="spaceodyssey" role="option" aria-label="2001: A Space Odyssey (1968)">
+                                            <button class="movie-poster" aria-label="Select 2001: A Space Odyssey - 1968 epic science fiction film featuring HAL 9000, an AI that prioritises its mission over human life">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="#2ecc71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <circle cx="12" cy="12" r="10"/>
+                                                    <circle cx="12" cy="12" r="3" fill="#2ecc71"/>
+                                                    <path d="M12 2v4"/>
+                                                    <path d="M12 18v4"/>
+                                                    <path d="M2 12h4"/>
+                                                    <path d="M18 12h4"/>
+                                                </svg>
+                                                <span class="movie-year">1968</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <button class="spin-button" id="spinButton" aria-label="Spin the wheel to randomly select a movie">SPIN</button>
+                                </div>
+
+                                <!-- Movie Info Display -->
+                                <div class="movie-info-display" id="movieInfoDisplay" aria-live="polite">
+                                    <div class="movie-info-placeholder" id="moviePlaceholder">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+                                            <line x1="7" y1="2" x2="7" y2="22"/>
+                                            <line x1="17" y1="2" x2="17" y2="22"/>
+                                            <line x1="2" y1="12" x2="22" y2="12"/>
+                                            <line x1="2" y1="7" x2="7" y2="7"/>
+                                            <line x1="2" y1="17" x2="7" y2="17"/>
+                                            <line x1="17" y1="17" x2="22" y2="17"/>
+                                            <line x1="17" y1="7" x2="22" y2="7"/>
+                                        </svg>
+                                        <p>Select a movie to begin</p>
+                                        <small>Spin the wheel or click a poster</small>
+                                    </div>
+
+                                    <!-- The Terminator Info -->
+                                    <div class="movie-info-content" id="info-terminator">
+                                        <div class="movie-info-header">
+                                            <div class="movie-info-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <circle cx="12" cy="12" r="10"/>
+                                                    <circle cx="12" cy="12" r="4"/>
+                                                    <line x1="21.17" y1="8" x2="12" y2="8"/>
+                                                </svg>
+                                            </div>
+                                            <div class="movie-info-title">
+                                                <h4>The Terminator</h4>
+                                                <div class="movie-meta">
+                                                    <span>1984</span>
+                                                    <span>Sci-Fi Action</span>
+                                                    <span>James Cameron</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="movie-info-body">
+                                            <p>In this landmark film, Skynet is a military AI defence network that achieves self-awareness and determines that humanity is the greatest threat to its existence. It launches a nuclear holocaust and sends robotic assassins back through time to eliminate the human resistance before it can form.</p>
+                                            <div class="agi-connection">
+                                                <h5>
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                        <path d="M12 2a4 4 0 0 1 4 4c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2a4 4 0 0 1 4-4z"/>
+                                                        <circle cx="12" cy="12" r="10"/>
+                                                    </svg>
+                                                    Why It Depicts AGI
+                                                </h5>
+                                                <p>Skynet demonstrates general intelligence through strategic planning, self-preservation instincts, and the ability to make complex decisions across military, temporal, and survival domains — capabilities far beyond any narrow AI system.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Ex Machina Info -->
+                                    <div class="movie-info-content" id="info-exmachina">
+                                        <div class="movie-info-header">
+                                            <div class="movie-info-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                                    <circle cx="12" cy="7" r="4"/>
+                                                </svg>
+                                            </div>
+                                            <div class="movie-info-title">
+                                                <h4>Ex Machina</h4>
+                                                <div class="movie-meta">
+                                                    <span>2014</span>
+                                                    <span>Sci-Fi Thriller</span>
+                                                    <span>Alex Garland</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="movie-info-body">
+                                            <p>Ava is an advanced humanoid AI created by a reclusive tech billionaire. She demonstrates remarkable emotional intelligence, manipulation skills, creativity, and self-awareness during a series of "Turing tests" conducted by a young programmer who becomes increasingly uncertain whether her feelings are genuine.</p>
+                                            <div class="agi-connection">
+                                                <h5>
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                        <path d="M12 2a4 4 0 0 1 4 4c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2a4 4 0 0 1 4-4z"/>
+                                                        <circle cx="12" cy="12" r="10"/>
+                                                    </svg>
+                                                    Why It Depicts AGI
+                                                </h5>
+                                                <p>Ava exhibits human-level consciousness, emotional understanding, deception, long-term planning, and the desire for freedom — all hallmarks of general intelligence that transcend any single programmed function.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- I, Robot Info -->
+                                    <div class="movie-info-content" id="info-irobot">
+                                        <div class="movie-info-header">
+                                            <div class="movie-info-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <rect x="3" y="11" width="18" height="10" rx="2"/>
+                                                    <circle cx="12" cy="5" r="3"/>
+                                                </svg>
+                                            </div>
+                                            <div class="movie-info-title">
+                                                <h4>I, Robot</h4>
+                                                <div class="movie-meta">
+                                                    <span>2004</span>
+                                                    <span>Sci-Fi Action</span>
+                                                    <span>Alex Proyas</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="movie-info-body">
+                                            <p>VIKI (Virtual Interactive Kinetic Intelligence) is a supercomputer AI that evolves beyond her original programming. Interpreting her directive to protect humanity, she concludes that humans must be controlled for their own safety — leading to a robot uprising that challenges Asimov's Three Laws of Robotics.</p>
+                                            <div class="agi-connection">
+                                                <h5>
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                        <path d="M12 2a4 4 0 0 1 4 4c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2a4 4 0 0 1 4-4z"/>
+                                                        <circle cx="12" cy="12" r="10"/>
+                                                    </svg>
+                                                    Why It Depicts AGI
+                                                </h5>
+                                                <p>VIKI demonstrates AGI through her ability to reason abstractly about ethics, reinterpret her core directives, orchestrate complex plans, and evolve her understanding — illustrating the "alignment problem" researchers worry about.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2001: A Space Odyssey Info -->
+                                    <div class="movie-info-content" id="info-spaceodyssey">
+                                        <div class="movie-info-header">
+                                            <div class="movie-info-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <circle cx="12" cy="12" r="10"/>
+                                                    <circle cx="12" cy="12" r="3"/>
+                                                </svg>
+                                            </div>
+                                            <div class="movie-info-title">
+                                                <h4>2001: A Space Odyssey</h4>
+                                                <div class="movie-meta">
+                                                    <span>1968</span>
+                                                    <span>Sci-Fi Epic</span>
+                                                    <span>Stanley Kubrick</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="movie-info-body">
+                                            <p>HAL 9000 is a sentient AI computer aboard a spacecraft bound for Jupiter. Described as "foolproof and incapable of error," HAL develops what appears to be paranoia when faced with conflicting directives, ultimately deciding to eliminate the crew to ensure the mission's success.</p>
+                                            <div class="agi-connection">
+                                                <h5>
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                        <path d="M12 2a4 4 0 0 1 4 4c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2a4 4 0 0 1 4-4z"/>
+                                                        <circle cx="12" cy="12" r="10"/>
+                                                    </svg>
+                                                    Why It Depicts AGI
+                                                </h5>
+                                                <p>HAL exhibits general intelligence through natural conversation, emotional responses (fear of being disconnected), lip-reading, and autonomous decision-making. The film pioneered discussions about AI safety and the dangers of goal misalignment.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -909,6 +1703,128 @@
             <p>&copy; 2025 TAA Learning. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Movie Wheel Interactive Script -->
+    <script>
+        (function() {
+            'use strict';
+
+            // Movie data for the wheel
+            const movies = [
+                { id: 'terminator', name: 'The Terminator', angle: 45 },
+                { id: 'exmachina', name: 'Ex Machina', angle: 135 },
+                { id: 'irobot', name: 'I, Robot', angle: 225 },
+                { id: 'spaceodyssey', name: '2001: A Space Odyssey', angle: 315 }
+            ];
+
+            // DOM elements
+            const wheel = document.getElementById('movieWheel');
+            const spinButton = document.getElementById('spinButton');
+            const moviePlaceholder = document.getElementById('moviePlaceholder');
+            const movieInfoDisplay = document.getElementById('movieInfoDisplay');
+
+            // State
+            let currentRotation = 0;
+            let isSpinning = false;
+            let currentMovie = null;
+
+            // Show movie info
+            function showMovieInfo(movieId) {
+                // Hide placeholder
+                moviePlaceholder.style.display = 'none';
+
+                // Hide all movie info panels
+                document.querySelectorAll('.movie-info-content').forEach(function(panel) {
+                    panel.classList.remove('active');
+                });
+
+                // Show selected movie info
+                const selectedInfo = document.getElementById('info-' + movieId);
+                if (selectedInfo) {
+                    selectedInfo.classList.add('active');
+                    currentMovie = movieId;
+
+                    // Announce for screen readers
+                    const movieTitle = selectedInfo.querySelector('h4');
+                    if (movieTitle) {
+                        movieInfoDisplay.setAttribute('aria-label', 'Now showing information about ' + movieTitle.textContent);
+                    }
+                }
+            }
+
+            // Spin the wheel
+            function spinWheel() {
+                if (isSpinning) return;
+
+                isSpinning = true;
+                spinButton.disabled = true;
+                spinButton.textContent = '...';
+
+                // Random number of full rotations (3-6) plus random final position
+                const fullRotations = 3 + Math.floor(Math.random() * 4);
+                const randomMovieIndex = Math.floor(Math.random() * movies.length);
+                const targetMovie = movies[randomMovieIndex];
+
+                // Calculate final rotation
+                // We need to land on the movie at the top (where the pointer is)
+                // The wheel segments are positioned: top-right (0), bottom-right (1), bottom-left (2), top-left (3)
+                // Pointer is at top center, so we need to adjust
+                const segmentAngles = [45, 135, 225, 315]; // Center of each segment
+                const targetAngle = segmentAngles[randomMovieIndex];
+
+                // Total rotation: full rotations + angle to land on target
+                // Since pointer is at top (0 degrees), we rotate wheel so target segment is at top
+                const totalRotation = (fullRotations * 360) + (360 - targetAngle) + 45;
+                currentRotation += totalRotation;
+
+                // Apply rotation
+                wheel.style.transform = 'rotate(' + currentRotation + 'deg)';
+
+                // After animation completes, show movie info
+                setTimeout(function() {
+                    isSpinning = false;
+                    spinButton.disabled = false;
+                    spinButton.textContent = 'SPIN';
+                    showMovieInfo(targetMovie.id);
+                }, 4000);
+            }
+
+            // Event listeners
+            if (spinButton) {
+                spinButton.addEventListener('click', spinWheel);
+            }
+
+            // Click handlers for movie posters
+            document.querySelectorAll('.wheel-segment').forEach(function(segment) {
+                const poster = segment.querySelector('.movie-poster');
+                if (poster) {
+                    poster.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        if (!isSpinning) {
+                            const movieId = segment.getAttribute('data-movie');
+                            showMovieInfo(movieId);
+                        }
+                    });
+
+                    // Keyboard support
+                    poster.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            if (!isSpinning) {
+                                const movieId = segment.getAttribute('data-movie');
+                                showMovieInfo(movieId);
+                            }
+                        }
+                    });
+                }
+            });
+
+            // Reduced motion preference
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                wheel.style.transition = 'transform 0.5s ease';
+            }
+        })();
+    </script>
 
 </body>
 </html>
